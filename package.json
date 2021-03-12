@@ -1,0 +1,41 @@
+{
+  "name": "kintone-plugin-template",
+  "version": "1.0.0",
+  "scripts": {
+    "develop": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "watch": "webpack -w",
+    "init": "node scripts/npm-init.ts",
+    "start": "node scripts/npm-start.ts",
+    "upload": "kintone-plugin-uploader dist/plugin.zip --watch --waiting-dialog-ms 3000",
+    "lint": "eslint src",
+    "update-modules": "npm run checkLatestModules -- -u",
+    "check-latest-modules": "ncu",
+    "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin"
+  },
+  "devDependencies": {
+    "@cybozu/eslint-config": "^12.0.0",
+    "@emotion/styled": "^11.1.5",
+    "@kintone/dts-gen": "^3.1.6",
+    "@kintone/plugin-packer": "^4.0.0",
+    "@kintone/plugin-uploader": "^4.3.0",
+    "@kintone/rest-api-client": "^1.11.1",
+    "@kintone/webpack-plugin-kintone-plugin": "^4.0.15",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "eslint": "^7.21.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "terser-webpack-plugin": "^5.1.1",
+    "ts-loader": "^8.0.17",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "unstated-next": "^1.1.0",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-merge": "^5.7.3"
+  }
+}
