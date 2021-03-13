@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { ConfigContainer } from './contexts';
-import { SocialIcons } from './components';
+import { SocialIcons, Form } from './components';
 
 const Component: React.FC<{ pluginId: string }> = ({ pluginId }) => (
-  <ConfigContainer.Provider initialState={pluginId}>
+  <>
+    <ConfigContainer.Provider initialState={pluginId}>
+      <Form />
+    </ConfigContainer.Provider>
     <SocialIcons />
-  </ConfigContainer.Provider>
+  </>
 );
 
 export default Component;
