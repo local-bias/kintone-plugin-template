@@ -8,7 +8,11 @@ declare namespace kintone {
 /**
  * プラグインがアプリ単位で保存する設定情報
  */
-type PluginStorage = Record<string, any>;
+type PluginStorage = {
+  conditions: PluginCondition[];
+};
+
+type PluginCondition = {};
 
 /**
  * 各イベントに登録する処理

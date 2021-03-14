@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { createContainer } from 'unstated-next';
 
-import { getConfig } from '@common/plugin';
+import { getPluginConfig, savePluginConfig } from '@common/plugin';
 
 /**
  *
@@ -9,10 +9,13 @@ import { getConfig } from '@common/plugin';
  * @returns 使用するReactのフック
  */
 const hooks = (initialState: string = '') => {
-  const [pluginId, setPluginId] = useState<string>(initialState);
-  const [config, setConfig] = useState<PluginStorage>(getConfig(initialState));
+  const pluginId = useMemo(() => initialState, [initialState]);
 
-  return { pluginId, setPluginId, config, setConfig };
+  const [config, setConfig] = useState<PluginStorage>(getPluginConfig(initialState));
+
+  const saveConfig = useCallback(() => savePluginConfig(config), []);
+
+  return { pluginId, config, setConfig };
 };
 
 export default createContainer(hooks);
