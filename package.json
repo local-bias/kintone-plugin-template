@@ -8,13 +8,11 @@
     "init": "node scripts/npm-init.ts",
     "start": "node scripts/npm-start.ts",
     "upload": "kintone-plugin-uploader dist/plugin.zip --watch --waiting-dialog-ms 3000",
-    "lint": "eslint src",
-    "update-modules": "npm run checkLatestModules -- -u",
+    "update-modules": "npm run check-latest-modules -- -u",
     "check-latest-modules": "ncu",
     "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin"
   },
   "devDependencies": {
-    "@cybozu/eslint-config": "^12.0.0",
     "@emotion/styled": "^11.1.5",
     "@kintone/dts-gen": "^3.1.6",
     "@kintone/plugin-packer": "^4.0.0",
@@ -25,7 +23,6 @@
     "@material-ui/icons": "^4.11.2",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
-    "eslint": "^7.21.0",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

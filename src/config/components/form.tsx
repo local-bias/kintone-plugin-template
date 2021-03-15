@@ -9,8 +9,6 @@ const Component: React.FCX = ({ className }) => {
   return <div className={className}>設定の必要はありません🍀</div>;
 };
 
-const StyledComponent = styled(Component)`
-  min-height: calc(100vh - 249px);
-`;
+const StyledComponent = styled(Component)``;
 
 export default StyledComponent;

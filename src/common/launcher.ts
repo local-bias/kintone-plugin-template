@@ -6,7 +6,7 @@ import { PLUGIN_NAME } from '@common/constants';
  */
 export type Config = Readonly<{
   enables?: Enables;
-  events?: string[];
+  events?: string[] | ((pluginId: string) => string[]);
   action: PluginAction;
   disableMobile?: boolean;
 }>;
@@ -32,7 +32,9 @@ class Launcher {
     for (const config of configs) {
       const { enables = () => true, events = ['app.record.index.show'], action, disableMobile = false } = config;
 
-      const mobileEvents = !disableMobile ? events.map((type) => 'mobile.' + type) : [];
+      const desktopEvents = typeof events === 'function' ? events(this._pluginId) : events;
+
+      const mobileEvents = !disableMobile ? desktopEvents.map((type) => 'mobile.' + type) : [];
 
       const handler = (event: KintoneEvent) => {
         try {
@@ -44,7 +46,7 @@ class Launcher {
         return event;
       };
 
-      kintone.events.on([...events, ...mobileEvents], handler);
+      kintone.events.on([...desktopEvents, ...mobileEvents], handler);
     }
   };
 }

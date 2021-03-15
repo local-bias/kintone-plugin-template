@@ -9,11 +9,11 @@ import { getPluginConfig, savePluginConfig } from '@common/plugin';
  * @returns 使用するReactのフック
  */
 const hooks = (initialState: string = '') => {
-  const pluginId = useMemo(() => initialState, [initialState]);
+  const pluginId = useMemo(() => initialState, []);
 
   const [config, setConfig] = useState<PluginStorage>(getPluginConfig(initialState));
 
-  const saveConfig = useCallback(() => savePluginConfig(config), []);
+  const saveConfig = () => savePluginConfig(config);
 
   return { pluginId, config, setConfig };
 };

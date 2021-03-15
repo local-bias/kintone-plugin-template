@@ -6,7 +6,11 @@
 export const getPluginConfig = (id: string): PluginStorage => {
   const config = kintone.plugin.app.getConfig(id);
 
-  return Object.keys(config).reduce<any>((accu, key) => ({ ...accu, [key]: JSON.parse(config[key]) }), {});
+  const keys = Object.keys(config);
+
+  return keys.length
+    ? keys.reduce<any>((accu, key) => ({ ...accu, [key]: JSON.parse(config[key]) }), {})
+    : createConfig();
 };
 
 /**
@@ -27,4 +31,8 @@ export const savePluginConfig = (target: Record<string, any>) => {
  * プラグインの設定情報のひな形を返却します
  * @returns プラグインの設定情報のひな形
  */
-export const createConfig = (): PluginStorage => ({});
+const createConfig = (): PluginStorage => ({
+  conditions: [createNewCondition()],
+});
+
+export const createNewCondition = (): PluginCondition => ({});
