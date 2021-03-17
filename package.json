@@ -7,7 +7,7 @@
     "watch": "webpack --config webpack.dev.js -w",
     "init": "run-s create-ppk move-ppk",
     "start": "run-p watch upload",
-    "upload": "kintone-plugin-uploader dist/plugin.zip --watch --waiting-dialog-ms 3000",
+    "upload": "kintone-plugin-uploader dist/plugin-dev.zip --watch --waiting-dialog-ms 3000",
     "update-modules": "npm run check-latest-modules -- -u",
     "check-latest-modules": "ncu",
     "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin",
