@@ -15,7 +15,7 @@ const hooks = (initialState: string = '') => {
 
   const saveConfig = () => savePluginConfig(config);
 
-  return { pluginId, config, setConfig };
+  return { pluginId, config, setConfig, saveConfig };
 };
 
 export default createContainer(hooks);
