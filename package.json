@@ -4,13 +4,14 @@
   "scripts": {
     "develop": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "watch": "webpack -w",
-    "init": "node scripts/npm-init.ts",
-    "start": "node scripts/npm-start.ts",
+    "watch": "webpack --config webpack.dev.js -w",
+    "init": "run-s create-ppk move-ppk",
+    "start": "run-p watch upload",
     "upload": "kintone-plugin-uploader dist/plugin.zip --watch --waiting-dialog-ms 3000",
     "update-modules": "npm run check-latest-modules -- -u",
     "check-latest-modules": "ncu",
-    "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin"
+    "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin",
+    "move-ppk": "node scripts/move-ppk.ts"
   },
   "devDependencies": {
     "@emotion/styled": "^11.1.5",
