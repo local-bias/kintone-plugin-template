@@ -6,7 +6,7 @@ import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore'
 
 import { ConfigContainer } from '../contexts';
 
-const Component: React.FCX = ({ className }) => {
+const Component: React.VFCX = ({ className }) => {
   const { saveConfig } = ConfigContainer.useContainer();
 
   return (

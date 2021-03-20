@@ -17,7 +17,7 @@ const Icon: React.FC<{ title: string; url: string }> = ({ children, title, url }
   </Tooltip>
 );
 
-const Component: React.FCX = ({ className }) => (
+const Component: React.VFCX = ({ className }) => (
   <aside className={className}>
     <Icon title='ホームページ' url={URL_HOMEPAGE}>
       <HomeIcon />
