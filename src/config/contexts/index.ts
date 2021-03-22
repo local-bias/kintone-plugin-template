@@ -1,1 +1,1 @@
-export { default as ConfigContainer } from './config-container';
+export { default as StorageContainer } from './storage-container';

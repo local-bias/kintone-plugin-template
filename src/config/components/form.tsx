@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { ConfigContainer } from '../contexts';
+import { StorageContainer } from '../contexts';
 
 const Component: React.VFCX = ({ className }) => {
-  const { config, setConfig } = ConfigContainer.useContainer();
+  const { storage } = StorageContainer.useContainer();
 
   return <div className={className}>設定の必要はありません🍀</div>;
 };

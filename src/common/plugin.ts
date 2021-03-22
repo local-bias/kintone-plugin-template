@@ -3,7 +3,7 @@
  * @param id プラグインID
  * @returns 保存されていた設定情報
  */
-export const getPluginConfig = (id: string): PluginStorage => {
+export const restoreStorage = (id: string): PluginStorage => {
   const config = kintone.plugin.app.getConfig(id);
 
   const keys = Object.keys(config);
@@ -17,7 +17,7 @@ export const getPluginConfig = (id: string): PluginStorage => {
  * アプリにプラグインの設定情報を保存します
  * @param target 保存する設定情報
  */
-export const savePluginConfig = (target: Record<string, any>) => {
+export const storeStorage = (target: Record<string, any>) => {
   const config: Record<string, string> = {};
 
   for (const key in target) {

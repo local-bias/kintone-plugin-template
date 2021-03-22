@@ -27,7 +27,7 @@ type Enables = (event: KintoneEvent) => boolean;
 /**
  * イベント実行時に受け取るプロパティ
  */
-interface KintoneEvent {
+type KintoneEvent = {
   appId: number;
   viewId: number;
   recordId: number;
@@ -42,7 +42,7 @@ interface KintoneEvent {
     };
     row: any;
   };
-}
+};
 
 /**
  * イベントタイプ(changeイベントを除く)

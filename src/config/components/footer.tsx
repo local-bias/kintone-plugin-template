@@ -4,14 +4,14 @@ import { Button } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 
-import { ConfigContainer } from '../contexts';
+import { StorageContainer } from '../contexts';
 
 const Component: React.VFCX = ({ className }) => {
-  const { saveConfig } = ConfigContainer.useContainer();
+  const { save } = StorageContainer.useContainer();
 
   return (
     <div className={className}>
-      <Button variant='contained' color='primary' onClick={() => saveConfig()} startIcon={<SaveIcon />}>
+      <Button variant='contained' color='primary' onClick={() => save()} startIcon={<SaveIcon />}>
         設定を保存
       </Button>
       <Button variant='contained' onClick={() => history.back()} startIcon={<SettingsBackupRestoreIcon />}>
