@@ -17,14 +17,14 @@ export const restoreStorage = (id: string): PluginStorage => {
  * アプリにプラグインの設定情報を保存します
  * @param target 保存する設定情報
  */
-export const storeStorage = (target: Record<string, any>) => {
+export const storeStorage = (target: Record<string, any>, callback?: () => void) => {
   const config: Record<string, string> = {};
 
   for (const key in target) {
     config[key] = JSON.stringify(target[key]);
   }
 
-  kintone.plugin.app.setConfig(config);
+  kintone.plugin.app.setConfig(config, callback);
 };
 
 /**

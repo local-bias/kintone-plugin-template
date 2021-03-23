@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, Reducer, useReducer } from 'react';
+import { useCallback, Reducer, useReducer } from 'react';
 import { createContainer } from 'unstated-next';
 
 import { restoreStorage, storeStorage } from '@common/plugin';
@@ -12,19 +12,18 @@ type Action =
       type: 'save';
     }
   | {
-      type: 'input';
-      name: keyof PluginStorage;
-      value: string;
+      type: 'update';
+      storage: PluginStorage;
     };
 
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case 'save': {
-      storeStorage(state.storage);
+      storeStorage(state.storage, () => true);
       return state;
     }
-    case 'input': {
-      return { ...state, storage: { ...state.storage } };
+    case 'update': {
+      return { ...state, storage: { ...action.storage } };
     }
   }
 };
