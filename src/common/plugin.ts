@@ -32,7 +32,7 @@ export const storeStorage = (target: Record<string, any>, callback?: () => void)
  * @returns プラグインの設定情報のひな形
  */
 const createConfig = (): PluginStorage => ({
-  conditions: [createNewCondition()],
+  conditions: [getNewCondition()],
 });
 
-export const createNewCondition = (): PluginCondition => ({});
+export const getNewCondition = (): PluginCondition => ({});
