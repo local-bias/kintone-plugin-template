@@ -1,14 +1,22 @@
-import React, { VFCX } from 'react';
+import React, { FC, memo, VFCX } from 'react';
 import styled from '@emotion/styled';
 
 import { StorageContainer } from '../contexts';
 
-const Component: VFCX = ({ className }) => {
-  const { storage } = StorageContainer.useContainer();
-
-  return <div className={className}>設定の必要はありません🍀</div>;
+type Props = {
+  storage: PluginStorage;
 };
+
+const Component: VFCX<Props> = memo(({ className, storage }) => {
+  return <div className={className}>設定の必要はありません🍀</div>;
+});
 
 const StyledComponent = styled(Component)``;
 
-export default StyledComponent;
+const Container: FC = () => {
+  const { storage } = StorageContainer.useContainer();
+
+  return <StyledComponent storage={storage} />;
+};
+
+export default Container;
