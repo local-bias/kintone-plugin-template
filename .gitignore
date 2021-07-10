@@ -103,8 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
-# プラグインの秘密鍵
+# Kintone Plugin files
 *.ppk
-
-# 出力したプラグインパッケージ
-*.zip
+dist/
+plugin/js
