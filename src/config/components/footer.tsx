@@ -1,36 +1,39 @@
-import React, { VFCX, useCallback } from 'react';
+import React, { VFC, VFCX } from 'react';
+import { useRecoilCallback } from 'recoil';
 import styled from '@emotion/styled';
+import { useSnackbar } from 'notistack';
 import { Button } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
-import { useSnackbar } from 'notistack';
 
-import { StorageContainer } from '../contexts';
+import { storeStorage } from '@common/plugin';
 
-const Component: VFCX = ({ className }) => {
-  const { save } = StorageContainer.useContainer();
-  const { enqueueSnackbar } = useSnackbar();
+import { storageState } from '../states';
 
-  const onClickSave = useCallback(() => {
-    save();
-    enqueueSnackbar('設定を保存しました', {
-      variant: 'success',
-    });
-  }, []);
-
-  const historyBack = () => history.back();
-
-  return (
-    <div className={className}>
-      <Button variant='contained' color='primary' onClick={onClickSave} startIcon={<SaveIcon />}>
-        設定を保存
-      </Button>
-      <Button variant='contained' onClick={historyBack} startIcon={<SettingsBackupRestoreIcon />}>
-        プラグイン一覧へ戻る
-      </Button>
-    </div>
-  );
+type Props = {
+  onSaveButtonClick: () => void;
+  onBackButtonClick: () => void;
 };
+
+const Component: VFCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick }) => (
+  <div {...{ className }}>
+    <Button
+      variant='contained'
+      color='primary'
+      onClick={onSaveButtonClick}
+      startIcon={<SaveIcon />}
+    >
+      設定を保存
+    </Button>
+    <Button
+      variant='contained'
+      onClick={onBackButtonClick}
+      startIcon={<SettingsBackupRestoreIcon />}
+    >
+      プラグイン一覧へ戻る
+    </Button>
+  </div>
+);
 
 const StyledComponent = styled(Component)`
   position: sticky;
@@ -44,4 +47,23 @@ const StyledComponent = styled(Component)`
   }
 `;
 
-export default StyledComponent;
+const Container: VFC = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
+  const onSaveButtonClick = useRecoilCallback(
+    ({ snapshot }) =>
+      async () => {
+        const storage = await snapshot.getPromise(storageState);
+
+        storeStorage(storage!, () => true);
+        enqueueSnackbar('設定を保存しました', { variant: 'success' });
+      },
+    []
+  );
+
+  const onBackButtonClick = () => history.back();
+
+  return <StyledComponent {...{ onSaveButtonClick, onBackButtonClick }} />;
+};
+
+export default Container;
