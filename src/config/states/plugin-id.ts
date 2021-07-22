@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
 
-const state = atom<string | null>({ key: 'pluginIdState', default: null });
+const state = atom<string>({ key: 'PluginId', default: '' });
 
 export default state;

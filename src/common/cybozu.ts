@@ -1,41 +1,8 @@
-declare const cybozu: any;
+import { Cybozu } from '../types/cybozu';
 
-type Schema = {
-  groups: any[];
-  revision: string;
-  subTable: Record<string, Table>;
-  table: Table;
-};
+declare const cybozu: Cybozu;
 
-type PropBase = {
-  id: string;
-  var: string;
-  label: string;
-};
-
-type Table = PropBase & {
-  fieldList: Record<string, Field>;
-  properties: { noLabel: 'true' | 'false' };
-  type: 'TABLE';
-};
-
-export type Field = PropBase & {
-  type: string;
-  properties: {
-    defaultValue: string;
-    expression: string;
-    hideExpression: 'true' | 'false';
-    isLookup: boolean;
-    lookup?: any;
-    max: any;
-    min: any;
-    noLabel: 'true' | 'false';
-    required: 'true' | 'false';
-    unique: 'true' | 'false';
-  };
-};
-
-const getSchema = () => (cybozu.data.page.SCHEMA_DATA || cybozu.data.page.FORM_DATA.schema) as Schema;
+const getSchema = () => cybozu.data.page.SCHEMA_DATA || cybozu.data.page.FORM_DATA.schema;
 
 export const getFields = () => {
   const schema = getSchema();

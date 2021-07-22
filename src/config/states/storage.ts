@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 const state = atom<kintone.plugin.Storage | null>({
-  key: 'pluginStorageState',
+  key: 'PluginStorage',
   default: null,
 });
 

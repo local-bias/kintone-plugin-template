@@ -1,18 +1,28 @@
-import React, { VFC, VFCX } from 'react';
+import React, { ChangeEventHandler, useState, VFC, VFCX } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from '@emotion/styled';
+import produce from 'immer';
+import { Properties } from '@kintone/rest-api-client/lib/client/types';
+
+import { appFieldsState, storageState } from '../../../states';
+import { MenuItem, TextField } from '@material-ui/core';
 
 type ContainerProps = { condition: kintone.plugin.Condition; index: number };
-type Props = ContainerProps & {};
+type Props = ContainerProps & {
+  appFields: Properties;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+};
 
-const Component: VFCX<Props> = ({ className, index, condition }) => (
+const Component: VFCX<Props> = ({ className, index, condition, appFields, onChange }) => (
   <div {...{ className }}>
-    <div>{index + 1}番目の設定です</div>
     <div>
-      {Object.entries(condition).map(([key, value], i) => (
-        <div key={i}>
-          {key}: {value}({typeof value})
-        </div>
-      ))}
+      <TextField select value={condition.field} {...{ onChange }}>
+        {Object.values(appFields).map(({ code, label }, i) => (
+          <MenuItem key={i} value={code}>
+            {label}
+          </MenuItem>
+        ))}
+      </TextField>
     </div>
   </div>
 );
@@ -22,7 +32,18 @@ const StyledComponent = styled(Component)`
 `;
 
 const Container: VFC<ContainerProps> = ({ condition, index }) => {
-  return <StyledComponent {...{ condition, index }} />;
+  const appFields = useRecoilValue(appFieldsState);
+  const setStorage = useSetRecoilState(storageState);
+
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setStorage((_, _storage = _!) =>
+      produce(_storage, (draft) => {
+        draft.conditions[index].field = e.target.value;
+      })
+    );
+  };
+
+  return <StyledComponent {...{ condition, index, appFields, onChange }} />;
 };
 
 export default Container;

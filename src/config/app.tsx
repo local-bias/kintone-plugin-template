@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import React, { Suspense, VFC } from 'react';
 import { SnackbarProvider } from 'notistack';
 
 import { Footer, Form, SocialIcons } from './components';
@@ -15,8 +15,10 @@ const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
       }}
     >
       <SnackbarProvider maxSnack={3}>
-        <Form />
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Form />
+          <Footer />
+        </Suspense>
       </SnackbarProvider>
     </RecoilRoot>
     <SocialIcons />
