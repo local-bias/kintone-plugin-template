@@ -5,20 +5,20 @@ import { PLUGIN_NAME } from '@common/constants';
  * 必須はactionのみで、eventsに指定がない場合は一覧表示イベント(app.record.index.show)が設定されます
  */
 export type Config = Readonly<{
-  enables?: Enables;
+  enables?: kintone.Enables;
   events?: string[] | ((pluginId: string) => string[]);
-  action: PluginAction;
+  action: kintone.Action;
   disableMobile?: boolean;
 }>;
 
 class Launcher {
-  private _pluginId: string;
+  private readonly _pluginId: string;
 
   /**
    * 複数の処理を、各イベントに登録することができます
    * @param pluginId プラグインID
    */
-  constructor(pluginId: string) {
+  public constructor(pluginId: string) {
     this._pluginId = pluginId;
   }
 
@@ -30,13 +30,18 @@ class Launcher {
    */
   public launch = (configs: Config[]) => {
     for (const config of configs) {
-      const { enables = () => true, events = ['app.record.index.show'], action, disableMobile = false } = config;
+      const {
+        enables = () => true,
+        events = ['app.record.index.show'],
+        action,
+        disableMobile = false,
+      } = config;
 
       const desktopEvents = typeof events === 'function' ? events(this._pluginId) : events;
 
       const mobileEvents = !disableMobile ? desktopEvents.map((type) => 'mobile.' + type) : [];
 
-      const handler = (event: KintoneEvent) => {
+      const handler = (event: kintone.Event) => {
         try {
           return enables(event) ? action(event, this._pluginId) : event;
         } catch (error) {
