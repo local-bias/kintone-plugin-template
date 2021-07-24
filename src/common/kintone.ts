@@ -14,8 +14,6 @@ const DEFAULT_DEFINED_FIELDS: PickType<OneOf, 'type'>[] = [
 
 /**
  * 実行されている環境がモバイル端末である場合はTrueを返却します
- * @param eventType イベントタイプ
- * @returns モバイル端末である場合はTrue
  */
 export const isMobile = (eventType: string) => eventType.includes('mobile.');
 

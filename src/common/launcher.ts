@@ -16,7 +16,6 @@ class Launcher {
 
   /**
    * 複数の処理を、各イベントに登録することができます
-   * @param pluginId プラグインID
    */
   public constructor(pluginId: string) {
     this._pluginId = pluginId;
@@ -25,8 +24,6 @@ class Launcher {
   /**
    * 指定された各処理を、各イベント発生時に実行されるよう登録していきます.
    * 特に指定がない場合、モバイル向けにもイベントが登録されます.
-   *
-   * @param configs イベント実行に必要なプロパティ
    */
   public launch = (configs: Config[]) => {
     for (const config of configs) {
