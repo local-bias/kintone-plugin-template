@@ -19,11 +19,7 @@
   "icon": "image/icon.png",
   "config": {
     "html": "html/config.html",
-    "js": [
-      "js/config.js",
-      "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/config.js",
-      "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/tags.js"
-    ],
+    "js": ["js/config.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/config.js"],
     "css": [],
     "required_params": []
   },
