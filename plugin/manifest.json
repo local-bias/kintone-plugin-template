@@ -13,18 +13,22 @@
     "zh": "插件模板"
   },
   "desktop": {
-    "js": ["js/desktop.js"],
+    "js": ["js/desktop.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
     "css": []
   },
   "icon": "image/icon.png",
   "config": {
     "html": "html/config.html",
-    "js": ["js/config.js"],
+    "js": [
+      "js/config.js",
+      "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/config.js",
+      "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/tags.js"
+    ],
     "css": [],
     "required_params": []
   },
   "mobile": {
-    "js": ["js/desktop.js"],
+    "js": ["js/desktop.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
     "css": []
   }
 }
