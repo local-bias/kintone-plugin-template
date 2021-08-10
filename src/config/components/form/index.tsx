@@ -22,7 +22,7 @@ const Component: VFCX<Props> = ({ className, storage }) => (
     {!!storage && (
       <>
         {storage.conditions.map((condition, index) => (
-          <Condition {...{ condition, index }} />
+          <Condition key={index} {...{ condition, index }} />
         ))}
         <ConditionAdditionButton label='新しいルックアップ設定' />
       </>
