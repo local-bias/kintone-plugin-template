@@ -1,10 +1,12 @@
 import React, { Suspense, VFC } from 'react';
+import { RecoilRoot } from 'recoil';
 import { SnackbarProvider } from 'notistack';
 
-import { Footer, Form, SocialIcons } from './components';
-import { RecoilRoot } from 'recoil';
-import { pluginIdState, storageState } from './states';
 import { restoreStorage } from '@common/plugin';
+import { ErrorBoundary } from '@common/components/error-boundary';
+
+import { Footer, Form, SocialIcons } from './components';
+import { pluginIdState, storageState } from './states';
 
 const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
   <>
@@ -14,12 +16,14 @@ const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
         set(storageState, restoreStorage(pluginId));
       }}
     >
-      <SnackbarProvider maxSnack={3}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Form />
-          <Footer />
-        </Suspense>
-      </SnackbarProvider>
+      <ErrorBoundary>
+        <SnackbarProvider maxSnack={3}>
+          <Suspense fallback={<div>設定情報を取得しています...</div>}>
+            <Form />
+            <Footer />
+          </Suspense>
+        </SnackbarProvider>
+      </ErrorBoundary>
     </RecoilRoot>
     <SocialIcons />
   </>
