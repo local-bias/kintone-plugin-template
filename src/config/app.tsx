@@ -7,6 +7,7 @@ import { ErrorBoundary } from '@common/components/error-boundary';
 
 import { Footer, Form, SocialIcons } from './components';
 import { pluginIdState, storageState } from './states';
+import { Loading } from '@common/components/loading';
 
 const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
   <>
@@ -18,7 +19,7 @@ const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
     >
       <ErrorBoundary>
         <SnackbarProvider maxSnack={3}>
-          <Suspense fallback={<div>設定情報を取得しています...</div>}>
+          <Suspense fallback={<Loading label='設定情報を取得しています' />}>
             <Form />
             <Footer />
           </Suspense>
