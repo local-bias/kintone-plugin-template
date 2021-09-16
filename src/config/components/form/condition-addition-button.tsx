@@ -8,11 +8,9 @@ import { getNewCondition } from '@common/plugin';
 
 import { storageState } from '../../states';
 
-type ContainerProps = Readonly<{ label: string }>;
+type Props = Readonly<{ addCondition: () => void }>;
 
-type Props = ContainerProps & Readonly<{ addCondition: () => void }>;
-
-const Component: VFC<Props> = ({ addCondition, label }) => (
+const Component: VFC<Props> = ({ addCondition }) => (
   <Button
     variant='outlined'
     color='primary'
@@ -21,11 +19,11 @@ const Component: VFC<Props> = ({ addCondition, label }) => (
     onClick={addCondition}
     style={{ marginTop: '16px' }}
   >
-    {label}
+    新しい設定
   </Button>
 );
 
-const Container: VFC<ContainerProps> = ({ label }) => {
+const Container: VFC = () => {
   const setStorage = useSetRecoilState(storageState);
 
   const addCondition = () => {
@@ -36,7 +34,7 @@ const Container: VFC<ContainerProps> = ({ label }) => {
     );
   };
 
-  return <Component {...{ label, addCondition }} />;
+  return <Component {...{ addCondition }} />;
 };
 
 export default Container;

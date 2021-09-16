@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState, VFC, VFCX } from 'react';
+import React, { ChangeEventHandler, VFC, VFCX } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from '@emotion/styled';
 import produce from 'immer';
@@ -13,17 +13,15 @@ type Props = ContainerProps & {
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
-const Component: VFCX<Props> = ({ className, index, condition, appFields, onChange }) => (
+const Component: VFCX<Props> = ({ className, condition, appFields, onChange }) => (
   <div {...{ className }}>
-    <div>
-      <TextField select value={condition.field} {...{ onChange }}>
-        {Object.values(appFields).map(({ code, label }, i) => (
-          <MenuItem key={i} value={code}>
-            {label}
-          </MenuItem>
-        ))}
-      </TextField>
-    </div>
+    <TextField select value={condition.field} {...{ onChange }}>
+      {Object.values(appFields).map(({ code, label }, i) => (
+        <MenuItem key={i} value={code}>
+          {label}
+        </MenuItem>
+      ))}
+    </TextField>
   </div>
 );
 

@@ -24,7 +24,7 @@ const Component: VFCX<Props> = ({ className, storage }) => (
         {storage.conditions.map((condition, index) => (
           <Condition key={index} {...{ condition, index }} />
         ))}
-        <ConditionAdditionButton label='新しいルックアップ設定' />
+        <ConditionAdditionButton />
       </>
     )}
   </div>
