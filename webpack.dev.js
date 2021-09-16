@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common.ts');
+const common = require('./webpack.common.js');
 const KintonePlugin = require('@kintone/webpack-plugin-kintone-plugin');
 
 module.exports = merge(common, {
