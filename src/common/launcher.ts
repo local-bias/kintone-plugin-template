@@ -1,4 +1,4 @@
-import { PLUGIN_NAME } from '@common/constants';
+import { PLUGIN_NAME } from '@common/statics';
 
 /**
  * イベント実行に必要なプロパティ情報

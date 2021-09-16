@@ -5,7 +5,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import HomeIcon from '@material-ui/icons/Home';
 
-import { URL_HOMEPAGE, URL_TWITTER, URL_GITHUB } from '@common/constants';
+import { URL_HOMEPAGE, URL_TWITTER, URL_GITHUB } from '@common/statics';
 
 const openNewTab = (path: string) => window.open(path, '_blank');
 
