@@ -5,7 +5,10 @@ import { SnackbarProvider } from 'notistack';
 import { restoreStorage } from '@common/plugin';
 import { ErrorBoundary } from '@common/components/error-boundary';
 
-import { Footer, Form, SocialIcons } from './components';
+import Form from './components/form';
+import Footer from './components/footer';
+import SocialIcons from './components/social-icons';
+
 import { pluginIdState, storageState } from './states';
 import { Loading } from '@common/components/loading';
 
