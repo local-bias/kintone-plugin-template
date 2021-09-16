@@ -27,6 +27,9 @@ const Component: VFCX<Props> = ({ className, condition, appFields, onChange }) =
 
 const StyledComponent = styled(Component)`
   padding: 0 16px;
+  > div {
+    min-width: 250px;
+  }
 `;
 
 const Container: VFC<ContainerProps> = ({ condition, index }) => {

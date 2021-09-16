@@ -1,5 +1,4 @@
-import React, { useState, VFC, VFCX } from 'react';
-import styled from '@emotion/styled';
+import React, { memo, useState, VFC, VFCX } from 'react';
 import { Accordion, AccordionActions, AccordionDetails, AccordionSummary } from '@material-ui/core';
 
 import ConditionForm from './condition-form';
@@ -23,18 +22,12 @@ const Component: VFCX<Props> = ({ className, condition, index, expanded, onChang
   </Accordion>
 );
 
-const StyledComponent = styled(Component)`
-  .input {
-    min-width: 250px;
-  }
-`;
-
-const Container: VFC<ContainerProps> = ({ condition, index }) => {
+const Container: VFC<ContainerProps> = memo(({ condition, index }) => {
   const [expanded, setExpanded] = useState<boolean>(index === 0);
 
   const onChange = () => setExpanded((_expanded) => !_expanded);
 
-  return <StyledComponent {...{ condition, index, expanded, onChange }} />;
-};
+  return <Component {...{ condition, index, expanded, onChange }} />;
+});
 
 export default Container;
