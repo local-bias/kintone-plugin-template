@@ -16,15 +16,15 @@
     "js": ["js/desktop.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
     "css": []
   },
+  "mobile": {
+    "js": ["js/desktop.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
+    "css": []
+  },
   "icon": "image/icon.png",
   "config": {
     "html": "html/config.html",
     "js": ["js/config.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/config.js"],
     "css": [],
     "required_params": []
-  },
-  "mobile": {
-    "js": ["js/desktop.js", "https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
-    "css": []
   }
 }
