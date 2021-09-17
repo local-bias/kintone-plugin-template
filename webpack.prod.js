@@ -18,7 +18,7 @@ module.exports = merge(common, {
     minimize: true,
     minimizer: [
       new ESBuildMinifyPlugin({
-        target: 'esnext',
+        target: 'es2015',
       }),
     ],
   },
