@@ -13,7 +13,8 @@
     "update-modules": "ncu -u",
     "check-updates": "ncu",
     "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin",
-    "move-ppk": "node scripts/move-ppk.ts"
+    "move-ppk": "node scripts/move-ppk.ts",
+    "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
   },
   "devDependencies": {
     "@emotion/styled": "^11.3.0",
@@ -27,7 +28,10 @@
     "@types/luxon": "^2.0.4",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
     "esbuild-loader": "^2.15.1",
+    "eslint": "^7.32.0",
     "fork-ts-checker-webpack-plugin": "^6.3.3",
     "immer": "^9.0.6",
     "luxon": "^2.0.2",
