@@ -18,7 +18,7 @@ declare const cybozu: Cybozu;
 /**
  * 実行されている環境がモバイル端末である場合はTrueを返却します
  */
-export const isMobile = (eventType?: string) => {
+export const isMobile = (eventType?: string): boolean => {
   if (eventType) {
     return eventType.includes('mobile.');
   }
@@ -28,10 +28,11 @@ export const isMobile = (eventType?: string) => {
 export const getApp = (eventType?: string): typeof kintone.mobile.app | typeof kintone.app =>
   isMobile(eventType) ? kintone.mobile.app : kintone.app;
 
-export const getAppId = () => getApp().getId();
-export const getRecordId = () => getApp().record.getId();
+export const getAppId = (): number | null => getApp().getId();
+export const getRecordId = (): number | null => getApp().record.getId();
 
-export const getSpaceElement = (spaceId: string) => getApp().record.getSpaceElement(spaceId);
+export const getSpaceElement = (spaceId: string): HTMLElement | null =>
+  getApp().record.getSpaceElement(spaceId);
 
 /**
  * 現在の検索条件を返却します

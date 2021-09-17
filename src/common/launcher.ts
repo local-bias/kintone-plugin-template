@@ -25,7 +25,7 @@ class Launcher {
    * 指定された各処理を、各イベント発生時に実行されるよう登録していきます.
    * 特に指定がない場合、モバイル向けにもイベントが登録されます.
    */
-  public launch = (configs: Config[]) => {
+  public launch = (configs: Config[]): void => {
     for (const config of configs) {
       const {
         enables = () => true,
@@ -36,7 +36,7 @@ class Launcher {
 
       const desktopEvents = typeof events === 'function' ? events(this._pluginId) : events;
 
-      const mobileEvents = !disableMobile ? desktopEvents.map((type) => 'mobile.' + type) : [];
+      const mobileEvents = !disableMobile ? desktopEvents.map((type) => `mobile.${type}`) : [];
 
       const handler = (event: kintone.Event) => {
         try {

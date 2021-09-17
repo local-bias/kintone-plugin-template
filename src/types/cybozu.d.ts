@@ -1,4 +1,4 @@
-type Cybozu = {
+type Cybozu = Record<string, unknown> & {
   data: {
     IS_MOBILE_DEVICE: boolean;
     page: {
@@ -23,9 +23,9 @@ export type Field = PropBase & {
     expression: string;
     hideExpression: 'true' | 'false';
     isLookup: boolean;
-    lookup?: any;
-    max: any;
-    min: any;
+    lookup?: unknown;
+    max: unknown;
+    min: unknown;
     noLabel: 'true' | 'false';
     required: 'true' | 'false';
     unique: 'true' | 'false';
