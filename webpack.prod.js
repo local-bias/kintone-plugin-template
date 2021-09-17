@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const KintonePlugin = require('@kintone/webpack-plugin-kintone-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -17,8 +17,13 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     minimizer: [
-      new ESBuildMinifyPlugin({
-        target: 'es2015',
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
       }),
     ],
   },
