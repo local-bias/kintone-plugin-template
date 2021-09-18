@@ -21,7 +21,7 @@ const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
       }}
     >
       <ErrorBoundary>
-        <SnackbarProvider maxSnack={3}>
+        <SnackbarProvider maxSnack={1}>
           <Suspense fallback={<Loading label='設定情報を取得しています' />}>
             <Form />
             <Footer />

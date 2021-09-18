@@ -50,18 +50,25 @@ const StyledComponent = styled(Component)`
 const Container: VFC = () => {
   const { enqueueSnackbar } = useSnackbar();
 
+  const onBackButtonClick = () => history.back();
+
   const onSaveButtonClick = useRecoilCallback(
     ({ snapshot }) =>
       async () => {
         const storage = await snapshot.getPromise(storageState);
 
         storeStorage(storage!, () => true);
-        enqueueSnackbar('設定を保存しました', { variant: 'success' });
+        enqueueSnackbar('設定を保存しました', {
+          variant: 'success',
+          action: (
+            <Button color='inherit' onClick={onBackButtonClick}>
+              プラグイン一覧に戻る
+            </Button>
+          ),
+        });
       },
     []
   );
-
-  const onBackButtonClick = () => history.back();
 
   return <StyledComponent {...{ onSaveButtonClick, onBackButtonClick }} />;
 };
