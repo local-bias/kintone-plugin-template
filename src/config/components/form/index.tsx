@@ -6,6 +6,7 @@ import { CircularProgress } from '@material-ui/core';
 import { storageState } from '../../states';
 import ConditionAdditionButton from './condition-addition-button';
 import Condition from './condition';
+import { Loading } from '@common/components/loading';
 
 type Props = Readonly<{
   storage: kintone.plugin.Storage | null;
@@ -13,12 +14,7 @@ type Props = Readonly<{
 
 const Component: VFCX<Props> = ({ className, storage }) => (
   <div {...{ className }}>
-    {!storage && (
-      <>
-        <CircularProgress />
-        <div>設定情報を取得しています</div>
-      </>
-    )}
+    {!storage && <Loading label='設定情報を取得しています' />}
     {!!storage && (
       <>
         {storage.conditions.map((condition, index) => (

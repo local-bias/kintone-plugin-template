@@ -51,14 +51,4 @@ declare namespace kintone {
     viewName?: string;
     offset?: number;
   };
-
-  /**
-   * イベントタイプ以外の実行条件
-   */
-  type Enables = (event: Event) => boolean;
-
-  /**
-   * 各イベントに登録する処理
-   */
-  type Action = (event: Event, pluginId: string) => Event | Promise<Event>;
 }

@@ -5,9 +5,9 @@ import { PLUGIN_NAME } from '@common/statics';
  * 必須はactionのみで、eventsに指定がない場合は一覧表示イベント(app.record.index.show)が設定されます
  */
 export type Config = Readonly<{
-  enables?: kintone.Enables;
+  enables?: launcher.Enables;
   events?: string[] | ((pluginId: string) => string[]);
-  action: kintone.Action;
+  action: launcher.Action;
   disableMobile?: boolean;
 }>;
 
