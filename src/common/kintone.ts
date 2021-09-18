@@ -1,4 +1,8 @@
-import { Properties } from '@kintone/rest-api-client/lib/client/types';
+import {
+  Layout,
+  Properties,
+  Record as KintoneRecord,
+} from '@kintone/rest-api-client/lib/client/types';
 import { OneOf } from '@kintone/rest-api-client/lib/KintoneFields/types/property';
 import { KintoneRestAPIClient } from '@kintone/rest-api-client';
 import { Cybozu } from '../types/cybozu';
@@ -38,28 +42,28 @@ export const getSpaceElement = (spaceId: string): HTMLElement | null =>
  * 現在の検索条件を返却します
  * @returns 検索条件
  */
-export const getQuery = () => getApp().getQuery();
+export const getQuery = (): string | null => getApp().getQuery();
 
 /**
  * 現在の検索条件のうち、絞り込み情報の部分のみを返却します
  * @returns 検索条件の絞り込み情報
  */
-export const getQueryCondition = () => getApp().getQueryCondition();
+export const getQueryCondition = (): string | null => getApp().getQueryCondition();
 
 /**
  * 現在表示しているレコード情報を返却します
  * - デバイス毎に最適な情報を返します
  * @returns レコード情報
  */
-export const getCurrentRecord = () => getApp().record.get();
+export const getCurrentRecord = (): KintoneRecord => getApp().record.get();
 
 /**
  * 現在表示しているレコード情報へデータを反映します
  * @param record レコード情報
  */
-export const setCurrentRecord = (record: { record: any }) => getApp().record.set(record);
+export const setCurrentRecord = (record: KintoneRecord): void => getApp().record.set(record);
 
-export const setFieldShown = (code: string, visible: boolean) =>
+export const setFieldShown = (code: string, visible: boolean): void =>
   getApp().record.setFieldShown(String(code), visible);
 
 /**
@@ -68,7 +72,7 @@ export const setFieldShown = (code: string, visible: boolean) =>
  * - レコード一覧以外で実行した場合はnullが返ります
  * @returns ヘッダー部分のHTML要素
  */
-export const getHeaderSpace = (eventType: string) => {
+export const getHeaderSpace = (eventType: string): HTMLElement | null => {
   if (isMobile(eventType)) {
     kintone.mobile.app.getHeaderSpaceElement();
   } else if (!~eventType.indexOf('index')) {
@@ -77,7 +81,7 @@ export const getHeaderSpace = (eventType: string) => {
   return kintone.app.getHeaderMenuSpaceElement();
 };
 
-export const getAppFields = async (targetApp?: string | number) => {
+export const getAppFields = async (targetApp?: string | number): Promise<Properties> => {
   const app = targetApp || kintone.app.getId();
 
   if (!app) {
@@ -101,7 +105,7 @@ export const getUserDefinedFields = async (): Promise<Properties> => {
   return filterd.reduce<Properties>((acc, [key, value]) => ({ ...acc, [key]: value }), {});
 };
 
-export const getAppLayout = async () => {
+export const getAppLayout = async (): Promise<Layout> => {
   const app = getAppId();
 
   if (!app) {

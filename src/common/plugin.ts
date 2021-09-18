@@ -16,7 +16,7 @@ export const restoreStorage = (id: string): kintone.plugin.Storage => {
 /**
  * アプリにプラグインの設定情報を保存します
  */
-export const storeStorage = (target: Record<string, any>, callback?: () => void) => {
+export const storeStorage = (target: Record<string, any>, callback?: () => void): void => {
   const converted = Object.entries(target).reduce(
     (acc, [key, value]) => ({ ...acc, [key]: JSON.stringify(value) }),
     {}
