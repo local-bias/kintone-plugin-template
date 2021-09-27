@@ -1,4 +1,9 @@
 declare namespace kintone {
+  /**
+   * events.onに指定するイベント名の型を補完したもの☁️
+   *
+   * change系のイベントに対応していません
+   */
   type EventType =
     | 'portal.show'
     | 'app.record.index.show'
@@ -31,7 +36,8 @@ declare namespace kintone {
     | 'mobile.app.record.edit.submit'
     | 'mobile.app.record.edit.submit.success';
 
-  type Event<T = any> = {
+  /** events.onに指定するコールバック関数から受け取る引数の型を補完したもの☁️ */
+  type Event<T = Record<string, any>> = {
     appId: number;
     viewId: number;
     recordId: number;
