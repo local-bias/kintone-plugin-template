@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@emotion/styled": "11.3.0",
-    "@kintone/dts-gen": "5.0.3",
+    "@kintone/dts-gen": "5.0.4",
     "@kintone/plugin-packer": "5.0.17",
     "@kintone/plugin-uploader": "6.0.2",
     "@kintone/rest-api-client": "2.0.19",
