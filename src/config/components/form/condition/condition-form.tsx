@@ -15,19 +15,37 @@ type Props = ContainerProps & {
 
 const Component: VFCX<Props> = ({ className, condition, appFields, onChange }) => (
   <div {...{ className }}>
-    <TextField select value={condition.field} {...{ onChange }}>
-      {Object.values(appFields).map(({ code, label }, i) => (
-        <MenuItem key={i} value={code}>
-          {label}
-        </MenuItem>
-      ))}
-    </TextField>
+    <div>
+      <h3>対象フィールド</h3>
+      <TextField
+        select
+        value={condition.field}
+        label='フィールド名'
+        {...{ onChange }}
+        className='input'
+      >
+        {Object.values(appFields).map(({ code, label }, i) => (
+          <MenuItem key={i} value={code}>
+            {label}
+          </MenuItem>
+        ))}
+      </TextField>
+    </div>
   </div>
 );
 
 const StyledComponent = styled(Component)`
   padding: 0 16px;
   > div {
+    padding: 8px 8px 8px 16px;
+    border-left: 2px solid #0003;
+    > h3 {
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+  }
+
+  .input {
     min-width: 250px;
   }
 `;
