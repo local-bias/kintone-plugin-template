@@ -1,8 +1,8 @@
 import React, { VFC } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { produce } from 'immer';
-import { IconButton } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import { storageState } from '../../states';
 

@@ -5,7 +5,7 @@ import produce from 'immer';
 import { Properties } from '@kintone/rest-api-client/lib/client/types';
 
 import { appFieldsState, storageState } from '../../../states';
-import { MenuItem, TextField } from '@material-ui/core';
+import { MenuItem, TextField } from '@mui/material';
 
 type ContainerProps = { condition: kintone.plugin.Condition; index: number };
 type Props = ContainerProps & {

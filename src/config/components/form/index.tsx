@@ -1,7 +1,6 @@
 import React, { FC, VFCX } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
-import { CircularProgress } from '@material-ui/core';
 
 import { storageState } from '../../states';
 import ConditionAdditionButton from './condition-addition-button';

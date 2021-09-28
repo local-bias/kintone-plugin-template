@@ -1,7 +1,7 @@
 import React, { FC, VFCX } from 'react';
 import styled from '@emotion/styled';
 import { ErrorBoundary as ErrBoundary, FallbackProps } from 'react-error-boundary';
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import { URL_HOMEPAGE } from '@common/statics';
 
 const Component: VFCX<FallbackProps> = ({ className, error, resetErrorBoundary }) => (

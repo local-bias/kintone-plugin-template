@@ -1,8 +1,8 @@
 import React, { VFC } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { produce } from 'immer';
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Button } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 import { getNewCondition } from '@common/plugin';
 

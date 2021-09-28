@@ -2,9 +2,9 @@ import React, { VFC, VFCX } from 'react';
 import { useRecoilCallback } from 'recoil';
 import styled from '@emotion/styled';
 import { useSnackbar } from 'notistack';
-import { Button } from '@material-ui/core';
-import SaveIcon from '@material-ui/icons/Save';
-import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
+import { Button } from '@mui/material';
+import SaveIcon from '@mui/icons-material/Save';
+import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 
 import { storeStorage } from '@common/plugin';
 
@@ -27,6 +27,7 @@ const Component: VFCX<Props> = ({ className, onSaveButtonClick, onBackButtonClic
     </Button>
     <Button
       variant='contained'
+      color='inherit'
       onClick={onBackButtonClick}
       startIcon={<SettingsBackupRestoreIcon />}
     >
