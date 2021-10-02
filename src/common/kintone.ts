@@ -1,27 +1,9 @@
-import {
-  Layout,
-  Properties,
-  Record as KintoneRecord,
-} from '@kintone/rest-api-client/lib/client/types';
-import { OneOf } from '@kintone/rest-api-client/lib/KintoneFields/types/property';
-import { KintoneRestAPIClient } from '@kintone/rest-api-client';
+import { Record as KintoneRecord } from '@kintone/rest-api-client/lib/client/types';
 import { Cybozu } from '../types/cybozu';
-
-/** kintoneアプリに初期状態で存在するフィールドタイプ */
-const DEFAULT_DEFINED_FIELDS: PickType<OneOf, 'type'>[] = [
-  'UPDATED_TIME',
-  'CREATOR',
-  'CREATED_TIME',
-  'CATEGORY',
-  'MODIFIER',
-  'STATUS',
-];
 
 declare const cybozu: Cybozu;
 
-/**
- * 実行されている環境がモバイル端末である場合はTrueを返却します
- */
+/** 実行されている環境がモバイル端末である場合はTrueを返却します */
 export const isMobile = (eventType?: string): boolean => {
   if (eventType) {
     return eventType.includes('mobile.');
@@ -29,49 +11,37 @@ export const isMobile = (eventType?: string): boolean => {
   return cybozu?.data?.IS_MOBILE_DEVICE ?? !kintone.app.getId();
 };
 
+/** モバイル対応 ```kintone.app()``` */
 export const getApp = (eventType?: string): typeof kintone.mobile.app | typeof kintone.app =>
   isMobile(eventType) ? kintone.mobile.app : kintone.app;
 
+/** モバイル対応 ```kintone.app.getId()``` */
 export const getAppId = (): number | null => getApp().getId();
+
+/** モバイル対応 ```kintone.app.record.getId()``` */
 export const getRecordId = (): number | null => getApp().record.getId();
 
+/** モバイル対応 ```kintone.app.record.getSpaceElement()``` */
 export const getSpaceElement = (spaceId: string): HTMLElement | null =>
   getApp().record.getSpaceElement(spaceId);
 
-/**
- * 現在の検索条件を返却します
- * @returns 検索条件
- */
+/** モバイル対応 ```kintone.app.getQuery()``` */
 export const getQuery = (): string | null => getApp().getQuery();
 
-/**
- * 現在の検索条件のうち、絞り込み情報の部分のみを返却します
- * @returns 検索条件の絞り込み情報
- */
+/** モバイル対応 ```kintone.app.getQueryCondition()``` */
 export const getQueryCondition = (): string | null => getApp().getQueryCondition();
 
-/**
- * 現在表示しているレコード情報を返却します
- * - デバイス毎に最適な情報を返します
- * @returns レコード情報
- */
+/** モバイル対応 ```kintone.app.record.get()``` */
 export const getCurrentRecord = (): KintoneRecord => getApp().record.get();
 
-/**
- * 現在表示しているレコード情報へデータを反映します
- * @param record レコード情報
- */
+/** モバイル対応 ```kintone.app.record.set()``` */
 export const setCurrentRecord = (record: KintoneRecord): void => getApp().record.set(record);
 
+/** モバイル対応 ```kintone.app.record.setFieldShown()``` */
 export const setFieldShown = (code: string, visible: boolean): void =>
   getApp().record.setFieldShown(String(code), visible);
 
-/**
- * ヘッダー部分のHTML要素を返却します
- * - デバイス毎に最適な情報を返します
- * - レコード一覧以外で実行した場合はnullが返ります
- * @returns ヘッダー部分のHTML要素
- */
+/** 一覧に応じて、ツールバー部分を優先してヘッダー要素を返します */
 export const getHeaderSpace = (eventType: string): HTMLElement | null => {
   if (isMobile(eventType)) {
     kintone.mobile.app.getHeaderSpaceElement();
@@ -79,42 +49,4 @@ export const getHeaderSpace = (eventType: string): HTMLElement | null => {
     return kintone.app.record.getHeaderMenuSpaceElement();
   }
   return kintone.app.getHeaderMenuSpaceElement();
-};
-
-export const getAppFields = async (targetApp?: string | number): Promise<Properties> => {
-  const app = targetApp || kintone.app.getId();
-
-  if (!app) {
-    throw new Error('アプリのフィールド情報が取得できませんでした');
-  }
-
-  const client = new KintoneRestAPIClient();
-
-  const { properties } = await client.app.getFormFields({ app });
-
-  return properties;
-};
-
-export const getUserDefinedFields = async (): Promise<Properties> => {
-  const fields = await getAppFields();
-
-  const filterd = Object.entries(fields).filter(
-    ([_, value]) => !DEFAULT_DEFINED_FIELDS.includes(value.type)
-  );
-
-  return filterd.reduce<Properties>((acc, [key, value]) => ({ ...acc, [key]: value }), {});
-};
-
-export const getAppLayout = async (): Promise<Layout> => {
-  const app = getAppId();
-
-  if (!app) {
-    throw new Error('アプリのフィールド情報が取得できませんでした');
-  }
-
-  const client = new KintoneRestAPIClient();
-
-  const { layout } = await client.app.getFormLayout({ app });
-
-  return layout;
 };

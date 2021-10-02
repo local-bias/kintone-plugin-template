@@ -1,6 +1,6 @@
 import { selector } from 'recoil';
 import { Properties } from '@kintone/rest-api-client/lib/client/types';
-import { getUserDefinedFields } from '@common/kintone';
+import { getUserDefinedFields } from '@common/kintone-api';
 
 const state = selector<Properties>({
   key: 'AppFields',
