@@ -1,9 +1,3 @@
 {
-  "packageRules": [
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true
-    }
-  ],
-  "extends": ["config:base"]
+  "extends": ["@lb-ribbit:dev"]
 }
