@@ -38,7 +38,7 @@ const StyledComponent = styled(Component)`
   padding: 0 16px;
   > div {
     padding: 8px 8px 8px 16px;
-    border-left: 2px solid #0003;
+    border-left: 2px solid #0002;
     > h3 {
       font-weight: 500;
       margin-bottom: 16px;
