@@ -1,10 +1,15 @@
-import { Layout, Properties } from '@kintone/rest-api-client/lib/client/types';
-import { OneOf } from '@kintone/rest-api-client/lib/KintoneFields/types/property';
+import {
+  Layout,
+  Properties as FieldProperties,
+  Record as KintoneRecord,
+} from '@kintone/rest-api-client/lib/client/types';
 import { KintoneRestAPIClient } from '@kintone/rest-api-client';
 import { getAppId } from './kintone';
+import { OneOf as FieldProperty } from '@kintone/rest-api-client/lib/KintoneFields/types/property';
+import { OneOf as Field } from '@kintone/rest-api-client/lib/KintoneFields/types/field';
 
 /** kintoneアプリに初期状態で存在するフィールドタイプ */
-const DEFAULT_DEFINED_FIELDS: PickType<OneOf, 'type'>[] = [
+const DEFAULT_DEFINED_FIELDS: PickType<FieldProperty, 'type'>[] = [
   'UPDATED_TIME',
   'CREATOR',
   'CREATED_TIME',
@@ -13,7 +18,7 @@ const DEFAULT_DEFINED_FIELDS: PickType<OneOf, 'type'>[] = [
   'STATUS',
 ];
 
-export const getAppFields = async (targetApp?: string | number): Promise<Properties> => {
+export const getFieldProperties = async (targetApp?: string | number): Promise<FieldProperties> => {
   const app = targetApp || kintone.app.getId();
 
   if (!app) {
@@ -27,21 +32,21 @@ export const getAppFields = async (targetApp?: string | number): Promise<Propert
   return properties;
 };
 
-export const getUserDefinedFields = async (): Promise<Properties> => {
-  const fields = await getAppFields();
+export const getUserDefinedFields = async (): Promise<FieldProperties> => {
+  const properties = await getFieldProperties();
 
-  const filterd = Object.entries(fields).filter(
+  const filterd = Object.entries(properties).filter(
     ([_, value]) => !DEFAULT_DEFINED_FIELDS.includes(value.type)
   );
 
-  return filterd.reduce<Properties>((acc, [key, value]) => ({ ...acc, [key]: value }), {});
+  return filterd.reduce<FieldProperties>((acc, [key, value]) => ({ ...acc, [key]: value }), {});
 };
 
 /** サブテーブルをばらしてフィールドを返却します */
-export const getAllFields = async (): Promise<OneOf[]> => {
-  const properties = await getAppFields();
+export const getAllFields = async (): Promise<FieldProperty[]> => {
+  const properties = await getFieldProperties();
 
-  const fields = Object.values(properties).reduce<OneOf[]>((acc, property) => {
+  const fields = Object.values(properties).reduce<FieldProperty[]>((acc, property) => {
     if (property.type === 'SUBTABLE') {
       return [...acc, ...Object.values(property.fields)];
     }
@@ -63,4 +68,26 @@ export const getAppLayout = async (): Promise<Layout> => {
   const { layout } = await client.app.getFormLayout({ app });
 
   return layout;
+};
+
+/** 指定のフィールドコードのフィールドを操作します */
+export const controlField = (
+  record: KintoneRecord,
+  fieldCode: string,
+  callback: (field: Field) => void
+): void => {
+  if (record[fieldCode]) {
+    callback(record[fieldCode]);
+    return;
+  }
+
+  for (const field of Object.values(record)) {
+    if (field.type === 'SUBTABLE') {
+      for (const { value } of field.value) {
+        if (value[fieldCode]) {
+          callback(value[fieldCode]);
+        }
+      }
+    }
+  }
 };
