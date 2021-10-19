@@ -1,0 +1,11 @@
+{
+  "desktop": {
+    "js": ["js/desktop.js"]
+  },
+  "mobile": {
+    "js": ["js/desktop.js"]
+  },
+  "config": {
+    "js": ["js/config.js"]
+  }
+}

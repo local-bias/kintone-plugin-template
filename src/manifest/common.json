@@ -1,0 +1,34 @@
+{
+  "manifest_version": 1,
+  "version": 1,
+  "type": "APP",
+  "name": {
+    "en": "kintone-plugin-template",
+    "ja": "プラグインテンプレート",
+    "zh": "插件模板"
+  },
+  "description": {
+    "en": "kintone-plugin-template",
+    "ja": "プラグインテンプレート",
+    "zh": "插件模板"
+  },
+  "icon": "image/icon.png",
+  "homepage_url": {
+    "ja": "https://ribbit.work/",
+    "en": "https://ribbit.work/"
+  },
+  "desktop": {
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
+    "css": []
+  },
+  "mobile": {
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
+    "css": []
+  },
+  "config": {
+    "html": "html/config.html",
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/config.js"],
+    "css": [],
+    "required_params": []
+  }
+}
