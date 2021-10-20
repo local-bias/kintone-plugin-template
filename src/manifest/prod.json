@@ -1,11 +1,11 @@
 {
   "desktop": {
-    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-plugin-template/cdn/desktop.js"]
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-plugin-template@latest/cdn/desktop.js"]
   },
   "mobile": {
-    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-plugin-template/cdn/desktop.js"]
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-plugin-template@latest/cdn/desktop.js"]
   },
   "config": {
-    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-plugin-template/cdn/config.js"]
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-plugin-template@latest/cdn/config.js"]
   }
 }
