@@ -18,16 +18,16 @@
     "en": "https://ribbit.work/"
   },
   "desktop": {
-    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn@latest/dist/desktop.js"],
     "css": []
   },
   "mobile": {
-    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/desktop.js"],
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn@latest/dist/desktop.js"],
     "css": []
   },
   "config": {
     "html": "html/config.html",
-    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn/dist/config.js"],
+    "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn@latest/dist/config.js"],
     "css": [],
     "required_params": []
   }
