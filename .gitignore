@@ -107,3 +107,4 @@ dist
 *.ppk
 dist/
 plugin/js
+plugin/manifest.json
