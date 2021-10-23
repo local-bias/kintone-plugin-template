@@ -24,5 +24,5 @@ export const pushPluginName = () => {
   if (!local.pluginNames.includes(PLUGIN_NAME)) {
     local.pluginNames.push(PLUGIN_NAME);
   }
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(stored));
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(local));
 };
