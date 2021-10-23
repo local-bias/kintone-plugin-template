@@ -31,6 +31,18 @@ npm run start
 npm run build
 ```
 
+## 新規で作成するにあたって最低限修正が必要なファイル
+
+- src/manifest
+
+- types/plugin.d.ts
+
+  - プラグインの設定情報の型をここで定義しています
+
+- common/statics.ts
+
+  - 設定画面に表示する、ホームページなどの各リンク情報はここで定義しています
+
 ## 依存ライブラリ
 
 ### Luxon(日付操作)
