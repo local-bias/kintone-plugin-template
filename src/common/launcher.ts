@@ -1,4 +1,5 @@
 import { LOCAL_STORAGE_KEY, PLUGIN_NAME } from '@common/statics';
+import { parsable } from './utilities';
 
 class Launcher {
   private readonly _pluginId: string;
@@ -44,7 +45,7 @@ class Launcher {
 
   private pushLocalStorage() {
     const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-    const local = stored ? JSON.parse(stored) : {};
+    const local = stored && parsable(stored) ? JSON.parse(stored) : {};
     local.pluginNames = local.pluginNames || [];
     if (!local.pluginNames.includes(PLUGIN_NAME)) {
       local.pluginNames.push(PLUGIN_NAME);
