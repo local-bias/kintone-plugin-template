@@ -10,6 +10,7 @@ import { OneOf as Field } from '@kintone/rest-api-client/lib/KintoneFields/types
 
 /** kintoneアプリに初期状態で存在するフィールドタイプ */
 const DEFAULT_DEFINED_FIELDS: PickType<FieldProperty, 'type'>[] = [
+  'RECORD_NUMBER',
   'UPDATED_TIME',
   'CREATOR',
   'CREATED_TIME',
@@ -34,12 +35,7 @@ export const getFieldProperties = async (targetApp?: string | number): Promise<F
 
 export const getUserDefinedFields = async (): Promise<FieldProperties> => {
   const properties = await getFieldProperties();
-
-  const filterd = Object.entries(properties).filter(
-    ([_, value]) => !DEFAULT_DEFINED_FIELDS.includes(value.type)
-  );
-
-  return filterd.reduce<FieldProperties>((acc, [key, value]) => ({ ...acc, [key]: value }), {});
+  return omitFieldProperties(properties, DEFAULT_DEFINED_FIELDS);
 };
 
 /** サブテーブルをばらしてフィールドを返却します */
@@ -89,5 +85,73 @@ export const controlField = (
         }
       }
     }
+  }
+};
+
+/**
+ * APIから取得したフィールド情報から、指定した関数の条件に当てはまるフィールドのみを返却します
+ *
+ * @param properties APIから取得したフィールド情報
+ * @param callback 絞り込み条件
+ * @returns 条件に当てはまるフィールド
+ */
+export const filterFieldProperties = (
+  properties: FieldProperties,
+  callback: (field: FieldProperty) => boolean
+): FieldProperties => {
+  const filterd = Object.entries(properties).filter(([_, value]) => callback(value));
+
+  const reduced = filterd.reduce<FieldProperties>(
+    (acc, [key, value]) => ({ ...acc, [key]: value }),
+    {}
+  );
+
+  return reduced;
+};
+
+/**
+ * APIから取得したフィールド情報から、指定したフィールドタイプを除いたフィールド一覧を返却します
+ *
+ * @param properties APIから取得したフィールド情報
+ * @param omittingTypes 除外するフィールドタイプ
+ * @returns 指定したフィールドタイプを除いた一覧
+ */
+export const omitFieldProperties = (
+  properties: FieldProperties,
+  omittingTypes: PickType<FieldProperties[string], 'type'>[]
+): FieldProperties => {
+  return filterFieldProperties(properties, (property) => !omittingTypes.includes(property.type));
+};
+
+/** 対象レコードの各フィールドから、指定文字列に一致するフィールドが１つでもあればTrueを返します */
+export const someRecord = (record: KintoneRecord, searchValue: string): boolean => {
+  return Object.values(record).some((field) => someFieldValue(field, searchValue));
+};
+
+export const someFieldValue = (field: KintoneRecord[string], searchValue: string) => {
+  switch (field.type) {
+    case 'CREATOR':
+    case 'MODIFIER':
+      return ~field.value.name.indexOf(searchValue);
+
+    case 'CHECK_BOX':
+    case 'MULTI_SELECT':
+    case 'CATEGORY':
+      return field.value.some((value) => ~value.indexOf(searchValue));
+
+    case 'USER_SELECT':
+    case 'ORGANIZATION_SELECT':
+    case 'GROUP_SELECT':
+    case 'STATUS_ASSIGNEE':
+      return field.value.some(({ name }) => ~name.indexOf(searchValue));
+
+    case 'FILE':
+      return field.value.some(({ name }) => ~name.indexOf(searchValue));
+
+    case 'SUBTABLE':
+      return field.value.some(({ value }) => someRecord(value, searchValue));
+
+    default:
+      return field.value && ~field.value.indexOf(searchValue);
   }
 };
