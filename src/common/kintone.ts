@@ -32,10 +32,11 @@ export const getQuery = (): string | null => getApp().getQuery();
 export const getQueryCondition = (): string | null => getApp().getQueryCondition();
 
 /** モバイル対応 ```kintone.app.record.get()``` */
-export const getCurrentRecord = (): KintoneRecord => getApp().record.get();
+export const getCurrentRecord = (): { record: KintoneRecord } => getApp().record.get();
 
 /** モバイル対応 ```kintone.app.record.set()``` */
-export const setCurrentRecord = (record: KintoneRecord): void => getApp().record.set(record);
+export const setCurrentRecord = (record: { record: KintoneRecord }): void =>
+  getApp().record.set(record);
 
 /** モバイル対応 ```kintone.app.record.setFieldShown()``` */
 export const setFieldShown = (code: string, visible: boolean): void =>
