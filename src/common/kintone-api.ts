@@ -99,9 +99,9 @@ export const filterFieldProperties = (
   properties: FieldProperties,
   callback: (field: FieldProperty) => boolean
 ): FieldProperties => {
-  const filterd = Object.entries(properties).filter(([_, value]) => callback(value));
+  const filtered = Object.entries(properties).filter(([_, value]) => callback(value));
 
-  const reduced = filterd.reduce<FieldProperties>(
+  const reduced = filtered.reduce<FieldProperties>(
     (acc, [key, value]) => ({ ...acc, [key]: value }),
     {}
   );
