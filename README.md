@@ -1,4 +1,12 @@
-<h1 align="center">🍀 Kintoneプラグインテンプレート</h1>
+<h1 align="center">
+  <p align="center">Kintoneプラグインテンプレート</p>
+</h1>
+
+<p align="left">
+ <a href="https://twitter.com/lbribbit"><img src="https://img.shields.io/twitter/follow/lbribbit.svg?style=social" align="right" alt="Twitter Follow" /></a>
+ <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg"></a>
+<a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
+</p>
 <p align="center">Typescript + Reactでkintoneプラグインを作成するひな形です。</p>
 
 プラグインの設定パターンを複数用意することを想定して作成しています。
