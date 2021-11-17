@@ -3,9 +3,9 @@
 </h1>
 
 <p align="left">
- <a href="https://twitter.com/lbribbit"><img src="https://img.shields.io/twitter/follow/lbribbit.svg?style=social" align="right" alt="Twitter Follow" /></a>
- <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg"></a>
-<a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
+ <a href="https://twitter.com/lbribbit"><img src="https://img.shields.io/twitter/follow/lbribbit?logo=twitter&style=for-the-badge" align="right" alt="Twitter Follow" /></a>
+ <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/CODE%20STYLE-PRETTIER-orange?style=for-the-badge"></a>
+<a href="#license"><img src="https://img.shields.io/github/license/local-bias/kintone-plugin-template?style=for-the-badge"></a>
 </p>
 <p align="center">Typescript + Reactでkintoneプラグインを作成するひな形です。</p>
 
