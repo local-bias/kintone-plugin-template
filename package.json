@@ -15,7 +15,7 @@
     "develop": "run-s merge-manifest:dev bundle:dev",
     "build": "run-s  merge-manifest:prod bundle:prod",
     "watch": "run-s merge-manifest:dev bundle:watch",
-    "upload": "kintone-plugin-uploader dist/plugin-dev.zip --watch --waiting-dialog-ms 3000",
+    "upload": "ts-node scripts/upload.ts",
     "start": "run-p watch upload",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
   },
@@ -33,6 +33,7 @@
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.3.1",
     "@typescript-eslint/parser": "5.3.1",
+    "dotenv": "^10.0.0",
     "esbuild-loader": "2.16.0",
     "eslint": "8.2.0",
     "fork-ts-checker-webpack-plugin": "6.4.0",
