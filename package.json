@@ -21,10 +21,10 @@
   },
   "devDependencies": {
     "@emotion/styled": "11.6.0",
-    "@kintone/dts-gen": "5.0.9",
+    "@kintone/dts-gen": "5.0.10",
     "@kintone/plugin-packer": "5.0.24",
     "@kintone/plugin-uploader": "6.0.5",
-    "@kintone/rest-api-client": "2.0.24",
+    "@kintone/rest-api-client": "2.0.25",
     "@kintone/webpack-plugin-kintone-plugin": "5.0.24",
     "@mui/icons-material": "5.1.0",
     "@mui/material": "5.1.0",
