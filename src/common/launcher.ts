@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_KEY, PLUGIN_NAME } from '@common/statics';
+import { PLUGIN_NAME } from '@common/statics';
 import { pushPluginName } from '@common/local-storage';
 
 class Launcher {
