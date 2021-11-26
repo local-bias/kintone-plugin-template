@@ -54,12 +54,19 @@ const Container: VFC<ContainerProps> = ({ condition, index }) => {
   const appFields = useRecoilValue(appFieldsState);
   const setStorage = useSetRecoilState(storageState);
 
-  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const setConditionProps = <T extends keyof kintone.plugin.Condition>(
+    key: T,
+    value: kintone.plugin.Condition[T]
+  ) => {
     setStorage((_, _storage = _!) =>
       produce(_storage, (draft) => {
-        draft.conditions[index].field = e.target.value;
+        draft.conditions[index][key] = value;
       })
     );
+  };
+
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setConditionProps('field', e.target.value);
   };
 
   return <StyledComponent {...{ condition, index, appFields, onChange }} />;
