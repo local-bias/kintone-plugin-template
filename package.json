@@ -6,7 +6,7 @@
   "scripts": {
     "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin",
     "move-ppk": "node scripts/move-ppk.ts",
-    "init": "run-s develop create-ppk move-ppk",
+    "init": "run-s merge-manifest:prod create-ppk move-ppk",
     "bundle:dev": "webpack --config webpack.dev.js",
     "bundle:prod": "webpack --config webpack.prod.js",
     "bundle:watch": "webpack --config webpack.dev.js -w",
