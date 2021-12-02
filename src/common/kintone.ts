@@ -51,3 +51,30 @@ export const getHeaderSpace = (eventType: string): HTMLElement | null => {
   }
   return kintone.app.getHeaderMenuSpaceElement();
 };
+
+/**
+ * 指定したフィールドコードに対応するDOM要素を返却します
+ *
+ * ### 動作する画面
+ * - レコード詳細画面
+ * - レコード印刷画面
+ *
+ * @param fieldCode フィールドコード
+ * @returns DOM要素
+ */
+export const getFieldElement = (fieldCode: string) => {
+  return getApp().record.getFieldElement(fieldCode);
+};
+
+/**
+ * 指定したフィールドコードに対応する各レコードのDOM要素を返却します
+ *
+ * ### 動作する画面
+ * - レコード一覧画面
+ *
+ * @param fieldCode
+ * @returns
+ */
+export const getFieldElements = (fieldCode: string) => {
+  return getApp().getFieldElements(fieldCode);
+};
