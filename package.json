@@ -25,7 +25,7 @@
     "@kintone/plugin-packer": "5.0.26",
     "@kintone/plugin-uploader": "6.0.5",
     "@kintone/rest-api-client": "2.0.27",
-    "@kintone/webpack-plugin-kintone-plugin": "5.0.25",
+    "@kintone/webpack-plugin-kintone-plugin": "5.0.26",
     "@mui/icons-material": "5.2.0",
     "@mui/material": "5.2.2",
     "@types/luxon": "2.0.7",
