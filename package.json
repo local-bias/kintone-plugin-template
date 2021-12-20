@@ -24,7 +24,7 @@
     "@kintone/dts-gen": "5.0.12",
     "@kintone/plugin-packer": "5.0.28",
     "@kintone/plugin-uploader": "6.0.6",
-    "@kintone/rest-api-client": "2.0.27",
+    "@kintone/rest-api-client": "2.0.28",
     "@kintone/webpack-plugin-kintone-plugin": "5.0.28",
     "@mui/icons-material": "5.2.1",
     "@mui/material": "5.2.3",
