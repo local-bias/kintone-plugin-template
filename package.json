@@ -28,7 +28,7 @@
     "@kintone/webpack-plugin-kintone-plugin": "5.0.31",
     "@mui/icons-material": "5.2.5",
     "@mui/material": "5.2.7",
-    "@types/luxon": "2.0.8",
+    "@types/luxon": "2.0.9",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.9.0",
