@@ -36,7 +36,7 @@
     "dotenv": "15.0.0",
     "esbuild-loader": "2.18.0",
     "eslint": "8.8.0",
-    "fork-ts-checker-webpack-plugin": "6.5.0",
+    "fork-ts-checker-webpack-plugin": "7.0.0",
     "immer": "9.0.12",
     "luxon": "2.3.0",
     "notistack": "2.0.3",
