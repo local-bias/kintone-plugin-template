@@ -1,8 +1,7 @@
 import React, { VFCX } from 'react';
 import styled from '@emotion/styled';
-import { DeepReadonly } from 'utility-types';
 
-type Props = DeepReadonly<{ label: string }>;
+type Props = Readonly<{ label: string }>;
 
 const Component: VFCX<Props> = ({ className, label }) => (
   <div {...{ className }}>
