@@ -23,7 +23,7 @@
     "@emotion/styled": "11.6.0",
     "@kintone/dts-gen": "5.0.19",
     "@kintone/plugin-packer": "5.0.34",
-    "@kintone/plugin-uploader": "6.0.12",
+    "@kintone/plugin-uploader": "6.0.13",
     "@kintone/rest-api-client": "2.0.34",
     "@kintone/webpack-plugin-kintone-plugin": "5.0.34",
     "@mui/icons-material": "5.4.1",
