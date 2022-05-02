@@ -22,7 +22,7 @@
   "devDependencies": {
     "@emotion/styled": "11.8.1",
     "@kintone/dts-gen": "5.0.23",
-    "@kintone/plugin-packer": "5.0.38",
+    "@kintone/plugin-packer": "5.0.39",
     "@kintone/plugin-uploader": "6.0.16",
     "@kintone/rest-api-client": "2.0.37",
     "@kintone/webpack-plugin-kintone-plugin": "5.0.38",
