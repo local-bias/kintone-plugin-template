@@ -3,7 +3,7 @@ declare namespace launcher {
   type Enables = (event: kintone.Event, pluginId: string) => boolean;
 
   /** 処理を登録するイベント⚡ */
-  type EventTypes = kintone.EventType[] | ((pluginId: string) => kintone.EventType[]);
+  type Events = kintone.EventType[] | ((pluginId: string) => kintone.EventType[]);
 
   /** 各イベントに登録する処理⚡ */
   type Action = (event: kintone.Event, pluginId: string) => kintone.Event | Promise<kintone.Event>;
@@ -16,7 +16,7 @@ declare namespace launcher {
   type Config = {
     action: Action;
     enables?: Enables;
-    events?: EventTypes;
+    events?: Events;
     disableMobile?: boolean;
   };
 }
