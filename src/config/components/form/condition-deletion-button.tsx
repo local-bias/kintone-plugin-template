@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilCallback } from 'recoil';
 import { produce } from 'immer';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -16,15 +16,17 @@ const Component: FC<Props> = ({ onClick }) => (
 );
 
 const Container: FC<ContainerProps> = ({ index }) => {
-  const setStorage = useSetRecoilState(storageState);
-
-  const onClick = () => {
-    setStorage((_, _storage = _!) =>
-      produce(_storage, (draft) => {
-        draft.conditions.splice(index, 1);
-      })
-    );
-  };
+  const onClick = useRecoilCallback(
+    ({ set }) =>
+      () => {
+        set(storageState, (_, _storage = _!) =>
+          produce(_storage, (draft) => {
+            draft.conditions.splice(index, 1);
+          })
+        );
+      },
+    []
+  );
 
   return <Component {...{ onClick }} />;
 };
