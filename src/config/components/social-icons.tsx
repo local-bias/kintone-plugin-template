@@ -7,6 +7,8 @@ import HomeIcon from '@mui/icons-material/Home';
 
 import { URL_HOMEPAGE, URL_TWITTER, URL_GITHUB } from '@common/static';
 
+import GradientButton from './gradient-button';
+
 const openNewTab = (path: string) => window.open(path, '_blank');
 
 const Icon: FCwC<{ title: string; url: string }> = ({ children, title, url }) => (
@@ -28,6 +30,9 @@ const Component: FCX = ({ className }) => (
     <Icon title='GitHub' url={URL_GITHUB}>
       <GitHubIcon />
     </Icon>
+    <GradientButton onClick={() => openNewTab('https://kula.konomi.app')}>
+      kintoneだけでブログが書けます
+    </GradientButton>
   </aside>
 );
 
