@@ -14,8 +14,8 @@
   },
   "icon": "image/icon.png",
   "homepage_url": {
-    "ja": "https://ribbit.work/",
-    "en": "https://ribbit.work/"
+    "ja": "https://ribbit.konomi.app/",
+    "en": "https://ribbit.konomi.app/"
   },
   "desktop": {
     "js": ["https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn@latest/dist/desktop.js"],
