@@ -1,4 +1,4 @@
-import React, { FC, VFCX } from 'react';
+import React, { FCwC, FCX } from 'react';
 import styled from '@emotion/styled';
 import { Fab, Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -9,7 +9,7 @@ import { URL_HOMEPAGE, URL_TWITTER, URL_GITHUB } from '@common/static';
 
 const openNewTab = (path: string) => window.open(path, '_blank');
 
-const Icon: FC<{ title: string; url: string }> = ({ children, title, url }) => (
+const Icon: FCwC<{ title: string; url: string }> = ({ children, title, url }) => (
   <Tooltip title={title} aria-label={title}>
     <Fab size='small' onClick={() => openNewTab(url)}>
       {children as any}
@@ -17,7 +17,7 @@ const Icon: FC<{ title: string; url: string }> = ({ children, title, url }) => (
   </Tooltip>
 );
 
-const Component: VFCX = ({ className }) => (
+const Component: FCX = ({ className }) => (
   <aside className={className}>
     <Icon title='ホームページ' url={URL_HOMEPAGE}>
       <HomeIcon />

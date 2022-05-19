@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import React, { FC } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { produce } from 'immer';
 import { Button } from '@mui/material';
@@ -10,7 +10,7 @@ import { storageState } from '../../states';
 
 type Props = Readonly<{ addCondition: () => void }>;
 
-const Component: VFC<Props> = ({ addCondition }) => (
+const Component: FC<Props> = ({ addCondition }) => (
   <Button
     variant='outlined'
     color='primary'
@@ -23,7 +23,7 @@ const Component: VFC<Props> = ({ addCondition }) => (
   </Button>
 );
 
-const Container: VFC = () => {
+const Container: FC = () => {
   const setStorage = useSetRecoilState(storageState);
 
   const addCondition = () => {

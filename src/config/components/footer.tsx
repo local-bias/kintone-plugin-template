@@ -1,4 +1,4 @@
-import React, { VFC, VFCX } from 'react';
+import React, { FC, FCX } from 'react';
 import { useRecoilCallback } from 'recoil';
 import styled from '@emotion/styled';
 import { useSnackbar } from 'notistack';
@@ -15,7 +15,7 @@ type Props = {
   onBackButtonClick: () => void;
 };
 
-const Component: VFCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick }) => (
+const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick }) => (
   <div {...{ className }}>
     <Button
       variant='contained'
@@ -48,7 +48,7 @@ const StyledComponent = styled(Component)`
   }
 `;
 
-const Container: VFC = () => {
+const Container: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const onBackButtonClick = () => history.back();

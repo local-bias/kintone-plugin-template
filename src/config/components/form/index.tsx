@@ -1,4 +1,4 @@
-import React, { FC, VFCX } from 'react';
+import React, { FC, FCX } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
 
@@ -11,7 +11,7 @@ type Props = Readonly<{
   storage: kintone.plugin.Storage | null;
 }>;
 
-const Component: VFCX<Props> = ({ className, storage }) => (
+const Component: FCX<Props> = ({ className, storage }) => (
   <div {...{ className }}>
     {!storage && <Loading label='設定情報を取得しています' />}
     {!!storage && (

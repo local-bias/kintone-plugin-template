@@ -1,9 +1,9 @@
-import React, { VFCX } from 'react';
+import React, { FCX } from 'react';
 import styled from '@emotion/styled';
 
 type Props = Readonly<{ label: string }>;
 
-const Component: VFCX<Props> = ({ className, label }) => (
+const Component: FCX<Props> = ({ className, label }) => (
   <div {...{ className }}>
     <div>
       {['#fc0', '#fd5', '#fff'].map((color, i) => (

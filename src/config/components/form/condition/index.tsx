@@ -1,4 +1,4 @@
-import React, { memo, useState, VFC, VFCX } from 'react';
+import React, { memo, useState, FC, FCX } from 'react';
 import { Accordion, AccordionActions, AccordionDetails, AccordionSummary } from '@mui/material';
 
 import ConditionForm from './condition-form';
@@ -10,7 +10,7 @@ type Props = ContainerProps & {
   onChange: () => void;
 };
 
-const Component: VFCX<Props> = ({ className, condition, index, expanded, onChange }) => (
+const Component: FCX<Props> = ({ className, condition, index, expanded, onChange }) => (
   <Accordion {...{ expanded, onChange, className }} variant='outlined' square>
     <AccordionSummary>設定{index + 1}</AccordionSummary>
     <AccordionDetails>
@@ -22,7 +22,7 @@ const Component: VFCX<Props> = ({ className, condition, index, expanded, onChang
   </Accordion>
 );
 
-const Container: VFC<ContainerProps> = memo(({ condition, index }) => {
+const Container: FC<ContainerProps> = memo(({ condition, index }) => {
   const [expanded, setExpanded] = useState<boolean>(index === 0);
 
   const onChange = () => setExpanded((_expanded) => !_expanded);

@@ -1,4 +1,4 @@
-import React, { Suspense, VFC } from 'react';
+import React, { Suspense, FC } from 'react';
 import { RecoilRoot } from 'recoil';
 import { SnackbarProvider } from 'notistack';
 
@@ -12,7 +12,7 @@ import SocialIcons from './components/social-icons';
 import { pluginIdState, storageState } from './states';
 import { Loading } from '@common/components/loading';
 
-const Component: VFC<{ pluginId: string }> = ({ pluginId }) => (
+const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
   <>
     <RecoilRoot
       initializeState={({ set }) => {

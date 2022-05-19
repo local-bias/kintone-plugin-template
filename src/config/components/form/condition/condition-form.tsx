@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, VFC, VFCX } from 'react';
+import React, { ChangeEventHandler, FC, FCX } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from '@emotion/styled';
 import produce from 'immer';
@@ -13,7 +13,7 @@ type Props = ContainerProps & {
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
-const Component: VFCX<Props> = ({ className, condition, appFields, onChange }) => (
+const Component: FCX<Props> = ({ className, condition, appFields, onChange }) => (
   <div {...{ className }}>
     <div>
       <h3>対象フィールド</h3>
@@ -50,7 +50,7 @@ const StyledComponent = styled(Component)`
   }
 `;
 
-const Container: VFC<ContainerProps> = ({ condition, index }) => {
+const Container: FC<ContainerProps> = ({ condition, index }) => {
   const appFields = useRecoilValue(appFieldsState);
   const setStorage = useSetRecoilState(storageState);
 

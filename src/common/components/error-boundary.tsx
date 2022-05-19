@@ -1,10 +1,10 @@
-import React, { FC, VFCX } from 'react';
+import React, { FC, FCwC, FCX } from 'react';
 import styled from '@emotion/styled';
 import { ErrorBoundary as ErrBoundary, FallbackProps } from 'react-error-boundary';
 import { Button } from '@mui/material';
 import { URL_HOMEPAGE } from '@common/static';
 
-const Component: VFCX<FallbackProps> = ({ className, error, resetErrorBoundary }) => (
+const Component: FCX<FallbackProps> = ({ className, error, resetErrorBoundary }) => (
   <div {...{ className }}>
     <svg height='512' viewBox='0 0 510 510' width='512' xmlns='http://www.w3.org/2000/svg'>
       <g>
@@ -106,7 +106,7 @@ const StyledComponent = styled(Component)`
   }
 `;
 
-const Container: FC = ({ children }) => (
+const Container: FCwC = ({ children }) => (
   <ErrBoundary fallbackRender={(props) => <StyledComponent {...props} />}>{children}</ErrBoundary>
 );
 
