@@ -13,7 +13,7 @@ import { pluginIdState, storageState } from './states';
 import { Loading } from '@common/components/loading';
 
 const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
-  <>
+  <Suspense fallback={<p>読み込み中...</p>}>
     <RecoilRoot
       initializeState={({ set }) => {
         set(pluginIdState, pluginId);
@@ -30,7 +30,7 @@ const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
       </ErrorBoundary>
     </RecoilRoot>
     <SocialIcons />
-  </>
+  </Suspense>
 );
 
 export default Component;
