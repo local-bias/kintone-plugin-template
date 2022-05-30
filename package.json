@@ -27,7 +27,7 @@
     "@kintone/rest-api-client": "3.1.0",
     "@kintone/webpack-plugin-kintone-plugin": "6.0.1",
     "@mui/icons-material": "5.8.0",
-    "@mui/material": "5.8.0",
+    "@mui/material": "5.8.1",
     "@types/luxon": "2.3.2",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
