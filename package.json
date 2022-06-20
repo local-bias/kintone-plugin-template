@@ -29,7 +29,7 @@
     "@mui/icons-material": "5.8.0",
     "@mui/material": "5.8.1",
     "@types/luxon": "2.3.2",
-    "@types/react": "18.0.12",
+    "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "5.26.0",
     "@typescript-eslint/parser": "5.26.0",
