@@ -1,4 +1,4 @@
-import React, { FC, FCX } from 'react';
+import React, { FC, FCX, useCallback } from 'react';
 import { useRecoilCallback } from 'recoil';
 import styled from '@emotion/styled';
 import { useSnackbar } from 'notistack';
@@ -51,7 +51,7 @@ const StyledComponent = styled(Component)`
 const Container: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const onBackButtonClick = () => history.back();
+  const onBackButtonClick = useCallback(() => history.back(), []);
 
   const onSaveButtonClick = useRecoilCallback(
     ({ snapshot }) =>
