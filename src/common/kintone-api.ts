@@ -19,6 +19,9 @@ const DEFAULT_DEFINED_FIELDS: PickType<FieldProperty, 'type'>[] = [
   'STATUS',
 ];
 
+/** REST APIクライアント(シングルトン) */
+export const kintoneClient = new KintoneRestAPIClient();
+
 export const getFieldProperties = async (targetApp?: string | number): Promise<FieldProperties> => {
   const app = targetApp || kintone.app.getId();
 
@@ -26,9 +29,7 @@ export const getFieldProperties = async (targetApp?: string | number): Promise<F
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
 
-  const client = new KintoneRestAPIClient();
-
-  const { properties } = await client.app.getFormFields({ app });
+  const { properties } = await kintoneClient.app.getFormFields({ app });
 
   return properties;
 };
@@ -59,9 +60,7 @@ export const getAppLayout = async (): Promise<Layout> => {
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
 
-  const client = new KintoneRestAPIClient();
-
-  const { layout } = await client.app.getFormLayout({ app });
+  const { layout } = await kintoneClient.app.getFormLayout({ app });
 
   return layout;
 };
