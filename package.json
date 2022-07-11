@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "5.28.0",
     "dotenv": "16.0.1",
     "esbuild-loader": "2.19.0",
-    "eslint": "8.18.0",
+    "eslint": "8.19.0",
     "fork-ts-checker-webpack-plugin": "7.2.12",
     "immer": "9.0.15",
     "luxon": "2.4.0",
