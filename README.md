@@ -1,13 +1,15 @@
-<h1 align="center">
-  <p align="center">Kintoneプラグインテンプレート</p>
-</h1>
+<h1 align="center">🐇 kintone プラグインテンプレート 🐇</h1>
 
 <p align="left">
- <a href="https://twitter.com/lbribbit"><img src="https://img.shields.io/twitter/follow/lbribbit?logo=twitter&style=for-the-badge" align="right" alt="Twitter Follow" /></a>
- <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/CODE%20STYLE-PRETTIER-orange?style=for-the-badge"></a>
-<a href="#license"><img src="https://img.shields.io/github/license/local-bias/kintone-plugin-template?style=for-the-badge"></a>
+ <img src="https://data.jsdelivr.com/v1/package/gh/local-bias/kintone-plugin-template/badge" />
+ <a href="https://twitter.com/lbribbit"><img src="https://img.shields.io/twitter/follow/lbribbit?logo=twitter&style=flat-square" align="right" alt="Twitter Follow" /></a>
+ <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code%20style-prettier-orange?style=flat-square"></a>
+<a href="#license"><img src="https://img.shields.io/github/license/local-bias/kintone-plugin-template?style=flat-square"></a>
 </p>
+
 <p align="center">Typescript + Reactでkintoneプラグインを作成するひな形です。</p>
+
+[ホームページ](https://ribbit.konomi.app)
 
 プラグインの設定パターンを複数用意することを想定して作成しています。
 
