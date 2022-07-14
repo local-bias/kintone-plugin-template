@@ -7,8 +7,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 
 import { storeStorage } from '@common/plugin';
-
-import { storageState } from '../states';
+import { storageState } from '../states/plugin';
 
 type Props = {
   onSaveButtonClick: () => void;

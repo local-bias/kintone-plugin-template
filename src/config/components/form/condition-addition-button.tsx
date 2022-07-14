@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import { useRecoilCallback, useSetRecoilState } from 'recoil';
+import { useRecoilCallback } from 'recoil';
 import { produce } from 'immer';
 import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 import { getNewCondition } from '@common/plugin';
-
-import { storageState } from '../../states';
+import { storageState } from '../../states/plugin';
 
 type Props = Readonly<{ addCondition: () => void }>;
 

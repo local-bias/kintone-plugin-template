@@ -4,8 +4,9 @@ import styled from '@emotion/styled';
 import { Autocomplete, TextField } from '@mui/material';
 import produce from 'immer';
 
-import { appFieldsState, storageState } from '../../../states';
 import { kx } from '@type/kintone.api';
+import { appFieldsState } from '../../../states/kintone';
+import { storageState } from '../../../states/plugin';
 
 type ContainerProps = { condition: kintone.plugin.Condition; index: number };
 
