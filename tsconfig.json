@@ -13,7 +13,8 @@
     "jsx": "react",
     "strict": true,
     "paths": {
-      "@common/*": ["./src/common/*"]
+      "@common/*": ["./src/common/*"],
+      "@type/*": ["./src/types/*"]
     }
   },
   "typeRoots": ["src/types", "node_modules/@types"],
