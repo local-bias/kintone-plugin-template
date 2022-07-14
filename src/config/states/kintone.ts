@@ -8,6 +8,9 @@ export const appFieldsState = selector<kx.FieldProperty[]>({
   key: `${PREFIX}appFieldsState`,
   get: async () => {
     const properties = await getUserDefinedFields();
-    return Object.values(properties);
+
+    const values = Object.values(properties);
+
+    return values.sort((a, b) => a.label.localeCompare(b.label, 'ja'));
   },
 });

@@ -33,9 +33,9 @@ const Component: FCX<ContainerProps> = ({ className, condition, index }) => {
       <div>
         <h3>対象フィールド</h3>
         <Autocomplete
-          value={Object.values(appFields).find((field) => field.code === condition.field)}
+          value={appFields.find((field) => field.code === condition.field)}
           sx={{ width: '350px' }}
-          options={Object.values(appFields)}
+          options={appFields}
           onChange={(_, option) => onFieldChange(option)}
           getOptionLabel={(option) => option.label}
           renderInput={(params) => (
