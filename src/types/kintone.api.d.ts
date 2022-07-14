@@ -4,17 +4,19 @@ import {
 } from '@kintone/rest-api-client/lib/client/types';
 import { OneOf as DefaultFieldProperty } from '@kintone/rest-api-client/lib/KintoneFields/types/property';
 import {
+  OneOf as DefaultField,
   Creator as DefaultCreator,
   UserSelect as DefaultUserSelect,
 } from '@kintone/rest-api-client/lib/KintoneFields/types/field';
 
 declare namespace kx {
   type App = DefaultApp;
-  type Field = DefaultFieldProperty;
-  type FieldType = Field['type'];
+  type Field = DefaultField;
+  type FieldProperty = DefaultFieldProperty;
+  type FieldPropertyType = FieldProperty['type'];
 
-  type FieldProperties = Record<string, Field>;
-  type FieldEntry = [string, Field];
+  type FieldProperties = Record<string, FieldProperty>;
+  type FieldEntry = [string, FieldProperty];
 
   type RecordData = DefaultRecord;
 

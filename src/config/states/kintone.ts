@@ -4,7 +4,7 @@ import { kx } from '../../types/kintone.api';
 
 const PREFIX = 'kintone';
 
-export const appFieldsState = selector<kx.Field[]>({
+export const appFieldsState = selector<kx.FieldProperty[]>({
   key: `${PREFIX}appFieldsState`,
   get: async () => {
     const properties = await getUserDefinedFields();

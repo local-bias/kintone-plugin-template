@@ -15,7 +15,7 @@ const Component: FCX<ContainerProps> = ({ className, condition, index }) => {
 
   const onFieldChange = useRecoilCallback(
     ({ set }) =>
-      (field: kx.Field | null) => {
+      (field: kx.FieldProperty | null) => {
         if (!field) {
           return;
         }
