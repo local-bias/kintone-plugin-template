@@ -1,38 +1,50 @@
-import React, { ChangeEventHandler, FC, FCX } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import React, { FCX } from 'react';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
+import { Autocomplete, TextField } from '@mui/material';
 import produce from 'immer';
-import { Properties } from '@kintone/rest-api-client/lib/client/types';
 
 import { appFieldsState, storageState } from '../../../states';
-import { MenuItem, TextField } from '@mui/material';
+import { kx } from '@type/kintone.api';
 
 type ContainerProps = { condition: kintone.plugin.Condition; index: number };
-type Props = ContainerProps & {
-  appFields: Properties;
-  onChange: ChangeEventHandler<HTMLInputElement>;
-};
 
-const Component: FCX<Props> = ({ className, condition, appFields, onChange }) => (
-  <div {...{ className }}>
-    <div>
-      <h3>対象フィールド</h3>
-      <TextField
-        select
-        value={condition.field}
-        label='フィールド名'
-        {...{ onChange }}
-        className='input'
-      >
-        {Object.values(appFields).map(({ code, label }, i) => (
-          <MenuItem key={i} value={code}>
-            {label}
-          </MenuItem>
-        ))}
-      </TextField>
+const Component: FCX<ContainerProps> = ({ className, condition, index }) => {
+  const appFields = useRecoilValue(appFieldsState);
+
+  const onFieldChange = useRecoilCallback(
+    ({ set }) =>
+      (field: kx.Field | null) => {
+        if (!field) {
+          return;
+        }
+        set(storageState, (_, _storage = _!) =>
+          produce(_storage, (draft) => {
+            draft.conditions[index].field = field.code;
+          })
+        );
+      },
+    []
+  );
+
+  return (
+    <div {...{ className }}>
+      <div>
+        <h3>対象フィールド</h3>
+        <Autocomplete
+          value={Object.values(appFields).find((field) => field.code === condition.field)}
+          sx={{ width: '350px' }}
+          options={Object.values(appFields)}
+          onChange={(_, option) => onFieldChange(option)}
+          getOptionLabel={(option) => option.label}
+          renderInput={(params) => (
+            <TextField {...params} label='対象フィールド' variant='outlined' color='primary' />
+          )}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const StyledComponent = styled(Component)`
   padding: 0 16px;
@@ -44,32 +56,6 @@ const StyledComponent = styled(Component)`
       margin-bottom: 16px;
     }
   }
-
-  .input {
-    min-width: 250px;
-  }
 `;
 
-const Container: FC<ContainerProps> = ({ condition, index }) => {
-  const appFields = useRecoilValue(appFieldsState);
-  const setStorage = useSetRecoilState(storageState);
-
-  const setConditionProps = <T extends keyof kintone.plugin.Condition>(
-    key: T,
-    value: kintone.plugin.Condition[T]
-  ) => {
-    setStorage((_, _storage = _!) =>
-      produce(_storage, (draft) => {
-        draft.conditions[index][key] = value;
-      })
-    );
-  };
-
-  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setConditionProps('field', e.target.value);
-  };
-
-  return <StyledComponent {...{ condition, index, appFields, onChange }} />;
-};
-
-export default Container;
+export default StyledComponent;
