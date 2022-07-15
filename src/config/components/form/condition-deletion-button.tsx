@@ -26,7 +26,7 @@ const Container: FC<ContainerProps> = ({ index }) => {
           })
         );
       },
-    []
+    [index]
   );
 
   return <Component {...{ onClick }} />;
