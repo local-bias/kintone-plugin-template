@@ -1,5 +1,5 @@
 import { KintoneRestAPIClient } from '@kintone/rest-api-client';
-import { getAppId } from './kintone';
+import { getAppId } from '@lb-ribbit/kintone-xapp';
 import { kx } from '@type/kintone.api';
 
 /** kintoneアプリに初期状態で存在するフィールドタイプ */
