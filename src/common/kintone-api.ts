@@ -1,4 +1,3 @@
-import { Layout } from '@kintone/rest-api-client/lib/client/types';
 import { KintoneRestAPIClient } from '@kintone/rest-api-client';
 import { getAppId } from './kintone';
 import { kx } from '@type/kintone.api';
@@ -50,8 +49,8 @@ export const getAllFields = async (): Promise<kx.FieldProperty[]> => {
   return fields;
 };
 
-export const getAppLayout = async (): Promise<Layout> => {
-  const app = getAppId();
+export const getAppLayout = async (_app?: number): Promise<kx.Layout> => {
+  const app = _app || getAppId();
 
   if (!app) {
     throw new Error('アプリのフィールド情報が取得できませんでした');
@@ -60,6 +59,35 @@ export const getAppLayout = async (): Promise<Layout> => {
   const { layout } = await kintoneClient.app.getFormLayout({ app });
 
   return layout;
+};
+
+/**
+ * アプリのレイアウト情報から、ラベルフィールドのみを返却します
+ * @param layout アプリのレイアウト情報
+ * @returns ラベルフィールド一覧
+ */
+export const getLabelFields = async (layout: kx.Layout): Promise<kx.layout.Label[]> => {
+  const labels: kx.layout.Label[] = [];
+  for (const section of layout) {
+    if (section.type === 'GROUP') {
+      for (const row of section.layout) {
+        labels.push(...getLabelFromLayoutFields(row.fields));
+      }
+    } else if (section.type === 'ROW') {
+      labels.push(...getLabelFromLayoutFields(section.fields));
+    }
+  }
+  return labels;
+};
+
+export const getLabelFromLayoutFields = (layout: kx.LayoutField[]): kx.layout.Label[] => {
+  const labels: kx.layout.Label[] = [];
+  for (const field of layout) {
+    if (field.type === 'LABEL') {
+      labels.push(field);
+    }
+  }
+  return labels;
 };
 
 /** 指定のフィールドコードのフィールドを操作します */
