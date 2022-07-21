@@ -26,6 +26,7 @@
     "@kintone/plugin-uploader": "7.0.1",
     "@kintone/rest-api-client": "3.1.4",
     "@kintone/webpack-plugin-kintone-plugin": "6.0.5",
+    "@lb-ribbit/kintone-secrets": "^0.1.2",
     "@lb-ribbit/kintone-xapp": "^0.2.2",
     "@mui/icons-material": "5.8.4",
     "@mui/material": "5.9.0",

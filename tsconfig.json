@@ -18,7 +18,10 @@
     }
   },
   "typeRoots": ["src/types", "node_modules/@types"],
-  "files": ["./node_modules/@kintone/dts-gen/kintone.d.ts"],
+  "files": [
+    "./node_modules/@kintone/dts-gen/kintone.d.ts",
+    "./node_modules/@lb-ribbit/kintone-secrets/cybozu.d.ts"
+  ],
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }
