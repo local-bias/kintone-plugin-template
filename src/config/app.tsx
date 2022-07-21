@@ -12,7 +12,7 @@ import { Loading } from '@common/components/loading';
 import { pluginIdState, storageState } from './states/plugin';
 
 const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
-  <Suspense fallback={<p>読み込み中...</p>}>
+  <Suspense fallback={<Loading label='画面の描画を待機しています' />}>
     <RecoilRoot
       initializeState={({ set }) => {
         set(pluginIdState, pluginId);
