@@ -1,5 +1,5 @@
 import React, { FC, FCX, useCallback } from 'react';
-import { useRecoilCallback } from 'recoil';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
 import { useSnackbar } from 'notistack';
 import { Button } from '@mui/material';
@@ -7,33 +7,39 @@ import SaveIcon from '@mui/icons-material/Save';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 
 import { storeStorage } from '@common/plugin';
-import { storageState } from '../states/plugin';
+import { loadingState, storageState } from '../states/plugin';
 
 type Props = {
   onSaveButtonClick: () => void;
   onBackButtonClick: () => void;
 };
 
-const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick }) => (
-  <div {...{ className }}>
-    <Button
-      variant='contained'
-      color='primary'
-      onClick={onSaveButtonClick}
-      startIcon={<SaveIcon />}
-    >
-      設定を保存
-    </Button>
-    <Button
-      variant='contained'
-      color='inherit'
-      onClick={onBackButtonClick}
-      startIcon={<SettingsBackupRestoreIcon />}
-    >
-      プラグイン一覧へ戻る
-    </Button>
-  </div>
-);
+const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick }) => {
+  const loading = useRecoilValue(loadingState);
+
+  return (
+    <div {...{ className }}>
+      <Button
+        variant='contained'
+        color='primary'
+        disabled={loading}
+        onClick={onSaveButtonClick}
+        startIcon={<SaveIcon />}
+      >
+        設定を保存
+      </Button>
+      <Button
+        variant='contained'
+        color='inherit'
+        disabled={loading}
+        onClick={onBackButtonClick}
+        startIcon={<SettingsBackupRestoreIcon />}
+      >
+        プラグイン一覧へ戻る
+      </Button>
+    </div>
+  );
+};
 
 const StyledComponent = styled(Component)`
   position: sticky;
@@ -53,19 +59,24 @@ const Container: FC = () => {
   const onBackButtonClick = useCallback(() => history.back(), []);
 
   const onSaveButtonClick = useRecoilCallback(
-    ({ snapshot }) =>
+    ({ set, snapshot }) =>
       async () => {
-        const storage = await snapshot.getPromise(storageState);
+        set(loadingState, true);
+        try {
+          const storage = await snapshot.getPromise(storageState);
 
-        storeStorage(storage!, () => true);
-        enqueueSnackbar('設定を保存しました', {
-          variant: 'success',
-          action: (
-            <Button color='inherit' onClick={onBackButtonClick}>
-              プラグイン一覧に戻る
-            </Button>
-          ),
-        });
+          storeStorage(storage!, () => true);
+          enqueueSnackbar('設定を保存しました', {
+            variant: 'success',
+            action: (
+              <Button color='inherit' onClick={onBackButtonClick}>
+                プラグイン一覧に戻る
+              </Button>
+            ),
+          });
+        } finally {
+          set(loadingState, false);
+        }
       },
     []
   );
