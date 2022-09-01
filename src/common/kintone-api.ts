@@ -13,8 +13,25 @@ const DEFAULT_DEFINED_FIELDS: kx.FieldPropertyType[] = [
   'STATUS',
 ];
 
+class FlexKintone extends KintoneRestAPIClient {
+  constructor(...options: ConstructorParameters<typeof KintoneRestAPIClient>) {
+    const url = kintone.api.url('/k/v1/app', true);
+    const found = url.match(/k\/guest\/([0-9]+)\//);
+
+    if (found && found.length > 1) {
+      super({
+        guestSpaceId: found[1],
+        ...(options[0] || {}),
+      });
+      return;
+    }
+
+    super(...options);
+  }
+}
+
 /** REST APIクライアント(シングルトン) */
-export const kintoneClient = new KintoneRestAPIClient();
+export const kintoneClient = new FlexKintone();
 
 export const getFieldProperties = async (
   targetApp?: string | number
