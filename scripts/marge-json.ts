@@ -1,10 +1,17 @@
 (async ([_, __, envName]) => {
   const fs = require('fs');
+  const path = require('path');
 
-  const root = __dirname.replace('\\scripts', '');
+  const root = __dirname.replace(path.sep + 'scripts', '');
 
-  const baseText = await fs.readFileSync(`${root}\\src\\manifest\\common.json`, 'utf-8');
-  const envText = await fs.readFileSync(`${root}\\src\\manifest\\${envName}.json`, 'utf-8');
+  const baseText = await fs.readFileSync(
+    path.join(root, 'src', 'manifest', 'common.json'),
+    'utf-8'
+  );
+  const envText = await fs.readFileSync(
+    path.join(root, 'src', 'manifest', `${envName}.json`),
+    'utf-8'
+  );
 
   const base = JSON.parse(baseText);
   const env = JSON.parse(envText);
