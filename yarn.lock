@@ -278,7 +278,7 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kintone/dts-gen@6.1.8", "@kintone/dts-gen@^6.1.4":
+"@kintone/dts-gen@6.1.8", "@kintone/dts-gen@^6.1.8":
   version "6.1.8"
   resolved "https://registry.npmjs.org/@kintone/dts-gen/-/dts-gen-6.1.8.tgz"
   integrity sha512-bcYmzuzu05zv/qogoZa0wXqhIs9eZ65cABa3uIuhvQDlhFdCElTcKIG25EnoTqp/+AKSOedZpDlczCrNBvkqpQ==
@@ -326,7 +326,7 @@
     os-locale "^5.0.0"
     puppeteer "^15.1.1"
 
-"@kintone/rest-api-client@3.1.10", "@kintone/rest-api-client@^3.1.4":
+"@kintone/rest-api-client@3.1.10", "@kintone/rest-api-client@^3.1.10":
   version "3.1.10"
   resolved "https://registry.npmjs.org/@kintone/rest-api-client/-/rest-api-client-3.1.10.tgz"
   integrity sha512-JSd3yQ21eDK68vbh+MLl1cBKfoTptoxwiBcbQ7vqfTLCUPHf1H2gXRNgiRgg07sS0dLHM7S5UlqxMNTl0FLrTg==
@@ -350,13 +350,13 @@
   resolved "https://registry.npmjs.org/@lb-ribbit/kintone-secrets/-/kintone-secrets-0.2.4.tgz"
   integrity sha512-dP2EW94/4FALrZmdM8LwkQDvZy+183rVTJb8bn7CjHj4BJTpQOoU7QhsVetGG/aEwNbbw6NjyBiVWBUXt19k5w==
 
-"@lb-ribbit/kintone-xapp@0.3.1":
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/@lb-ribbit/kintone-xapp/-/kintone-xapp-0.3.1.tgz"
-  integrity sha512-BEkmQqEA4j4zWkaQdQvh93gscJj5/Wsh1SWhhFh15BGEXuABHdVTt+oUb4CW5mkk4NpBps+chsyx5ASi+9673A==
+"@lb-ribbit/kintone-xapp@0.3.3":
+  version "0.3.3"
+  resolved "https://registry.npmjs.org/@lb-ribbit/kintone-xapp/-/kintone-xapp-0.3.3.tgz"
+  integrity sha512-7gjWZfth956KhUuPWGs3VmuFgpHApsSap8qGOAMqVs88dy2WaVlfZR/zI78eNEf7WW/31E66VPx3EAMt6renHw==
   dependencies:
-    "@kintone/dts-gen" "^6.1.4"
-    "@kintone/rest-api-client" "^3.1.4"
+    "@kintone/dts-gen" "^6.1.8"
+    "@kintone/rest-api-client" "^3.1.10"
     "@lb-ribbit/kintone-secrets" "^0.2.1"
 
 "@mui/base@5.0.0-alpha.93":
