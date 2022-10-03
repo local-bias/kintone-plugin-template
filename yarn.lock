@@ -400,13 +400,13 @@
     os-locale "^5.0.0"
     puppeteer "^15.1.1"
 
-"@kintone/rest-api-client@3.1.11":
-  version "3.1.11"
-  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.1.11.tgz#ff2b9733f7cb9ca4b82cf476069d23ddfcdc4720"
-  integrity sha512-0OFTz9JF51Eb765HlPyP+Hew93MplNY669Osbm5iKSs6HwnqEayxsf+y/+CZNiySC5qObvZD1KexopUjiYJVUA==
+"@kintone/rest-api-client@3.1.12":
+  version "3.1.12"
+  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.1.12.tgz#2c23734055ad7dd982c5279e3f2a75d16a9cbb5c"
+  integrity sha512-zIm9uKZniOMtAvibPiaqGWQqkXA0mO0uY9gGyWmyKnKZM/HjQ/jkFrMJ9nSFsBeEIKMsj/S9ut3ETczjuiDADQ==
   dependencies:
     axios "^0.27.2"
-    core-js "^3.25.1"
+    core-js "^3.25.3"
     form-data "^4.0.0"
     js-base64 "^3.7.2"
     qs "^6.10.5"
@@ -1465,10 +1465,10 @@ core-js@^3.25.0:
   resolved "https://registry.npmjs.org/core-js/-/core-js-3.25.0.tgz"
   integrity sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==
 
-core-js@^3.25.1:
-  version "3.25.2"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.2.tgz#2d3670c1455432b53fa780300a6fc1bd8304932c"
-  integrity sha512-YB4IAT1bjEfxTJ1XYy11hJAKskO+qmhuDBM8/guIfMz4JvdsAQAqvyb97zXX7JgSrfPLG5mRGFWJwJD39ruq2A==
+core-js@^3.25.3:
+  version "3.25.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.4.tgz#76f6bc330a79aafbaf77e9645293351ea5d09b5b"
+  integrity sha512-JDLxg61lFPFYQ7U0HKoyKwVUV63VbbVTb/K73Yf+k4Mf4ZBZxCjfyrWZjTk1ZM7ZrgFSqhSIOmuzYAxG2f/reQ==
 
 cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
   version "7.0.1"
