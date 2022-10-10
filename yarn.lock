@@ -576,7 +576,7 @@
     "@sentry/utils" "7.13.0"
     tslib "^1.9.3"
 
-"@sentry/react@^7.13.0":
+"@sentry/react@7.13.0":
   version "7.13.0"
   resolved "https://registry.yarnpkg.com/@sentry/react/-/react-7.13.0.tgz#64fa5a2b944c977f75626c6208afa3478c13714c"
   integrity sha512-ulvBmMiwt+4RXwnDkP9qNr7rMJIFE4QXuNxho5pIqWEU9q2656CoL5kau9f2TQQEBxNc9dR4QmUdGyzuEaYPIQ==
