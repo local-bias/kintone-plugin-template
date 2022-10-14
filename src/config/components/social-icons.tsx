@@ -1,11 +1,11 @@
 import React, { FCwC, FCX } from 'react';
 import styled from '@emotion/styled';
-import { Fab, Tooltip } from '@mui/material';
+import { Button, Fab, Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/Home';
 
-import { URL_HOMEPAGE, URL_TWITTER, URL_GITHUB } from '@common/static';
+import { URL_HOMEPAGE, URL_TWITTER, URL_GITHUB, URL_INQUIRY } from '@common/static';
 
 import GradientButton from './gradient-button';
 
@@ -30,6 +30,14 @@ const Component: FCX = ({ className }) => (
     <Icon title='GitHub' url={URL_GITHUB}>
       <GitHubIcon />
     </Icon>
+    <Button
+      color='inherit'
+      variant='contained'
+      disableElevation={true}
+      onClick={() => openNewTab(URL_INQUIRY)}
+    >
+      お問い合わせ
+    </Button>
     <span>
       <GradientButton onClick={() => openNewTab('https://kula.konomi.app')}>
         kintoneだけでブログが書けます
