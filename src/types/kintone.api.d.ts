@@ -13,6 +13,10 @@ import {
   OneOf as DefaultLayoutField,
   Label as DefaultLayoutLabel,
 } from '@kintone/rest-api-client/lib/KintoneFields/types/fieldLayout';
+import {
+  Group as DefaultGroup,
+  Row as DefaultRow,
+} from '@kintone/rest-api-client/lib/KintoneFields/types/layout';
 
 declare namespace kx {
   type App = DefaultApp;
@@ -36,6 +40,8 @@ declare namespace kx {
 
   namespace layout {
     type Label = DefaultLayoutLabel;
+    type Row = DefaultRow<LayoutField[]>;
+    type Group = DefaultGroup<Row[]>;
   }
 
   namespace response {
