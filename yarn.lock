@@ -212,21 +212,6 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.7.tgz#1ec4af4a16c554cbd402cc557ccdd874e3f7be53"
   integrity sha512-IKznSJOsVUuyt7cDzzSZyqBEcZe+7WlBqTVXiF1OXP/4Nm387ToaXZ0fyLwI1iBlI/bzpxVq411QE2/Bt2XWWw==
 
-"@eslint/eslintrc@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.3.1.tgz"
-  integrity sha512-OhSY22oQQdw3zgPOOwdoj01l/Dzl1Z+xyUP33tkSN+aqyEhymJCcPHyXt+ylW8FSe0TfRC2VG+ROQOapD0aZSQ==
-  dependencies:
-    ajv "^6.12.4"
-    debug "^4.3.2"
-    espree "^9.4.0"
-    globals "^13.15.0"
-    ignore "^5.2.0"
-    import-fresh "^3.2.1"
-    js-yaml "^4.1.0"
-    minimatch "^3.1.2"
-    strip-json-comments "^3.1.1"
-
 "@eslint/eslintrc@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-1.3.3.tgz#2b044ab39fdfa75b4688184f9e573ce3c5b0ff95"
@@ -242,15 +227,6 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@humanwhocodes/config-array@^0.10.4":
-  version "0.10.4"
-  resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.4.tgz"
-  integrity sha512-mXAIHxZT3Vcpg83opl1wGlVZ9xydbfZO3r5YfRSH6Gpp2J/PfdBP0wbDa2sO6/qRbcalpoevVyW6A/fI6LfeMw==
-  dependencies:
-    "@humanwhocodes/object-schema" "^1.2.1"
-    debug "^4.1.1"
-    minimatch "^3.0.4"
-
 "@humanwhocodes/config-array@^0.10.5":
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.5.tgz#bb679745224745fff1e9a41961c1d45a49f81c04"
@@ -259,11 +235,6 @@
     "@humanwhocodes/object-schema" "^1.2.1"
     debug "^4.1.1"
     minimatch "^3.0.4"
-
-"@humanwhocodes/gitignore-to-minimatch@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/@humanwhocodes/gitignore-to-minimatch/-/gitignore-to-minimatch-1.0.2.tgz"
-  integrity sha512-rSqmMJDdLFUsyxR6FMtD00nfQKKLFb1kv+qBbOVKqErvloEIJLo5bDTJTQNTYgeyp78JsA7u/NPi5jT1GR/MuA==
 
 "@humanwhocodes/module-importer@^1.0.1":
   version "1.0.1"
@@ -323,7 +294,7 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kintone/dts-gen@6.1.12":
+"@kintone/dts-gen@6.1.12", "@kintone/dts-gen@^6.1.12":
   version "6.1.12"
   resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.12.tgz#426db3a42ccb22241b1b5ec021aa750045d300ba"
   integrity sha512-8phczZsbY4hnU/OUtkb2fngRbpxM8ZX1BvlO7HlGxGEjawGehW/RS00IjAu3ykKib15J5duGD/6DAlhoJjk0Qg==
@@ -332,19 +303,6 @@
     axios "^0.27.2"
     commander "^9.4.1"
     eslint "^8.25.0"
-    form-data "^4.0.0"
-    lodash "^4.17.21"
-    prettier "^2.7.1"
-
-"@kintone/dts-gen@^6.1.8":
-  version "6.1.8"
-  resolved "https://registry.npmjs.org/@kintone/dts-gen/-/dts-gen-6.1.8.tgz"
-  integrity sha512-bcYmzuzu05zv/qogoZa0wXqhIs9eZ65cABa3uIuhvQDlhFdCElTcKIG25EnoTqp/+AKSOedZpDlczCrNBvkqpQ==
-  dependencies:
-    "@cybozu/eslint-config" "^17.0.3"
-    axios "^0.27.2"
-    commander "^9.4.0"
-    eslint "^8.22.0"
     form-data "^4.0.0"
     lodash "^4.17.21"
     prettier "^2.7.1"
@@ -384,24 +342,13 @@
     os-locale "^5.0.0"
     puppeteer "^15.1.1"
 
-"@kintone/rest-api-client@3.1.14":
+"@kintone/rest-api-client@3.1.14", "@kintone/rest-api-client@^3.1.14":
   version "3.1.14"
   resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.1.14.tgz#7ee97c4fe94ea809c35c4ee369fbc4d6e365d53d"
   integrity sha512-Ldpebaf6HRXZfvDze0NNQVVO0pWNSzJhSXbA/IZOXgg/312nleD43jhnMZOWFLVATVapKjVJUeHsLr8RA7tPsw==
   dependencies:
     axios "^0.27.2"
     core-js "^3.25.5"
-    form-data "^4.0.0"
-    js-base64 "^3.7.2"
-    qs "^6.10.5"
-
-"@kintone/rest-api-client@^3.1.10":
-  version "3.1.10"
-  resolved "https://registry.npmjs.org/@kintone/rest-api-client/-/rest-api-client-3.1.10.tgz"
-  integrity sha512-JSd3yQ21eDK68vbh+MLl1cBKfoTptoxwiBcbQ7vqfTLCUPHf1H2gXRNgiRgg07sS0dLHM7S5UlqxMNTl0FLrTg==
-  dependencies:
-    axios "^0.27.2"
-    core-js "^3.25.0"
     form-data "^4.0.0"
     js-base64 "^3.7.2"
     qs "^6.10.5"
@@ -414,19 +361,18 @@
     "@kintone/plugin-packer" "^6.0.15"
     mkdirp "^1.0.4"
 
-"@lb-ribbit/kintone-secrets@0.2.4", "@lb-ribbit/kintone-secrets@^0.2.1":
+"@lb-ribbit/kintone-secrets@0.2.4":
   version "0.2.4"
   resolved "https://registry.npmjs.org/@lb-ribbit/kintone-secrets/-/kintone-secrets-0.2.4.tgz"
   integrity sha512-dP2EW94/4FALrZmdM8LwkQDvZy+183rVTJb8bn7CjHj4BJTpQOoU7QhsVetGG/aEwNbbw6NjyBiVWBUXt19k5w==
 
-"@lb-ribbit/kintone-xapp@0.3.3":
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/@lb-ribbit/kintone-xapp/-/kintone-xapp-0.3.3.tgz"
-  integrity sha512-7gjWZfth956KhUuPWGs3VmuFgpHApsSap8qGOAMqVs88dy2WaVlfZR/zI78eNEf7WW/31E66VPx3EAMt6renHw==
+"@lb-ribbit/kintone-xapp@0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-xapp/-/kintone-xapp-0.3.4.tgz#336dcc15beeeafdd9b05d1a5ec1251b640683e15"
+  integrity sha512-Hj6ibt9k9PUWwxDIwwBSXTlNKtZ7OvkcC1B9q0wh46n9VZOUWN/6fa/vPRhyxOQajXeEldzL1YzCM/Z4pVy2bw==
   dependencies:
-    "@kintone/dts-gen" "^6.1.8"
-    "@kintone/rest-api-client" "^3.1.10"
-    "@lb-ribbit/kintone-secrets" "^0.2.1"
+    "@kintone/dts-gen" "^6.1.12"
+    "@kintone/rest-api-client" "^3.1.14"
 
 "@mui/base@5.0.0-alpha.100":
   version "5.0.0-alpha.100"
@@ -1465,11 +1411,6 @@ commander@^7.0.0:
   resolved "https://registry.npmjs.org/commander/-/commander-7.2.0.tgz"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
-commander@^9.4.0:
-  version "9.4.0"
-  resolved "https://registry.npmjs.org/commander/-/commander-9.4.0.tgz"
-  integrity sha512-sRPT+umqkz90UA8M1yqYfnHlZA7fF6nSphDtxeywPZ49ysjxDQybzk13CL+mXekDRG92skbcqCLVovuCusNmFw==
-
 commander@^9.4.1:
   version "9.4.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-9.4.1.tgz#d1dd8f2ce6faf93147295c0df13c7c21141cfbdd"
@@ -1491,11 +1432,6 @@ core-js-pure@^3.20.2:
   version "3.23.5"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.23.5.tgz"
   integrity sha512-8t78LdpKSuCq4pJYCYk8hl7XEkAX+BP16yRIwL3AanTksxuEf7CM83vRyctmiEL8NDZ3jpUcv56fk9/zG3aIuw==
-
-core-js@^3.25.0:
-  version "3.25.0"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-3.25.0.tgz"
-  integrity sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==
 
 core-js@^3.25.5:
   version "3.25.5"
@@ -2112,51 +2048,6 @@ eslint@8.25.0, eslint@^8.25.0:
     imurmurhash "^0.1.4"
     is-glob "^4.0.0"
     js-sdsl "^4.1.4"
-    js-yaml "^4.1.0"
-    json-stable-stringify-without-jsonify "^1.0.1"
-    levn "^0.4.1"
-    lodash.merge "^4.6.2"
-    minimatch "^3.1.2"
-    natural-compare "^1.4.0"
-    optionator "^0.9.1"
-    regexpp "^3.2.0"
-    strip-ansi "^6.0.1"
-    strip-json-comments "^3.1.0"
-    text-table "^0.2.0"
-
-eslint@^8.22.0:
-  version "8.23.0"
-  resolved "https://registry.npmjs.org/eslint/-/eslint-8.23.0.tgz"
-  integrity sha512-pBG/XOn0MsJcKcTRLr27S5HpzQo4kLr+HjLQIyK4EiCsijDl/TB+h5uEuJU6bQ8Edvwz1XWOjpaP2qgnXGpTcA==
-  dependencies:
-    "@eslint/eslintrc" "^1.3.1"
-    "@humanwhocodes/config-array" "^0.10.4"
-    "@humanwhocodes/gitignore-to-minimatch" "^1.0.2"
-    "@humanwhocodes/module-importer" "^1.0.1"
-    ajv "^6.10.0"
-    chalk "^4.0.0"
-    cross-spawn "^7.0.2"
-    debug "^4.3.2"
-    doctrine "^3.0.0"
-    escape-string-regexp "^4.0.0"
-    eslint-scope "^7.1.1"
-    eslint-utils "^3.0.0"
-    eslint-visitor-keys "^3.3.0"
-    espree "^9.4.0"
-    esquery "^1.4.0"
-    esutils "^2.0.2"
-    fast-deep-equal "^3.1.3"
-    file-entry-cache "^6.0.1"
-    find-up "^5.0.0"
-    functional-red-black-tree "^1.0.1"
-    glob-parent "^6.0.1"
-    globals "^13.15.0"
-    globby "^11.1.0"
-    grapheme-splitter "^1.0.4"
-    ignore "^5.2.0"
-    import-fresh "^3.0.0"
-    imurmurhash "^0.1.4"
-    is-glob "^4.0.0"
     js-yaml "^4.1.0"
     json-stable-stringify-without-jsonify "^1.0.1"
     levn "^0.4.1"
