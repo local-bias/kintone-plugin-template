@@ -323,15 +323,15 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kintone/dts-gen@6.1.11":
-  version "6.1.11"
-  resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.11.tgz#f3007a2db7f33da35a41d5aabb1a105c2900c6a8"
-  integrity sha512-tutORnR6EdM6NOH/RyTmgUp0fvnkDcU93ZEeMmk9ZHtJt67m8fR7hva7Yb9YUhbatfIhT4E80ZFN8LJw8jo+MQ==
+"@kintone/dts-gen@6.1.12":
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.12.tgz#426db3a42ccb22241b1b5ec021aa750045d300ba"
+  integrity sha512-8phczZsbY4hnU/OUtkb2fngRbpxM8ZX1BvlO7HlGxGEjawGehW/RS00IjAu3ykKib15J5duGD/6DAlhoJjk0Qg==
   dependencies:
     "@cybozu/eslint-config" "^17.0.3"
     axios "^0.27.2"
     commander "^9.4.1"
-    eslint "^8.24.0"
+    eslint "^8.25.0"
     form-data "^4.0.0"
     lodash "^4.17.21"
     prettier "^2.7.1"
@@ -2096,7 +2096,7 @@ eslint-visitor-keys@^3.3.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-3.3.0.tgz"
   integrity sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==
 
-eslint@8.25.0, eslint@^8.24.0:
+eslint@8.25.0, eslint@^8.25.0:
   version "8.25.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.25.0.tgz#00eb962f50962165d0c4ee3327708315eaa8058b"
   integrity sha512-DVlJOZ4Pn50zcKW5bYH7GQK/9MsoQG2d5eDH0ebEkE8PbgzTTmtt/VTH9GGJ4BfeZCpBLqFfvsjX35UacUL83A==
