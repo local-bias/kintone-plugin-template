@@ -1,27 +1,22 @@
-import React, { FCX } from 'react';
-import { useRecoilCallback, useRecoilValue } from 'recoil';
+import React, { FCX, Suspense } from 'react';
+import { useRecoilCallback } from 'recoil';
 import styled from '@emotion/styled';
-import { Autocomplete, TextField } from '@mui/material';
 import produce from 'immer';
 
-import { kx } from '@type/kintone.api';
-import { appFieldsState } from '../../../states/kintone';
 import { storageState } from '../../../states/plugin';
+
+import AppFieldSelect from './app-field-select';
+import { Skeleton } from '@mui/material';
 
 type ContainerProps = { condition: kintone.plugin.Condition; index: number };
 
 const Component: FCX<ContainerProps> = ({ className, condition, index }) => {
-  const appFields = useRecoilValue(appFieldsState);
-
   const onFieldChange = useRecoilCallback(
     ({ set }) =>
-      (field: kx.FieldProperty | null) => {
-        if (!field) {
-          return;
-        }
+      (code: string | null) => {
         set(storageState, (_, _storage = _!) =>
           produce(_storage, (draft) => {
-            draft.conditions[index].field = field.code;
+            draft.conditions[index].field = code ?? '';
           })
         );
       },
@@ -32,16 +27,9 @@ const Component: FCX<ContainerProps> = ({ className, condition, index }) => {
     <div {...{ className }}>
       <div>
         <h3>対象フィールド</h3>
-        <Autocomplete
-          value={appFields.find((field) => field.code === condition.field)}
-          sx={{ width: '350px' }}
-          options={appFields}
-          onChange={(_, option) => onFieldChange(option)}
-          getOptionLabel={(option) => option.label}
-          renderInput={(params) => (
-            <TextField {...params} label='対象フィールド' variant='outlined' color='primary' />
-          )}
-        />
+        <Suspense fallback={<Skeleton width={350} height={80} />}>
+          <AppFieldSelect fieldCode={condition.field} onChange={onFieldChange} />
+        </Suspense>
       </div>
     </div>
   );
