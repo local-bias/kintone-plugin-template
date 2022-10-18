@@ -34,7 +34,8 @@ class FlexKintone extends KintoneRestAPIClient {
 export const kintoneClient = new FlexKintone();
 
 export const getFieldProperties = async (
-  targetApp?: string | number
+  targetApp?: string | number,
+  preview?: boolean
 ): Promise<kx.FieldProperties> => {
   const app = targetApp || kintone.app.getId();
 
@@ -42,12 +43,14 @@ export const getFieldProperties = async (
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
 
-  const { properties } = await kintoneClient.app.getFormFields({ app });
+  const { properties } = await kintoneClient.app.getFormFields({ app, preview });
 
   return properties;
 };
 
-export const getUserDefinedFields = async (): Promise<kx.FieldProperties> => {
+export const getUserDefinedFields = async (options?: {
+  preview?: boolean;
+}): Promise<kx.FieldProperties> => {
   const properties = await getFieldProperties();
   return omitFieldProperties(properties, DEFAULT_DEFINED_FIELDS);
 };
@@ -66,14 +69,14 @@ export const getAllFields = async (): Promise<kx.FieldProperty[]> => {
   return fields;
 };
 
-export const getAppLayout = async (_app?: number): Promise<kx.Layout> => {
+export const getAppLayout = async (_app?: number, preview?: boolean): Promise<kx.Layout> => {
   const app = _app || getAppId();
 
   if (!app) {
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
 
-  const { layout } = await kintoneClient.app.getFormLayout({ app });
+  const { layout } = await kintoneClient.app.getFormLayout({ app, preview });
 
   return layout;
 };
