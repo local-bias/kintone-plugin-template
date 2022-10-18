@@ -33,9 +33,7 @@ const Component: FC<Props> = ({ fields, value, onFieldChange }) => (
 const Container: FC<ContainerProps> = (props) => {
   const fields = useRecoilValue(appFieldsState);
 
-  const filtered = fields.filter((field) => field.code === props.fieldCode);
-
-  const value = filtered[0] ?? null;
+  const value = fields.find((field) => field.code === props.fieldCode) ?? null;
 
   const onFieldChange = useCallback(
     (_: any, field: kx.FieldProperty | null) => {
