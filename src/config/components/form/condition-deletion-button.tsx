@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { produce } from 'immer';
 import { IconButton, Tooltip } from '@mui/material';
@@ -32,4 +32,4 @@ const Container: FC<ContainerProps> = ({ index }) => {
   return <Component {...{ onClick }} />;
 };
 
-export default Container;
+export default memo(Container);

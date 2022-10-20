@@ -5,23 +5,17 @@ import styled from '@emotion/styled';
 import { storageState } from '../../states/plugin';
 import ConditionAdditionButton from './condition-addition-button';
 import Condition from './condition';
-import { Loading } from '@common/components/loading';
 
 type Props = Readonly<{
-  storage: kintone.plugin.Storage | null;
+  conditionLength: number;
 }>;
 
-const Component: FCX<Props> = ({ className, storage }) => (
+const Component: FCX<Props> = ({ className, conditionLength }) => (
   <div {...{ className }}>
-    {!storage && <Loading label='設定情報を取得しています' />}
-    {!!storage && (
-      <>
-        {storage.conditions.map((condition, index) => (
-          <Condition key={index} {...{ condition, index }} />
-        ))}
-        <ConditionAdditionButton />
-      </>
-    )}
+    {new Array(conditionLength).fill('').map((_, i) => (
+      <Condition key={i} index={i} />
+    ))}
+    <ConditionAdditionButton />
   </div>
 );
 
@@ -36,7 +30,9 @@ const StyledComponent = styled(Component)`
 const Container: FC = () => {
   const storage = useRecoilValue(storageState);
 
-  return <StyledComponent {...{ storage }} />;
+  const conditionLength = storage?.conditions?.length ?? 0;
+
+  return <StyledComponent conditionLength={conditionLength} />;
 };
 
 export default Container;

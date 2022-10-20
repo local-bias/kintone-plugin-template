@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { produce } from 'immer';
 import { Button } from '@mui/material';
@@ -38,4 +38,4 @@ const Container: FC = () => {
   return <Component {...{ addCondition }} />;
 };
 
-export default Container;
+export default memo(Container);

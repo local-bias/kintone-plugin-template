@@ -4,30 +4,30 @@ import { Accordion, AccordionActions, AccordionDetails, AccordionSummary } from 
 import ConditionForm from './condition-form';
 import ConditionDeletionButton from '../condition-deletion-button';
 
-type ContainerProps = Readonly<{ condition: kintone.plugin.Condition; index: number }>;
+type ContainerProps = Readonly<{ index: number }>;
 type Props = ContainerProps & {
   expanded: boolean;
   onChange: () => void;
 };
 
-const Component: FCX<Props> = ({ className, condition, index, expanded, onChange }) => (
+const Component: FCX<Props> = ({ className, index, expanded, onChange }) => (
   <Accordion {...{ expanded, onChange, className }} variant='outlined' square>
     <AccordionSummary>設定{index + 1}</AccordionSummary>
     <AccordionDetails>
-      <ConditionForm {...{ condition, index }} />
+      <ConditionForm index={index} />
     </AccordionDetails>
     <AccordionActions>
-      <ConditionDeletionButton {...{ index }} />
+      <ConditionDeletionButton index={index} />
     </AccordionActions>
   </Accordion>
 );
 
-const Container: FC<ContainerProps> = memo(({ condition, index }) => {
+const Container: FC<ContainerProps> = ({ index }) => {
   const [expanded, setExpanded] = useState<boolean>(index === 0);
 
   const onChange = () => setExpanded((_expanded) => !_expanded);
 
-  return <Component {...{ condition, index, expanded, onChange }} />;
-});
+  return <Component {...{ index, expanded, onChange }} />;
+};
 
-export default Container;
+export default memo(Container);

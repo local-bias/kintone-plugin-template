@@ -1,16 +1,21 @@
 import React, { FCX, Suspense } from 'react';
-import { useRecoilCallback } from 'recoil';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
 import produce from 'immer';
 
-import { storageState } from '../../../states/plugin';
+import { conditionState, storageState } from '../../../states/plugin';
 
 import AppFieldSelect from './app-field-select';
 import { Skeleton } from '@mui/material';
 
-type ContainerProps = { condition: kintone.plugin.Condition; index: number };
+type ContainerProps = { index: number };
 
-const Component: FCX<ContainerProps> = ({ className, condition, index }) => {
+const Component: FCX<ContainerProps> = ({ className, index }) => {
+  const condition = useRecoilValue(conditionState(index));
+  if (!condition) {
+    return null;
+  }
+
   const onFieldChange = useRecoilCallback(
     ({ set }) =>
       (code: string | null) => {
