@@ -2,7 +2,7 @@ import React, { FC, FCX, useCallback } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
 import { useSnackbar } from 'notistack';
-import { Button } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 
@@ -24,7 +24,7 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
         color='primary'
         disabled={loading}
         onClick={onSaveButtonClick}
-        startIcon={<SaveIcon />}
+        startIcon={loading ? <CircularProgress color='inherit' size={20} /> : <SaveIcon />}
       >
         設定を保存
       </Button>
@@ -33,7 +33,9 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
         color='inherit'
         disabled={loading}
         onClick={onBackButtonClick}
-        startIcon={<SettingsBackupRestoreIcon />}
+        startIcon={
+          loading ? <CircularProgress color='inherit' size={20} /> : <SettingsBackupRestoreIcon />
+        }
       >
         プラグイン一覧へ戻る
       </Button>
@@ -43,10 +45,11 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
 
 const StyledComponent = styled(Component)`
   position: sticky;
-  bottom: 24px;
+  bottom: 15px;
   margin-top: 20px;
   background-color: #fff;
   border-top: 1px solid #eee;
+  z-index: 30;
 
   button {
     margin: 8px;
@@ -69,7 +72,7 @@ const Container: FC = () => {
           enqueueSnackbar('設定を保存しました', {
             variant: 'success',
             action: (
-              <Button color='inherit' onClick={onBackButtonClick}>
+              <Button color='inherit' size='small' variant='outlined' onClick={onBackButtonClick}>
                 プラグイン一覧に戻る
               </Button>
             ),

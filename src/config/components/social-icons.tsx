@@ -50,6 +50,7 @@ const StyledComponent = styled(Component)`
   position: absolute;
   right: 10px;
   bottom: 10px;
+  z-index: 50;
   & > button {
     color: #78909c;
     margin: 4px;
