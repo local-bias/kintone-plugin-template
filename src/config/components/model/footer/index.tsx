@@ -44,6 +44,8 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
 };
 
 const StyledComponent = styled(Component)`
+  grid-area: footer;
+
   position: sticky;
   bottom: 15px;
   margin-top: 20px;

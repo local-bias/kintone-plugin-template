@@ -4,7 +4,9 @@ import { SnackbarProvider } from 'notistack';
 
 import { restoreStorage } from '@common/plugin';
 
-import Form from './components/model/condition';
+import Layout from './components/model/layout';
+import Form from './components/model/form';
+import Sidebar from './components/model/sidebar';
 import Footer from './components/model/footer';
 import Promotion from './components/ui/promotion';
 import { Loading } from '@common/components/loading';
@@ -22,8 +24,11 @@ const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
       <PluginErrorBoundary>
         <SnackbarProvider maxSnack={1}>
           <Suspense fallback={<Loading label='設定情報を取得しています' />}>
-            <Form />
-            <Footer />
+            <Layout>
+              <Sidebar />
+              <Form />
+              <Footer />
+            </Layout>
           </Suspense>
         </SnackbarProvider>
       </PluginErrorBoundary>

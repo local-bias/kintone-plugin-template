@@ -16,7 +16,7 @@ const Component: FC<Props> = ({ addCondition }) => (
     size='small'
     startIcon={<AddIcon />}
     onClick={addCondition}
-    style={{ marginTop: '16px' }}
+    style={{ margin: '16px' }}
   >
     新しい設定
   </Button>
