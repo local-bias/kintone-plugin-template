@@ -29,12 +29,13 @@ const Container: FC = () => {
 
   const onClick = useRecoilCallback(
     ({ set }) =>
-      () => {
+      async () => {
         set(storageState, (_, _storage = _!) =>
           produce(_storage, (draft) => {
             draft.conditions.splice(index, 1);
           })
         );
+        set(tabIndexState, (i) => (i === 0 ? i : i - 1));
       },
     [index]
   );

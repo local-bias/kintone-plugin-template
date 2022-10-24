@@ -16,7 +16,7 @@ const Component: FC = () => {
   );
 
   return (
-    <Tabs value={tabIndex} onChange={onTabChange} orientation='vertical' variant='scrollable'>
+    <Tabs value={tabIndex} onChange={onTabChange} orientation='vertical' variant='standard'>
       {conditions.map((condition, i) => (
         <Tab label={`設定${i + 1}${condition.fields}`} key={i} />
       ))}
