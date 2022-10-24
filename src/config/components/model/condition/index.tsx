@@ -2,9 +2,9 @@ import React, { FC, FCX } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from '@emotion/styled';
 
-import { storageState } from '../../states/plugin';
+import { storageState } from '../../../states/plugin';
 import ConditionAdditionButton from './condition-addition-button';
-import Condition from './condition';
+import Condition from '../accordion';
 
 type Props = Readonly<{
   conditionLength: number;

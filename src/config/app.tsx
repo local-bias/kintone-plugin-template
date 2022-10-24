@@ -4,9 +4,9 @@ import { SnackbarProvider } from 'notistack';
 
 import { restoreStorage } from '@common/plugin';
 
-import Form from './components/form';
-import Footer from './components/footer';
-import SocialIcons from './components/social-icons';
+import Form from './components/model/condition';
+import Footer from './components/model/footer';
+import SocialIcons from './components/ui/social-icons';
 import { Loading } from '@common/components/loading';
 import { pluginIdState, storageState } from './states/plugin';
 import { PluginErrorBoundary } from '@common/components/functional/error-boundary';

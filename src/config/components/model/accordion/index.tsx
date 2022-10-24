@@ -1,8 +1,8 @@
 import React, { memo, useState, FC, FCX } from 'react';
 import { Accordion, AccordionActions, AccordionDetails, AccordionSummary } from '@mui/material';
 
-import ConditionForm from './condition-form';
-import ConditionDeletionButton from '../condition-deletion-button';
+import ConditionForm from '../form';
+import ConditionDeletionButton from '../condition/condition-deletion-button';
 
 type ContainerProps = Readonly<{ index: number }>;
 type Props = ContainerProps & {
