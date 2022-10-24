@@ -6,7 +6,7 @@ import { restoreStorage } from '@common/plugin';
 
 import Form from './components/model/condition';
 import Footer from './components/model/footer';
-import SocialIcons from './components/ui/social-icons';
+import Promotion from './components/ui/promotion';
 import { Loading } from '@common/components/loading';
 import { pluginIdState, storageState } from './states/plugin';
 import { PluginErrorBoundary } from '@common/components/functional/error-boundary';
@@ -28,7 +28,7 @@ const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
         </SnackbarProvider>
       </PluginErrorBoundary>
     </RecoilRoot>
-    <SocialIcons />
+    <Promotion />
   </Suspense>
 );
 
