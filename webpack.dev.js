@@ -7,7 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
 
   output: {
-    path: path.resolve(__dirname, 'plugin', 'js'),
+    path: path.resolve(__dirname, 'plugin'),
     filename: '[name].js',
   },
   cache: {
