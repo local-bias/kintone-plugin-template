@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { storageState } from '../../../states/plugin';
 import ConditionAdditionButton from './condition-addition-button';
 import Condition from '../accordion';
+import { ConditionIndexProvider } from '../../../contexts/condition-index-provider';
 
 type Props = Readonly<{
   conditionLength: number;
@@ -13,7 +14,9 @@ type Props = Readonly<{
 const Component: FCX<Props> = ({ className, conditionLength }) => (
   <div {...{ className }}>
     {new Array(conditionLength).fill('').map((_, i) => (
-      <Condition key={i} index={i} />
+      <ConditionIndexProvider key={i} conditionIndex={i}>
+        <Condition />
+      </ConditionIndexProvider>
     ))}
     <ConditionAdditionButton />
   </div>

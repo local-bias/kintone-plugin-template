@@ -7,10 +7,10 @@ import { conditionState, storageState } from '../../../states/plugin';
 
 import AppFieldSelect from './app-field-select';
 import { Skeleton } from '@mui/material';
+import { useConditionIndex } from '../../../contexts/condition-index-provider';
 
-type ContainerProps = { index: number };
-
-const Component: FCX<ContainerProps> = ({ className, index }) => {
+const Component: FCX = ({ className }) => {
+  const index = useConditionIndex();
   const condition = useRecoilValue(conditionState(index));
   if (!condition) {
     return null;

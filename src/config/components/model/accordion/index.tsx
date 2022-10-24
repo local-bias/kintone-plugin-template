@@ -3,9 +3,10 @@ import { Accordion, AccordionActions, AccordionDetails, AccordionSummary } from 
 
 import ConditionForm from '../form';
 import ConditionDeletionButton from '../condition/condition-deletion-button';
+import { useConditionIndex } from '../../../contexts/condition-index-provider';
 
-type ContainerProps = Readonly<{ index: number }>;
-type Props = ContainerProps & {
+type Props = {
+  index: number;
   expanded: boolean;
   onChange: () => void;
 };
@@ -14,15 +15,16 @@ const Component: FCX<Props> = ({ className, index, expanded, onChange }) => (
   <Accordion {...{ expanded, onChange, className }} variant='outlined' square>
     <AccordionSummary>設定{index + 1}</AccordionSummary>
     <AccordionDetails>
-      <ConditionForm index={index} />
+      <ConditionForm />
     </AccordionDetails>
     <AccordionActions>
-      <ConditionDeletionButton index={index} />
+      <ConditionDeletionButton />
     </AccordionActions>
   </Accordion>
 );
 
-const Container: FC<ContainerProps> = ({ index }) => {
+const Container: FC = () => {
+  const index = useConditionIndex();
   const [expanded, setExpanded] = useState<boolean>(index === 0);
 
   const onChange = () => setExpanded((_expanded) => !_expanded);

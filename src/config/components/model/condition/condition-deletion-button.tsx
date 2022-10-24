@@ -4,8 +4,8 @@ import { produce } from 'immer';
 import { IconButton, Tooltip } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { storageState } from '../../../states/plugin';
+import { useConditionIndex } from '../../../contexts/condition-index-provider';
 
-type ContainerProps = Readonly<{ index: number }>;
 type Props = Readonly<{ onClick: () => void }>;
 
 const Component: FC<Props> = ({ onClick }) => (
@@ -16,7 +16,9 @@ const Component: FC<Props> = ({ onClick }) => (
   </Tooltip>
 );
 
-const Container: FC<ContainerProps> = ({ index }) => {
+const Container: FC = () => {
+  const index = useConditionIndex();
+
   const onClick = useRecoilCallback(
     ({ set }) =>
       () => {
