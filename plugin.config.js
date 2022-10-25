@@ -36,15 +36,9 @@ module.exports = {
       },
     },
     dev: {
-      desktop: {
-        js: ['desktop.js'],
-      },
-      mobile: {
-        js: ['desktop.js'],
-      },
-      config: {
-        js: ['config.js'],
-      },
+      desktop: { js: ['desktop.js'] },
+      mobile: { js: ['desktop.js'] },
+      config: { js: ['config.js'] },
     },
     prod: {
       desktop: {
