@@ -35,7 +35,7 @@ const Component: FCX = ({ className }) => (
     <Button
       color='inherit'
       variant='contained'
-      disableElevation={true}
+      disableElevation
       onClick={() => openNewTab(URL_INQUIRY)}
     >
       お問い合わせ
@@ -43,11 +43,11 @@ const Component: FCX = ({ className }) => (
     <Button
       color='inherit'
       variant='contained'
-      disableElevation={true}
+      disableElevation
       onClick={() => openNewTab('https://kula.konomi.app')}
       sx={{
         textTransform: 'none',
-        background: 'linear-gradient(45deg, #fe5b7b 30%, #ff7e43 90%)',
+        background: 'linear-gradient(45deg, #acb6e5 30%, #64bde4 90%)',
         color: '#fff',
       }}
     >
