@@ -3,8 +3,6 @@
   const path = require('path');
   const config = require('../plugin.config.js');
 
-  const root = __dirname.replace(path.sep + 'scripts', '');
-
   const base = config.manifest.base;
   const env = envName === 'prod' ? config.manifest.prod : config.manifest.dev;
 
@@ -26,5 +24,7 @@
     }, {});
   };
 
-  fs.writeFileSync(`${root}\\plugin\\manifest.json`, JSON.stringify(merged(base, env)));
+  const manifestPath = path.join(process.cwd(), 'plugin', 'manifest.json');
+
+  fs.writeFileSync(manifestPath, JSON.stringify(merged(base, env)));
 })(process.argv);
