@@ -344,13 +344,13 @@
     yauzl "^2.10.0"
     yazl "^2.5.1"
 
-"@kintone/plugin-uploader@7.1.4":
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/@kintone/plugin-uploader/-/plugin-uploader-7.1.4.tgz#45368d2e11c9a3ab77e97a36792c588dff09f988"
-  integrity sha512-KJkIrkI7LPuSRrjvEje4/spsECt1xwuxqdhahImQDSjZ0f3+4OwXvyUPAeI00WJUhRCDwLlse6gPNYS3XEC8zw==
+"@kintone/plugin-uploader@7.1.5":
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/@kintone/plugin-uploader/-/plugin-uploader-7.1.5.tgz#2b66d4c7b85d2a9bdd66884774883f6bfcfb3467"
+  integrity sha512-YgYVZUK1uuYS/CwLYrxLsBmDnWc9kSZ1ppVtGl19Oo7tfdtNfhy/UyWwyCBZmfCZ9smDuVgsf27HP0J9QygJvA==
   dependencies:
     chalk "^4.1.2"
-    inquirer "^8.2.4"
+    inquirer "^8.2.5"
     meow "^9.0.0"
     os-locale "^5.0.0"
     puppeteer "^15.1.1"
@@ -2595,10 +2595,10 @@ inherits@2, inherits@^2.0.3, inherits@^2.0.4:
   resolved "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-inquirer@^8.2.4:
-  version "8.2.4"
-  resolved "https://registry.npmjs.org/inquirer/-/inquirer-8.2.4.tgz"
-  integrity sha512-nn4F01dxU8VeKfq192IjLsxu0/OmMZ4Lg3xKAns148rCaXP6ntAoEkVYZThWjwON8AlzdZZi6oqnhNbxUG9hVg==
+inquirer@^8.2.5:
+  version "8.2.5"
+  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-8.2.5.tgz#d8654a7542c35a9b9e069d27e2df4858784d54f8"
+  integrity sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==
   dependencies:
     ansi-escapes "^4.2.1"
     chalk "^4.1.1"

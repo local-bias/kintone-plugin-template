@@ -23,7 +23,7 @@
     "@emotion/styled": "11.10.4",
     "@kintone/dts-gen": "6.1.13",
     "@kintone/plugin-packer": "6.0.16",
-    "@kintone/plugin-uploader": "7.1.4",
+    "@kintone/plugin-uploader": "7.1.5",
     "@kintone/rest-api-client": "3.1.15",
     "@kintone/webpack-plugin-kintone-plugin": "6.0.16",
     "@lb-ribbit/kintone-secrets": "0.2.4",
