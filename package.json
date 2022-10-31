@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "create-ppk": "kintone-plugin-packer --out dist/plugin-dev.zip plugin",
-    "move-ppk": "node scripts/move-ppk.ts",
-    "init": "run-s merge-manifest:prod create-ppk move-ppk",
+    "rename-ppk": "node scripts/rename-ppk.ts",
+    "init": "run-s merge-manifest:prod create-ppk rename-ppk",
     "bundle:dev": "webpack --config webpack.dev.js",
     "bundle:prod": "webpack --config webpack.prod.js",
     "merge-manifest:prod": "ts-node scripts/marge-json.ts prod",
