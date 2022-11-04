@@ -1,3 +1,3 @@
 import main from './main';
 
-((PLUGIN_ID) => main(PLUGIN_ID))(kintone.$PLUGIN_ID);
+((pluginId): void => main(pluginId))(kintone.$PLUGIN_ID);
