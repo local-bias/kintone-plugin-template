@@ -8,7 +8,7 @@
     "build": "ts-node scripts/marge-json.ts prod && webpack --config webpack.prod.js",
     "dev": "ts-node scripts/marge-json.ts dev && concurrently \"yarn:dev:*\"",
     "dev:js": "webpack --config webpack.dev.js -w",
-    "dev:upload": "ts-node scripts/upload.ts",
+    "dev:upload": "node scripts/upload.js",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
   },
   "devDependencies": {
@@ -40,6 +40,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-error-boundary": "3.1.4",
+    "react-feather": "^2.0.10",
     "recoil": "0.7.6",
     "terser-webpack-plugin": "5.3.6",
     "ts-node": "10.9.1",
