@@ -35,7 +35,7 @@
     "eslint": "8.28.0",
     "fork-ts-checker-webpack-plugin": "7.2.13",
     "immer": "9.0.16",
-    "luxon": "3.1.0",
+    "luxon": "3.1.1",
     "notistack": "2.0.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
