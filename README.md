@@ -43,7 +43,9 @@ npm run build
 
 ## 新規で作成するにあたって最低限修正が必要なファイル
 
-- src/manifest
+- plugin.config.js
+
+  - プラグインの名前や説明文などはここで修正します。本番環境と開発環境で内容を動的に切り替えることができます。
 
 - types/plugin.d.ts
 
