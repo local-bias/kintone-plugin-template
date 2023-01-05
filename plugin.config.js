@@ -3,7 +3,7 @@ module.exports = {
   manifest: {
     base: {
       manifest_version: 1,
-      version: 1,
+      version: '1.0.0',
       type: 'APP',
       name: {
         en: 'kintone-plugin-template',
