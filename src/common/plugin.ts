@@ -35,7 +35,7 @@ export const storeStorage = (target: Record<string, any>, callback?: () => void)
 /**
  * プラグインの設定情報のひな形を返却します
  */
-const createConfig = (): kintone.plugin.Storage => ({
+export const createConfig = (): kintone.plugin.Storage => ({
   conditions: [getNewCondition()],
 });
 

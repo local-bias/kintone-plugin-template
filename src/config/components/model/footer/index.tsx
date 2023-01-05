@@ -9,6 +9,10 @@ import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore
 import { storeStorage } from '@common/plugin';
 import { loadingState, storageState } from '../../../states/plugin';
 
+import ImportButton from './import-button';
+import ExportButton from './export-button';
+import ResetButton from './reset-button';
+
 type Props = {
   onSaveButtonClick: () => void;
   onBackButtonClick: () => void;
@@ -19,32 +23,42 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
 
   return (
     <div {...{ className }}>
-      <Button
-        variant='contained'
-        color='primary'
-        disabled={loading}
-        onClick={onSaveButtonClick}
-        startIcon={loading ? <CircularProgress color='inherit' size={20} /> : <SaveIcon />}
-      >
-        設定を保存
-      </Button>
-      <Button
-        variant='contained'
-        color='inherit'
-        disabled={loading}
-        onClick={onBackButtonClick}
-        startIcon={
-          loading ? <CircularProgress color='inherit' size={20} /> : <SettingsBackupRestoreIcon />
-        }
-      >
-        プラグイン一覧へ戻る
-      </Button>
+      <div>
+        <Button
+          variant='contained'
+          color='primary'
+          disabled={loading}
+          onClick={onSaveButtonClick}
+          startIcon={loading ? <CircularProgress color='inherit' size={20} /> : <SaveIcon />}
+        >
+          設定を保存
+        </Button>
+        <Button
+          variant='contained'
+          color='inherit'
+          disabled={loading}
+          onClick={onBackButtonClick}
+          startIcon={
+            loading ? <CircularProgress color='inherit' size={20} /> : <SettingsBackupRestoreIcon />
+          }
+        >
+          プラグイン一覧へ戻る
+        </Button>
+      </div>
+      <div>
+        <ExportButton />
+        <ImportButton />
+        <ResetButton />
+      </div>
     </div>
   );
 };
 
 const StyledComponent = styled(Component)`
   grid-area: footer;
+
+  display: flex;
+  justify-content: space-between;
 
   position: sticky;
   bottom: 15px;
