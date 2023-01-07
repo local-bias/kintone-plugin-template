@@ -3,12 +3,19 @@ import {
   Record as DefaultRecord,
   Layout as DefaultLayout,
 } from '@kintone/rest-api-client/lib/client/types';
-import { OneOf as DefaultFieldProperty } from '@kintone/rest-api-client/lib/KintoneFields/types/property';
+import {
+  OneOf as DefaultFieldProperty,
+  Subtable as PropertySubtable,
+  InSubtable as PropertyInSubtable,
+} from '@kintone/rest-api-client/lib/KintoneFields/types/property';
 import {
   OneOf as DefaultField,
   Creator as DefaultCreator,
   UserSelect as DefaultUserSelect,
+  InSubtable as FieldInSubtable,
+  Subtable as FieldSubtable,
 } from '@kintone/rest-api-client/lib/KintoneFields/types/field';
+import { ViewForResponse, ViewForParameter } from '@kintone/rest-api-client/lib/client/types';
 import {
   OneOf as DefaultLayoutField,
   Label as DefaultLayoutLabel,
@@ -32,10 +39,26 @@ declare namespace kx {
   type Layout = DefaultLayout;
   type LayoutField = DefaultLayoutField;
 
+  namespace view {
+    type Response = ViewForResponse;
+    type Parameter = ViewForParameter;
+  }
+
+  /** JavaScript APIやREST APIから取得できるレコードの各フィールド情報 */
   namespace field {
     type Creator = DefaultCreator;
     type UserSelect = DefaultUserSelect;
     type UserEntity = Creator['value'];
+    type InSubtable = FieldInSubtable;
+    type Subtable<T extends Record<string, InSubtable> = Record<string, InSubtable>> =
+      FieldSubtable<T>;
+  }
+
+  /** REST APIから取得できるアプリの各フィールド情報 */
+  namespace property {
+    type InSubtable = PropertyInSubtable;
+    type Subtable<T extends Record<string, InSubtable> = Record<string, InSubtable>> =
+      PropertySubtable<T>;
   }
 
   namespace layout {
