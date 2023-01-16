@@ -32,7 +32,7 @@
     "concurrently": "^7.6.0",
     "dotenv": "16.0.3",
     "esbuild-loader": "2.21.0",
-    "eslint": "8.31.0",
+    "eslint": "8.32.0",
     "fork-ts-checker-webpack-plugin": "7.2.14",
     "immer": "9.0.18",
     "luxon": "3.2.1",
