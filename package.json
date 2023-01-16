@@ -34,7 +34,7 @@
     "esbuild-loader": "2.20.0",
     "eslint": "8.31.0",
     "fork-ts-checker-webpack-plugin": "7.2.14",
-    "immer": "9.0.17",
+    "immer": "9.0.18",
     "luxon": "3.2.1",
     "notistack": "2.0.8",
     "react": "18.2.0",
