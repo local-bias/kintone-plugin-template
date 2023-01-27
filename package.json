@@ -20,6 +20,7 @@
     "@kintone/rest-api-client": "3.2.3",
     "@kintone/webpack-plugin-kintone-plugin": "6.0.20",
     "@lb-ribbit/kintone-secrets": "0.2.4",
+    "@lb-ribbit/kintone-utilities": "^0.1.0",
     "@lb-ribbit/kintone-xapp": "0.3.4",
     "@mui/icons-material": "5.11.0",
     "@mui/material": "5.11.3",

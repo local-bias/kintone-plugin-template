@@ -357,6 +357,18 @@
     js-base64 "^3.7.3"
     qs "^6.10.5"
 
+"@kintone/rest-api-client@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.0.tgz#5021dd91101ee9e3b6e165cef7685057048a3f6e"
+  integrity sha512-oArQm/Gwmq421HBfEDC/kPUjAj8wAX11sMJRd7XFmfE5ViKTrdjzY+TwDc1gjQi4lnP/Nw+1aoi+H+XyGfKzlQ==
+  dependencies:
+    axios "^0.27.2"
+    core-js "^3.25.5"
+    form-data "^4.0.0"
+    js-base64 "^3.7.4"
+    mime-types "^2.1.35"
+    qs "^6.10.5"
+
 "@kintone/webpack-plugin-kintone-plugin@6.0.20":
   version "6.0.20"
   resolved "https://registry.yarnpkg.com/@kintone/webpack-plugin-kintone-plugin/-/webpack-plugin-kintone-plugin-6.0.20.tgz#1e2498e3af6d99ea1907e43f1d7e7abbf793586e"
@@ -369,6 +381,13 @@
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-secrets/-/kintone-secrets-0.2.4.tgz#41b7044c4394356de27c0a7ac37ee8d8b7d56896"
   integrity sha512-dP2EW94/4FALrZmdM8LwkQDvZy+183rVTJb8bn7CjHj4BJTpQOoU7QhsVetGG/aEwNbbw6NjyBiVWBUXt19k5w==
+
+"@lb-ribbit/kintone-utilities@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-utilities/-/kintone-utilities-0.1.0.tgz#f03f8b1f1ee0a419fec922f93c7e85551fd87c54"
+  integrity sha512-x7X9v6I4Sqg82KhBgw/Pa1P57qlur93pkSN562q9MWicFeCFs6ka34aCxZXJySdnNcj76dIlXZCQ69f/gzrbeA==
+  dependencies:
+    "@kintone/rest-api-client" "^3.3.0"
 
 "@lb-ribbit/kintone-xapp@0.3.4":
   version "0.3.4"
@@ -2788,6 +2807,11 @@ js-base64@^3.7.3:
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.7.3.tgz#2e784bb0851636bf1e99ef12e4f3a8a8c9b7639f"
   integrity sha512-PAr6Xg2jvd7MCR6Ld9Jg3BmTcjYsHEBx1VlwEwULb/qowPf5VD9kEMagj23Gm7JRnSvE/Da/57nChZjnvL8v6A==
 
+js-base64@^3.7.4:
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.7.4.tgz#af95b20f23efc8034afd2d1cc5b9d0adf7419037"
+  integrity sha512-wpM/wi20Tl+3ifTyi0RdDckS4YTD4Lf953mBRrpG8547T7hInHNPEj8+ck4gB8VDcGyeAWFK++Wb/fU1BeavKQ==
+
 js-sdsl@^4.1.4:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/js-sdsl/-/js-sdsl-4.2.0.tgz#278e98b7bea589b8baaf048c20aeb19eb7ad09d0"
@@ -3035,7 +3059,7 @@ mime-db@1.52.0:
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"
   integrity sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==
 
-mime-types@^2.1.12, mime-types@^2.1.27:
+mime-types@^2.1.12, mime-types@^2.1.27, mime-types@^2.1.35:
   version "2.1.35"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.35.tgz#381a871b62a734450660ae3deee44813f70d959a"
   integrity sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==
