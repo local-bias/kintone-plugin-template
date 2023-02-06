@@ -482,7 +482,19 @@
     os-locale "^5.0.0"
     puppeteer "^15.1.1"
 
-"@kintone/rest-api-client@3.3.0", "@kintone/rest-api-client@^3.1.14", "@kintone/rest-api-client@^3.3.0":
+"@kintone/rest-api-client@3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.1.tgz#838744e8b3ad6ffecaadb1262498938663c91cea"
+  integrity sha512-BRev1MirOrtkQbFT2Rn5edfg2s2YVORkbo8v0tctFJnoyIl+PNJeSFEtramYIOnCX7fcBkRZE/ow9ZkTiDpAdQ==
+  dependencies:
+    axios "^0.27.2"
+    core-js "^3.27.2"
+    form-data "^4.0.0"
+    js-base64 "^3.7.4"
+    mime-types "^2.1.35"
+    qs "^6.10.5"
+
+"@kintone/rest-api-client@^3.1.14", "@kintone/rest-api-client@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.0.tgz#5021dd91101ee9e3b6e165cef7685057048a3f6e"
   integrity sha512-oArQm/Gwmq421HBfEDC/kPUjAj8wAX11sMJRd7XFmfE5ViKTrdjzY+TwDc1gjQi4lnP/Nw+1aoi+H+XyGfKzlQ==
@@ -1618,7 +1630,7 @@ convert-source-map@^1.5.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.9.0.tgz#7faae62353fb4213366d0ca98358d22e8368b05f"
   integrity sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==
 
-core-js@^3.25.5:
+core-js@^3.25.5, core-js@^3.27.2:
   version "3.27.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.27.2.tgz#85b35453a424abdcacb97474797815f4d62ebbf7"
   integrity sha512-9ashVQskuh5AZEZ1JdQWp1GqSoC1e1G87MzRqg2gIfVAQ7Qn9K+uFj8EcniUFA4P2NLZfV+TOlX1SzoKfo+s7w==
