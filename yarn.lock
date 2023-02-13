@@ -510,10 +510,10 @@
   dependencies:
     "@kintone/rest-api-client" "^3.3.1"
 
-"@lb-ribbit/kintone-xapp@0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-xapp/-/kintone-xapp-0.3.4.tgz#336dcc15beeeafdd9b05d1a5ec1251b640683e15"
-  integrity sha512-Hj6ibt9k9PUWwxDIwwBSXTlNKtZ7OvkcC1B9q0wh46n9VZOUWN/6fa/vPRhyxOQajXeEldzL1YzCM/Z4pVy2bw==
+"@lb-ribbit/kintone-xapp@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-xapp/-/kintone-xapp-0.4.0.tgz#0b2fe5a523f8b764b2bf6fdbf28358c419ff64ed"
+  integrity sha512-82oztUFJFYMZDu+NGjMlfGOVOICnRSbP7PdPLn9cz+4vi7bETEs8kPahU+8h0gU6Z/W+g0E7Hq/g0lsD+1DuSA==
   dependencies:
     "@kintone/dts-gen" "^6.1.12"
     "@kintone/rest-api-client" "^3.1.14"
