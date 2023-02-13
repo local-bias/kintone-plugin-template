@@ -498,10 +498,10 @@
     "@kintone/plugin-packer" "^6.0.23"
     mkdirp "^1.0.4"
 
-"@lb-ribbit/kintone-secrets@0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-secrets/-/kintone-secrets-0.2.4.tgz#41b7044c4394356de27c0a7ac37ee8d8b7d56896"
-  integrity sha512-dP2EW94/4FALrZmdM8LwkQDvZy+183rVTJb8bn7CjHj4BJTpQOoU7QhsVetGG/aEwNbbw6NjyBiVWBUXt19k5w==
+"@lb-ribbit/kintone-secrets@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-secrets/-/kintone-secrets-0.3.0.tgz#ccb62ec48ded2ba85256a9987576fe1b0795c628"
+  integrity sha512-xLHHGn96b9Bn1pilw1YHRHUsw78CWoRfYkoK/6D8ZvbAiSeA2VZXFL7eteLoBbRCfeEU5MM/CqUlissDRCYZLA==
 
 "@lb-ribbit/kintone-utilities@^0.1.0":
   version "0.1.0"
