@@ -7,8 +7,8 @@
     "init": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
     "build": "node scripts/marge-json.mjs prod && webpack --config webpack.prod.js",
     "dev": "node scripts/marge-json.mjs dev && concurrently \"yarn:dev:*\"",
-    "dev:js": "webpack --config webpack.dev.js -w",
-    "dev:upload": "node scripts/upload.js",
+    "dev:build": "webpack --config webpack.dev.js -w",
+    "dev:upload": "node scripts/upload.mjs",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
   },
   "devDependencies": {
