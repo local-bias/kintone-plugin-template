@@ -23,3 +23,4 @@ exec(
     console.error(`stderr: ${stderr}`);
   }
 );
+console.log('🐢 プラグインをアップロードしました');
