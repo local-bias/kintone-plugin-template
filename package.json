@@ -4,9 +4,9 @@
   "author": "ribbit",
   "license": "MIT",
   "scripts": {
-    "init": "ts-node scripts/marge-json.ts dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.ts",
-    "build": "ts-node scripts/marge-json.ts prod && webpack --config webpack.prod.js",
-    "dev": "ts-node scripts/marge-json.ts dev && concurrently \"yarn:dev:*\"",
+    "init": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.ts",
+    "build": "node scripts/marge-json.mjs prod && webpack --config webpack.prod.js",
+    "dev": "node scripts/marge-json.mjs dev && concurrently \"yarn:dev:*\"",
     "dev:js": "webpack --config webpack.dev.js -w",
     "dev:upload": "node scripts/upload.js",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
