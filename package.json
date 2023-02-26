@@ -6,10 +6,13 @@
   "scripts": {
     "init": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
     "build": "node scripts/marge-json.mjs prod && webpack --config webpack.prod.js",
-    "dev": "node scripts/marge-json.mjs dev && concurrently \"yarn:dev:*\"",
-    "dev:build": "webpack --config webpack.dev.js -w",
+    "dev": "kintone-plugin-packer --out dist/plugin-dev.zip --ppk dist/private.ppk plugin && node scripts/marge-json.mjs dev && concurrently \"yarn:dev:*\"",
+    "dev:build": "node esbuild.config.mjs",
     "dev:upload": "node scripts/upload.mjs",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
+  },
+  "browser": {
+    "path": false
   },
   "devDependencies": {
     "@emotion/react": "11.10.6",
