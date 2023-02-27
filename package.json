@@ -21,7 +21,7 @@
     "@kintone/plugin-packer": "6.0.25",
     "@kintone/plugin-uploader": "7.1.9",
     "@kintone/rest-api-client": "3.3.2",
-    "@konomi-app/kbuild": "^0.7.1",
+    "@konomi-app/kbuild": "^1.0.0",
     "@lb-ribbit/kintone-secrets": "0.3.0",
     "@lb-ribbit/kintone-utilities": "^0.5.3",
     "@lb-ribbit/kintone-xapp": "0.4.0",
