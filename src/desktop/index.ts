@@ -1,4 +1,4 @@
-import Launcher from '@common/launcher';
+import Launcher from '@/common/launcher';
 
 import event from './event';
 

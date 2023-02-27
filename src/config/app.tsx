@@ -2,16 +2,16 @@ import React, { Suspense, FC } from 'react';
 import { RecoilRoot } from 'recoil';
 import { SnackbarProvider } from 'notistack';
 
-import { restoreStorage } from '@common/plugin';
+import { restoreStorage } from '@/common/plugin';
 
 import Layout from './components/model/layout';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
 import Footer from './components/model/footer';
-import { Loading } from '@common/components/loading';
+import { Loading } from '@/common/components/loading';
 import { pluginIdState, storageState } from './states/plugin';
-import { PluginErrorBoundary } from '@common/components/functional/error-boundary';
-import { URL_PROMOTION } from '@common/static';
+import { PluginErrorBoundary } from '@/common/components/functional/error-boundary';
+import { URL_PROMOTION } from '@/common/static';
 
 const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
   <Suspense fallback={<Loading label='画面の描画を待機しています' />}>

@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import { getUserDefinedFields } from '@common/kintone-api';
+import { getUserDefinedFields } from '@/common/kintone-api';
 import { kintoneAPI } from '@lb-ribbit/kintone-utilities';
 
 const PREFIX = 'kintone';

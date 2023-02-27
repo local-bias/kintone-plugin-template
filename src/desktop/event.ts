@@ -1,4 +1,4 @@
-import { restoreStorage } from '@common/plugin';
+import { restoreStorage } from '@/common/plugin';
 
 const events: launcher.Events = ['mobile.app.record.edit.show'];
 

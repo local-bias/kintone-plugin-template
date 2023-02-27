@@ -1,7 +1,7 @@
 import React, { FC, FCX } from 'react';
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import { URL_HOMEPAGE, URL_INQUIRY } from '@common/static';
+import { URL_HOMEPAGE, URL_INQUIRY } from '@/common/static';
 import { ErrorBoundary } from '@sentry/react';
 import { ErrorIcon } from '../icon/error';
 
