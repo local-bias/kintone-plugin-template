@@ -376,9 +376,10 @@
     mime-types "^2.1.35"
     qs "^6.10.5"
 
-"@konomi-app/kbuild@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kbuild/-/kbuild-0.7.1.tgz#9b11b94cdba2da319027504a659d8225fe5f963d"
+"@konomi-app/kbuild@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kbuild/-/kbuild-1.0.0.tgz#b7c4fc1ac41be8c23641749ba40a45b9751c9c0d"
+  integrity sha512-B+hHDMkGqpJcRiaFyGqbNWmZGi5Sz9MngUz9pnvPCt2j4wRo2OU5AOyg8nGNgbHmjNUxTw0sMFIKjYPUyDvjVg==
   dependencies:
     esbuild "^0.17.10"
     terser-webpack-plugin "^5.3.6"
