@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { TextField, Autocomplete } from '@mui/material';
-import { kintoneAPI } from '@lb-ribbit/kintone-utilities';
+import { kintoneAPI } from '@konomi-app/kintone-utilities';
 
 import { appFieldsState } from '../../../states/kintone';
 
