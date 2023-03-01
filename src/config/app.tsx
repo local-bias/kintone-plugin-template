@@ -1,24 +1,24 @@
-import React, { Suspense, FC } from 'react';
-import { RecoilRoot } from 'recoil';
+import { restoreStorage } from '@konomi-app/kintone-utilities';
 import { SnackbarProvider } from 'notistack';
+import React, { FC, Suspense } from 'react';
+import { RecoilRoot } from 'recoil';
 
-import { restoreStorage } from '@/common/plugin';
-
-import Layout from './components/model/layout';
-import Form from './components/model/form';
-import Sidebar from './components/model/sidebar';
-import Footer from './components/model/footer';
-import { Loading } from '@/common/components/loading';
-import { pluginIdState, storageState } from './states/plugin';
 import { PluginErrorBoundary } from '@/common/components/functional/error-boundary';
+import { Loading } from '@/common/components/loading';
 import { URL_PROMOTION } from '@/common/static';
+import Footer from './components/model/footer';
+import Form from './components/model/form';
+import Layout from './components/model/layout';
+import Sidebar from './components/model/sidebar';
+import { pluginIdState, storageState } from './states/plugin';
+import { createConfig } from '@/common/plugin';
 
 const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
   <Suspense fallback={<Loading label='画面の描画を待機しています' />}>
     <RecoilRoot
       initializeState={({ set }) => {
         set(pluginIdState, pluginId);
-        set(storageState, restoreStorage(pluginId));
+        set(storageState, restoreStorage<kintone.plugin.Storage>(pluginId) ?? createConfig());
       }}
     >
       <PluginErrorBoundary>
