@@ -379,7 +379,6 @@
 "@konomi-app/kbuild@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@konomi-app/kbuild/-/kbuild-1.0.0.tgz#b7c4fc1ac41be8c23641749ba40a45b9751c9c0d"
-  integrity sha512-B+hHDMkGqpJcRiaFyGqbNWmZGi5Sz9MngUz9pnvPCt2j4wRo2OU5AOyg8nGNgbHmjNUxTw0sMFIKjYPUyDvjVg==
   dependencies:
     esbuild "^0.17.10"
     terser-webpack-plugin "^5.3.6"
@@ -387,15 +386,15 @@
     typescript "^4.9.5"
     webpack "^5.75.0"
 
+"@konomi-app/kintone-utilities@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-0.8.0.tgz#6bc38bfdaeb253d76dd0918b0c151229f76eaef8"
+  dependencies:
+    "@kintone/rest-api-client" "^3.3.1"
+
 "@lb-ribbit/kintone-secrets@0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-secrets/-/kintone-secrets-0.3.0.tgz#ccb62ec48ded2ba85256a9987576fe1b0795c628"
-
-"@lb-ribbit/kintone-utilities@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@lb-ribbit/kintone-utilities/-/kintone-utilities-0.5.3.tgz#f66d7f29204c06e45daffc007da7d274ebfaa281"
-  dependencies:
-    "@kintone/rest-api-client" "^3.3.1"
 
 "@lb-ribbit/kintone-xapp@0.4.0":
   version "0.4.0"
@@ -513,7 +512,6 @@
 "@sentry/browser@7.39.0":
   version "7.39.0"
   resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-7.39.0.tgz#e52669f0105257aeac799394df7b9a9bbb186449"
-  integrity sha512-LSa89bLDfGK33ArrgutVU8p4UDb809BgOn29qe/YPUL/Wor+cO59XoEmKVmXEqMZYEVjsaUVoBanUoxXKSlYgw==
   dependencies:
     "@sentry/core" "7.39.0"
     "@sentry/replay" "7.39.0"
@@ -524,7 +522,6 @@
 "@sentry/core@7.39.0":
   version "7.39.0"
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.39.0.tgz#501febb80832f7a5160b9c30883a7f985bd3fdd0"
-  integrity sha512-45WJIcWWCQnZ8zhHtcrkJjQ4YydmzMWY4pmRuBG7Qp+zrCT6ISoyODcjY+SCHFdvXkiYFi8+bFZa1qG3YQnnYw==
   dependencies:
     "@sentry/types" "7.39.0"
     "@sentry/utils" "7.39.0"
@@ -533,7 +530,6 @@
 "@sentry/react@7.39.0":
   version "7.39.0"
   resolved "https://registry.yarnpkg.com/@sentry/react/-/react-7.39.0.tgz#ff352e2c84ec3346ee463fac4ce2bef67a1f04c1"
-  integrity sha512-hoElDK2Z5RwBlXiIQEjmZcxImP6ZjZRAKvycVq6dEDwghmL2bJeTVyCTqCh+YnyYzUXVW+WJRaWHexSZuTHbvg==
   dependencies:
     "@sentry/browser" "7.39.0"
     "@sentry/types" "7.39.0"
@@ -544,7 +540,6 @@
 "@sentry/replay@7.39.0":
   version "7.39.0"
   resolved "https://registry.yarnpkg.com/@sentry/replay/-/replay-7.39.0.tgz#49d55ab29f9f7d74057f057b89e3a7f0382a1154"
-  integrity sha512-pL5JMk/fOx9KFbNBnqoJQwx7X0ZM4BrypWMzkGKsoENjm5sn6pB/dtO4N4k3gmIy929a89d1qL+HbxHAAxFylQ==
   dependencies:
     "@sentry/core" "7.39.0"
     "@sentry/types" "7.39.0"
@@ -553,12 +548,10 @@
 "@sentry/types@7.39.0":
   version "7.39.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.39.0.tgz#06c51d94ebb3446615f109352648d4b8c0b35ad0"
-  integrity sha512-5Y83Y8O3dT5zT2jTKEIPMcpn5lUm05KRMaCXuw0sRsv4r9TbBUKeqiSU1LjowT8rB/XNy8m7DHav8+NmogPaJw==
 
 "@sentry/utils@7.39.0":
   version "7.39.0"
   resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.39.0.tgz#1a0af30d3b4032feea8a89d94a3ba72c29834ba6"
-  integrity sha512-/ZxlPgm1mGgmuMckCTc9iyqDuFTEYNEoMB53IjVFz8ann+37OiWB7Py/QV1rEEsv3xKrGbA8thhRhV9E1sjTlQ==
   dependencies:
     "@sentry/types" "7.39.0"
     tslib "^1.9.3"
