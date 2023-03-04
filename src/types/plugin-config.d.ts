@@ -1,6 +1,6 @@
 interface PluginManifest extends Record<string, any> {
   manifest_version: number;
-  version: number;
+  version: number | string;
   type: 'APP';
   name: {
     en?: string;
