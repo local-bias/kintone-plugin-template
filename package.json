@@ -18,7 +18,7 @@
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@kintone/dts-gen": "6.1.21",
-    "@kintone/plugin-packer": "6.0.25",
+    "@kintone/plugin-packer": "6.0.26",
     "@kintone/plugin-uploader": "7.1.9",
     "@kintone/rest-api-client": "3.3.2",
     "@konomi-app/kbuild": "^1.0.0",

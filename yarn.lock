@@ -368,16 +368,17 @@
     ajv "^7.2.4"
     bytes "^3.1.2"
 
-"@kintone/plugin-packer@6.0.25":
-  version "6.0.25"
-  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.25.tgz#3e9b367870b48a0224a6069e5191954a3c10f9df"
+"@kintone/plugin-packer@6.0.26":
+  version "6.0.26"
+  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.26.tgz#43fddc86c1a5848880d97fa7eb69be193c37d558"
+  integrity sha512-axi5Xnb7RQQCv3mvpVb7NjH6yaqtgVMQWAXWPcSOl8Kb0ZUNSjUkGvaE/GVqT684NNu44mX7U2VBpQ3r9T8Sfg==
   dependencies:
     "@kintone/plugin-manifest-validator" "^7.0.9"
     chokidar "^3.5.3"
     debug "^4.3.4"
     denodeify "^1.2.1"
     meow "^9.0.0"
-    mkdirp "^1.0.4"
+    mkdirp "^2.1.4"
     node-rsa "~1.1.1"
     stream-buffers "^3.0.2"
     yauzl "^2.10.0"
@@ -2690,9 +2691,10 @@ mkdirp-classic@^0.5.2:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
 
-mkdirp@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
+mkdirp@^2.1.4:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-2.1.5.tgz#78d7eaf15e069ba7b6b47d76dd94cfadf7a4062f"
+  integrity sha512-jbjfql+shJtAPrFoKxHOXip4xS+kul9W3OzfzzrqueWK2QMGon2bFH2opl6W9EagBThjEz+iysyi/swOoVfB/w==
 
 ms@2.1.2:
   version "2.1.2"
