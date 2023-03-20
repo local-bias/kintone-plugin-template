@@ -26,7 +26,7 @@
     "@lb-ribbit/kintone-secrets": "0.3.0",
     "@lb-ribbit/kintone-xapp": "0.4.0",
     "@mui/icons-material": "5.11.11",
-    "@mui/material": "5.11.12",
+    "@mui/material": "5.11.13",
     "@sentry/react": "7.42.0",
     "@types/luxon": "3.2.0",
     "@types/react": "18.0.28",
