@@ -368,18 +368,18 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kintone/dts-gen@6.1.21":
-  version "6.1.21"
-  resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.21.tgz#3d2b89220506a3a83cf929cda00757f3a364de05"
-  integrity sha512-KeHuBJ7skKcbVPV8X245fmeR1GN4ddG7W/6k9cwv6358nIlJCxSoUJmslM8o24MRicO64rO9WY5xBL6Rg7CEeQ==
+"@kintone/dts-gen@6.1.22":
+  version "6.1.22"
+  resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.22.tgz#f6d49337df42151ecddb38628dd711d931bc693a"
+  integrity sha512-aZkMttei56QTKxFNR1SNSXHExKxcAhdztQz+yeDxzo3yAbpC2+sTpYlf1PjZGXAeLlJ/DNieUvskHr3qdyK/AA==
   dependencies:
     "@cybozu/eslint-config" "^18.0.1"
     axios "^0.27.2"
     commander "^10.0.0"
-    eslint "^8.25.0"
+    eslint "^8.36.0"
     form-data "^4.0.0"
     lodash "^4.17.21"
-    prettier "^2.7.1"
+    prettier "^2.8.4"
 
 "@kintone/dts-gen@^6.1.12":
   version "6.1.20"
@@ -1957,7 +1957,7 @@ eslint-visitor-keys@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.3.0.tgz#f6480fa6b1f30efe2d1968aa8ac745b862469826"
 
-eslint@8.36.0:
+eslint@8.36.0, eslint@^8.36.0:
   version "8.36.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.36.0.tgz#1bd72202200a5492f91803b113fb8a83b11285cf"
   integrity sha512-Y956lmS7vDqomxlaaQAHVmeb4tNMp2FWIvU/RnU5BD3IKMD/MJPr76xdyr68P8tV1iNMvN2mRK0yy3c+UjL+bw==
@@ -3189,9 +3189,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.7.1:
+prettier@^2.7.1, prettier@^2.8.4:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.4.tgz#34dd2595629bfbb79d344ac4a91ff948694463c3"
+  integrity sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==
 
 progress@2.0.3:
   version "2.0.3"
