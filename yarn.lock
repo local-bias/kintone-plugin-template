@@ -447,24 +447,25 @@
     lodash "^4.17.21"
     prettier "^2.7.1"
 
-"@kintone/plugin-manifest-validator@^7.0.9":
-  version "7.0.9"
-  resolved "https://registry.yarnpkg.com/@kintone/plugin-manifest-validator/-/plugin-manifest-validator-7.0.9.tgz#d44d86fc1c8a8a7851dff555a767f5d3fb4a83c1"
+"@kintone/plugin-manifest-validator@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@kintone/plugin-manifest-validator/-/plugin-manifest-validator-8.0.0.tgz#fd24081db7fd2df374cfc4c87affc34bbdc50efb"
+  integrity sha512-MVgpFdgcpilGWRMga88b4vFm5J2ioBdRZUKkeEeg/hKD4ngms3BbZ3jj0JvMa8sSBvv39t4AwkctP9z67x6SDg==
   dependencies:
-    ajv "^7.2.4"
+    ajv "^8.12.0"
     bytes "^3.1.2"
 
-"@kintone/plugin-packer@6.0.29":
-  version "6.0.29"
-  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.29.tgz#15b3be898ab3f31fb41fb727c26ee50cac215668"
-  integrity sha512-++LLMfVowyNuh5DORZosr25Gm9FyiBieZ5TzRDs5lgaf8j0qDu3hM6O7ofbmPnBLAxfR/X396mWWOdcerJSFkw==
+"@kintone/plugin-packer@6.0.30":
+  version "6.0.30"
+  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.30.tgz#ce696c18ae87c68c7722544a87954aad24b4d607"
+  integrity sha512-Fa55nY1QGmuq0ybU8N70a0KnT0wMxNSNmyy/qAXR6SgXvMd3otaVLnNmkHrN8CHzAHFgIqqo5AT7JbDnFbWg0A==
   dependencies:
-    "@kintone/plugin-manifest-validator" "^7.0.9"
+    "@kintone/plugin-manifest-validator" "^8.0.0"
     chokidar "^3.5.3"
     debug "^4.3.4"
     denodeify "^1.2.1"
     meow "^9.0.0"
-    mkdirp "^2.1.5"
+    mkdirp "^2.1.6"
     node-rsa "~1.1.1"
     stream-buffers "^3.0.2"
     yauzl "^2.10.0"
@@ -1251,9 +1252,10 @@ ajv@^6.10.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^7.2.4:
-  version "7.2.4"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-7.2.4.tgz#8e239d4d56cf884bccca8cca362f508446dc160f"
+ajv@^8.12.0:
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.12.0.tgz#d1a0527323e22f53562c567c00991577dfbe19d1"
+  integrity sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -3147,10 +3149,10 @@ mkdirp-classic@^0.5.2:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
 
-mkdirp@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-2.1.5.tgz#78d7eaf15e069ba7b6b47d76dd94cfadf7a4062f"
-  integrity sha512-jbjfql+shJtAPrFoKxHOXip4xS+kul9W3OzfzzrqueWK2QMGon2bFH2opl6W9EagBThjEz+iysyi/swOoVfB/w==
+mkdirp@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-2.1.6.tgz#964fbcb12b2d8c5d6fbc62a963ac95a273e2cc19"
+  integrity sha512-+hEnITedc8LAtIP9u3HJDFIdcLV2vXP33sqLLIzkv1Db1zO/1OxbvYf0Y1OC/S/Qo5dxHXepofhmxL02PsKe+A==
 
 ms@2.1.2:
   version "2.1.2"
