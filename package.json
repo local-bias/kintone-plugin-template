@@ -20,7 +20,7 @@
     "@kintone/dts-gen": "6.1.24",
     "@kintone/plugin-packer": "6.0.30",
     "@kintone/plugin-uploader": "7.1.10",
-    "@kintone/rest-api-client": "3.3.6",
+    "@kintone/rest-api-client": "3.3.7",
     "@konomi-app/kbuild": "^1.0.0",
     "@konomi-app/kintone-utilities": "^1.0.0",
     "@lb-ribbit/kintone-secrets": "0.3.0",
