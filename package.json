@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "5.56.0",
     "concurrently": "^7.6.0",
     "dotenv": "16.0.3",
-    "eslint": "8.36.0",
+    "eslint": "8.37.0",
     "immer": "9.0.21",
     "luxon": "3.3.0",
     "notistack": "3.0.1",
