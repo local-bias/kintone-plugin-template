@@ -104,9 +104,9 @@
     stylis "4.1.3"
 
 "@emotion/cache@^11.10.5":
-  version "11.10.5"
-  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.10.5.tgz#c142da9351f94e47527ed458f7bbbbe40bb13c12"
-  integrity sha512-dGYHWyzTdmK+f2+EnIGBpkz1lKc4Zbj2KHd4cX3Wi8/OWr5pKslNjc3yABKH4adRGCvSX4VDC0i04mrrq0aiRA==
+  version "11.10.7"
+  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.10.7.tgz#2e3b12d3c7c74db0a020ae79eefc52a1b03a6908"
+  integrity sha512-VLl1/2D6LOjH57Y8Vem1RoZ9haWF4jesHDGiHtKozDQuBIkJm2gimVo0I02sWCuzZtVACeixTVB4jeE8qvCBoQ==
   dependencies:
     "@emotion/memoize" "^0.8.0"
     "@emotion/sheet" "^1.2.1"
@@ -487,7 +487,7 @@
     os-locale "^5.0.0"
     puppeteer "^19.7.5"
 
-"@kintone/rest-api-client@3.3.9":
+"@kintone/rest-api-client@3.3.9", "@kintone/rest-api-client@^3.3.6":
   version "3.3.9"
   resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.9.tgz#aa9803282f7c2d402135e63c91034e84a52a6aaf"
   integrity sha512-6b7xD/VaHteFq7rv2TYH9uwu+yz+KkAAiFwqHv6rp2Tg9YLY5RNu+s+OSWuUhMSJ95nH1iesXqjTuSX/FZtgxQ==
@@ -510,18 +510,6 @@
     mime-types "^2.1.35"
     qs "^6.10.5"
 
-"@kintone/rest-api-client@^3.3.6":
-  version "3.3.7"
-  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.7.tgz#49ee88acd93464be695f991c6ce0ec389bed848e"
-  integrity sha512-b7cdw/4KrbzI5JNwMesYkUKpDa8V/ALkbmY87/MAaWwqHRphvLIi9nelY/E8Ga8ZPa/gEFvOdCsMJlnUTso9mw==
-  dependencies:
-    axios "^1.3.4"
-    core-js "^3.29.1"
-    form-data "^4.0.0"
-    js-base64 "^3.7.5"
-    mime "^3.0.0"
-    qs "^6.10.5"
-
 "@konomi-app/kbuild@^1.0.0":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@konomi-app/kbuild/-/kbuild-1.4.1.tgz#8f66d85c4864741f5fde040e5d9df22dd4694da3"
@@ -538,9 +526,9 @@
     webpack "^5.77.0"
 
 "@konomi-app/kintone-utilities@^1.0.0":
-  version "1.12.8"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-1.12.8.tgz#49780e9d32771db267a51a9d24a5e68fa4783557"
-  integrity sha512-09G7r1Xko4418+uNTHTbcU9FJh/cNlZMMYxR9R0zAxgVpSInjOluTvpey6AZHy65T4Mq6ij65CGaBjeuUu0dMg==
+  version "1.26.1"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-1.26.1.tgz#f923e03c260af090acba3599a4f8924b8801e059"
+  integrity sha512-xyT++/rpZixg9ya+TwlWreItgUNTW/UD/X2iNFLRMKARTdII4WfHrCooToOevAIRrK2ZXSv6pYSerMyGT2QgJQ==
   dependencies:
     "@emotion/css" "^11.10.6"
     "@kintone/rest-api-client" "^3.3.6"
@@ -1321,15 +1309,6 @@ axios@^0.27.2:
     follow-redirects "^1.14.9"
     form-data "^4.0.0"
 
-axios@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.3.4.tgz#f5760cefd9cfb51fd2481acf88c05f67c4523024"
-  integrity sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ==
-  dependencies:
-    follow-redirects "^1.15.0"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
 axobject-query@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-3.1.1.tgz#3b6e5c6d4e43ca7ba51c5babf99d22a9c68485e1"
@@ -1593,9 +1572,9 @@ core-js@^3.27.2:
   integrity sha512-+jwgnhg6cQxKYIIjGtAHq2nwUOolo9eoFZ4sHfUH09BLXBgxnH4gA0zEd+t+BO2cNB8idaBtZFcFTRjQJRJmAw==
 
 core-js@^3.29.1:
-  version "3.30.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.30.0.tgz#64ac6f83bc7a49fd42807327051701d4b1478dea"
-  integrity sha512-hQotSSARoNh1mYPi9O2YaWeiq/cEB95kOrFb4NCrO4RIFt1qqNpKsaE+vy/L3oiqvND5cThqXzUU3r9F7Efztg==
+  version "3.30.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.30.1.tgz#fc9c5adcc541d8e9fa3e381179433cbf795628ba"
+  integrity sha512-ZNS5nbiSwDTq4hFosEDqm65izl2CWmLz0hARJMyNQBgkUZMIF51cQiMvIQKA6hvuaeWxQDP3hEedM1JZIgTldQ==
 
 cosmiconfig@8.1.3:
   version "8.1.3"
@@ -2397,7 +2376,7 @@ flatted@^3.1.0:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
 
-follow-redirects@^1.14.9, follow-redirects@^1.15.0:
+follow-redirects@^1.14.9:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -2752,10 +2731,17 @@ is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.7.tgz#3bc2a85ea742d9e36205dcacdd72ca1fdc51b055"
 
-is-core-module@^2.11.0, is-core-module@^2.5.0, is-core-module@^2.9.0:
+is-core-module@^2.11.0, is-core-module@^2.5.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.11.0.tgz#ad4cb3e3863e814523c96f3f58d26cc570ff0144"
   integrity sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==
+  dependencies:
+    has "^1.0.3"
+
+is-core-module@^2.12.0, is-core-module@^2.9.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.12.0.tgz#36ad62f6f73c8253fd6472517a12483cf03e7ec4"
+  integrity sha512-RECHCBCd/viahWmwj6enj19sKbHfJrddi/6cBDsNTKbNq0f7VeaUkBo60BqzvPqo/W54ChS62Z5qyun7cfOMqQ==
   dependencies:
     has "^1.0.3"
 
@@ -3509,7 +3495,7 @@ prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-proxy-from-env@1.1.0, proxy-from-env@^1.1.0:
+proxy-from-env@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
@@ -3693,12 +3679,21 @@ resolve-from@^4.0.0:
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
   integrity sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==
 
-resolve@^1.10.0, resolve@^1.10.1, resolve@^1.19.0, resolve@^1.22.1:
+resolve@^1.10.0, resolve@^1.10.1, resolve@^1.22.1:
   version "1.22.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
   integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
   dependencies:
     is-core-module "^2.9.0"
+    path-parse "^1.0.7"
+    supports-preserve-symlinks-flag "^1.0.0"
+
+resolve@^1.19.0:
+  version "1.22.3"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.3.tgz#4b4055349ffb962600972da1fdc33c46a4eb3283"
+  integrity sha512-P8ur/gp/AmbEzjr729bZnLjXK5Z+4P0zhIJgBgzqRih7hL7BOukHGtSTA3ACMY467GRFz3duQsi0bDZdR7DKdw==
+  dependencies:
+    is-core-module "^2.12.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
