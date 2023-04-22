@@ -16,6 +16,7 @@ import { pushPluginName } from '@/common/local-storage';
       event.error = `プラグイン「${PLUGIN_NAME}」の処理内でエラーが発生しました。`;
       console.error('エラー', error);
     },
+    logDisabled: process.env.NODE_ENV === 'production',
   });
   event(listener);
 })(kintone.$PLUGIN_ID);
