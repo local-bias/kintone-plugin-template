@@ -1,4 +1,4 @@
-import produce from 'immer';
+import { produce } from 'immer';
 
 /**
  * プラグインの設定情報のひな形を返却します

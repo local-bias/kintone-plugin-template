@@ -3,7 +3,7 @@ import React, { FC, FCX, memo, Suspense } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import produce from 'immer';
+import { produce } from 'immer';
 
 import { appFieldsState } from '../../../states/kintone';
 import { fieldsState } from '../../../states/plugin';
