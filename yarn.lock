@@ -404,9 +404,9 @@
     mime "^3.0.0"
     qs "^6.10.5"
 
-"@konomi-app/kbuild@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kbuild/-/kbuild-1.4.1.tgz#8f66d85c4864741f5fde040e5d9df22dd4694da3"
+"@konomi-app/kbuild@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kbuild/-/kbuild-1.5.1.tgz#a799d21489dc0ef854da60c550e966a764c445cd"
   dependencies:
     css-loader "^6.7.3"
     esbuild "^0.17.14"
@@ -425,6 +425,16 @@
     "@emotion/css" "^11.10.6"
     "@kintone/rest-api-client" "^3.3.6"
 
+"@konomi-app/kintone-utility-component@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utility-component/-/kintone-utility-component-0.8.2.tgz#3a96b03005d707b46ef1092fd71c0652f48bba55"
+  dependencies:
+    "@emotion/styled" "^11.10.6"
+    "@mui/icons-material" "^5.11.11"
+    "@mui/material" "^5.11.11"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+
 "@konomi-app/ui-react@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@konomi-app/ui-react/-/ui-react-1.0.0.tgz#c90c97975ffda64d5968c797e2b99d3bc69978fa"
@@ -432,6 +442,12 @@
     "@emotion/react" "^11.10.6"
     "@emotion/styled" "^11.10.6"
     react "^18.2.0"
+
+"@konomi-app/ui@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@konomi-app/ui/-/ui-1.6.1.tgz#d645161fc11e3e8a2e3f1763eac8da12ddda9e4f"
+  dependencies:
+    "@emotion/css" "^11.10.6"
 
 "@lb-ribbit/kintone-secrets@0.3.0":
   version "0.3.0"
@@ -461,13 +477,13 @@
   version "5.12.1"
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.12.1.tgz#f828554889e6ab7345395626bb46e561c113435e"
 
-"@mui/icons-material@5.11.16":
+"@mui/icons-material@5.11.16", "@mui/icons-material@^5.11.11":
   version "5.11.16"
   resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.11.16.tgz#417fa773c56672e39d6ccfed9ac55591985f0d38"
   dependencies:
     "@babel/runtime" "^7.21.0"
 
-"@mui/material@5.12.1":
+"@mui/material@5.12.1", "@mui/material@^5.11.11":
   version "5.12.1"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.12.1.tgz#3297ffc6836f426a26568332d68357c1398f0630"
   dependencies:
@@ -3094,7 +3110,7 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-dom@18.2.0:
+react-dom@18.2.0, react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
   dependencies:
