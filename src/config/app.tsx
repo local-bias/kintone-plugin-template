@@ -5,13 +5,13 @@ import { RecoilRoot } from 'recoil';
 
 import { PluginErrorBoundary } from '@/common/components/functional/error-boundary';
 import { Loading } from '@/common/components/loading';
-import { URL_PROMOTION } from '@/common/static';
+import { URL_BANNER, URL_PROMOTION } from '@/common/static';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
-import Layout from './components/model/layout';
 import Sidebar from './components/model/sidebar';
 import { pluginIdState, storageState } from './states/plugin';
 import { createConfig } from '@/common/plugin';
+import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
 
 const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
   <Suspense fallback={<Loading label='画面の描画を待機しています' />}>
@@ -24,11 +24,14 @@ const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
       <PluginErrorBoundary>
         <SnackbarProvider maxSnack={1}>
           <Suspense fallback={<Loading label='設定情報を取得しています' />}>
-            <Layout>
+            <PluginLayout>
               <Sidebar />
-              <Form />
+              <PluginContent>
+                <Form />
+              </PluginContent>
+              <PluginBanner url={URL_BANNER} />
               <Footer />
-            </Layout>
+            </PluginLayout>
           </Suspense>
         </SnackbarProvider>
       </PluginErrorBoundary>

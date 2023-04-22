@@ -1,10 +1,9 @@
 import React, { FC, memo, useState } from 'react';
 import { useRecoilCallback } from 'recoil';
-import { IconButton, Tooltip } from '@mui/material';
-import DownloadIcon from '@mui/icons-material/Download';
 import { PLUGIN_NAME } from '@/common/static';
 import { storageState } from '../../../states/plugin';
 import { useSnackbar } from 'notistack';
+import { PluginConfigExportButton } from '@konomi-app/kintone-utility-component';
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -40,13 +39,7 @@ const Component: FC = () => {
     []
   );
 
-  return (
-    <Tooltip title='プラグイン設定をエクスポート'>
-      <IconButton disabled={loading} onClick={onClick}>
-        <DownloadIcon />
-      </IconButton>
-    </Tooltip>
-  );
+  return <PluginConfigExportButton loading={loading} onExportButtonClick={onClick} />;
 };
 
 export default memo(Component);

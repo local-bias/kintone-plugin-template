@@ -1,7 +1,8 @@
-import { Tab, Tabs } from '@mui/material';
+import { Tab } from '@mui/material';
 import React, { FC } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import { conditionsState, tabIndexState } from '../../../states/plugin';
+import { PluginConditionTabs } from '@konomi-app/kintone-utility-component';
 
 const Component: FC = () => {
   const tabIndex = useRecoilValue(tabIndexState);
@@ -16,11 +17,11 @@ const Component: FC = () => {
   );
 
   return (
-    <Tabs value={tabIndex} onChange={onTabChange} orientation='vertical' variant='standard'>
+    <PluginConditionTabs tabIndex={tabIndex} onChange={onTabChange}>
       {conditions.map((condition, i) => (
         <Tab label={`設定${i + 1}${condition.fields}`} key={i} />
       ))}
-    </Tabs>
+    </PluginConditionTabs>
   );
 };
 

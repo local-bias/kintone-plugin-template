@@ -17,7 +17,6 @@ const Component: FCX = ({ className }) => {
 };
 
 const StyledComponent = styled(Component)`
-  grid-area: form;
   padding: 0 16px;
   > div {
     padding: 8px 8px 8px 16px;

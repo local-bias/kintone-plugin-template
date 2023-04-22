@@ -12,6 +12,7 @@ import { loadingState, storageState } from '../../../states/plugin';
 import ExportButton from './export-button';
 import ImportButton from './import-button';
 import ResetButton from './reset-button';
+import { PluginFooter } from '@konomi-app/kintone-utility-component';
 
 type Props = {
   onSaveButtonClick: () => void;
@@ -22,7 +23,7 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
   const loading = useRecoilValue(loadingState);
 
   return (
-    <div {...{ className }}>
+    <PluginFooter {...{ className }}>
       <div>
         <Button
           variant='contained'
@@ -50,23 +51,11 @@ const Component: FCX<Props> = ({ className, onSaveButtonClick, onBackButtonClick
         <ImportButton />
         <ResetButton />
       </div>
-    </div>
+    </PluginFooter>
   );
 };
 
 const StyledComponent = styled(Component)`
-  grid-area: footer;
-
-  display: flex;
-  justify-content: space-between;
-
-  position: sticky;
-  bottom: 15px;
-  margin-top: 20px;
-  background-color: #fff;
-  border-top: 1px solid #eee;
-  z-index: 30;
-
   button {
     margin: 8px;
   }

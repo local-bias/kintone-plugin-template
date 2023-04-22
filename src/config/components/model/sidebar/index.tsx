@@ -1,27 +1,14 @@
-import styled from '@emotion/styled';
-import React, { FC, FCX } from 'react';
+import React, { FCX } from 'react';
 
 import AdditionButton from './condition-addition-button';
 import Tabs from './sidebar-tabs';
+import { PluginSidebar } from '@konomi-app/kintone-utility-component';
 
 const Component: FCX = ({ className }) => (
-  <div className={className}>
-    <div>
-      <AdditionButton />
-      <Tabs />
-    </div>
-  </div>
+  <PluginSidebar>
+    <AdditionButton />
+    <Tabs />
+  </PluginSidebar>
 );
 
-const StyledComponent = styled(Component)`
-  grid-area: sidebar;
-
-  > div {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    border-right: 1px solid #0001;
-  }
-`;
-
-export default StyledComponent;
+export default Component;

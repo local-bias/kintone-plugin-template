@@ -1,26 +1,10 @@
 import React, { FC, memo } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { produce } from 'immer';
-import { Button } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
 
 import { getNewCondition } from '@/common/plugin';
 import { storageState } from '../../../states/plugin';
-
-type Props = Readonly<{ addCondition: () => void }>;
-
-const Component: FC<Props> = ({ addCondition }) => (
-  <Button
-    variant='outlined'
-    color='primary'
-    size='small'
-    startIcon={<AddIcon />}
-    onClick={addCondition}
-    style={{ margin: '16px' }}
-  >
-    新しい設定
-  </Button>
-);
+import { PluginConditionAppendButton } from '@konomi-app/kintone-utility-component';
 
 const Container: FC = () => {
   const addCondition = useRecoilCallback(
@@ -35,7 +19,7 @@ const Container: FC = () => {
     []
   );
 
-  return <Component {...{ addCondition }} />;
+  return <PluginConditionAppendButton onClick={addCondition} />;
 };
 
 export default memo(Container);
