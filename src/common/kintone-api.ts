@@ -1,6 +1,4 @@
-import { KintoneRestAPIClient } from '@kintone/rest-api-client';
-import { kintoneAPI } from '@konomi-app/kintone-utilities';
-import { getAppId } from '@lb-ribbit/kintone-xapp';
+import { getFieldValueAsString, getFormFields, kintoneAPI } from '@konomi-app/kintone-utilities';
 
 /** kintoneアプリに初期状態で存在するフィールドタイプ */
 const DEFAULT_DEFINED_FIELDS: kintoneAPI.FieldPropertyType[] = [
@@ -13,26 +11,6 @@ const DEFAULT_DEFINED_FIELDS: kintoneAPI.FieldPropertyType[] = [
   'STATUS',
 ];
 
-class FlexKintone extends KintoneRestAPIClient {
-  constructor(...options: ConstructorParameters<typeof KintoneRestAPIClient>) {
-    const url = kintone.api.url('/k/v1/app', true);
-    const found = url.match(/k\/guest\/([0-9]+)\//);
-
-    if (found && found.length > 1) {
-      super({
-        guestSpaceId: found[1],
-        ...(options[0] || {}),
-      });
-      return;
-    }
-
-    super(...options);
-  }
-}
-
-/** REST APIクライアント(シングルトン) */
-export const kintoneClient = new FlexKintone();
-
 export const getFieldProperties = async (
   targetApp?: string | number,
   preview?: boolean
@@ -43,7 +21,7 @@ export const getFieldProperties = async (
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
 
-  const { properties } = await kintoneClient.app.getFormFields({ app, preview });
+  const { properties } = await getFormFields({ app, preview });
 
   return properties;
 };
@@ -67,21 +45,6 @@ export const getAllFields = async (): Promise<kintoneAPI.FieldProperty[]> => {
   }, []);
 
   return fields;
-};
-
-export const getAppLayout = async (
-  _app?: number,
-  preview?: boolean
-): Promise<kintoneAPI.Layout> => {
-  const app = _app || getAppId();
-
-  if (!app) {
-    throw new Error('アプリのフィールド情報が取得できませんでした');
-  }
-
-  const { layout } = await kintoneClient.app.getFormLayout({ app, preview });
-
-  return layout;
 };
 
 /**
@@ -180,29 +143,5 @@ export const someRecord = (record: kintoneAPI.RecordData, searchValue: string): 
 };
 
 export const someFieldValue = (field: kintoneAPI.RecordData[string], searchValue: string) => {
-  switch (field.type) {
-    case 'CREATOR':
-    case 'MODIFIER':
-      return ~field.value.name.indexOf(searchValue);
-
-    case 'CHECK_BOX':
-    case 'MULTI_SELECT':
-    case 'CATEGORY':
-      return field.value.some((value) => ~value.indexOf(searchValue));
-
-    case 'USER_SELECT':
-    case 'ORGANIZATION_SELECT':
-    case 'GROUP_SELECT':
-    case 'STATUS_ASSIGNEE':
-      return field.value.some(({ name }) => ~name.indexOf(searchValue));
-
-    case 'FILE':
-      return field.value.some(({ name }) => ~name.indexOf(searchValue));
-
-    case 'SUBTABLE':
-      return field.value.some(({ value }) => someRecord(value, searchValue));
-
-    default:
-      return field.value && ~field.value.indexOf(searchValue);
-  }
+  return ~getFieldValueAsString(field).indexOf(searchValue);
 };
