@@ -425,9 +425,9 @@
     "@emotion/css" "^11.10.6"
     "@kintone/rest-api-client" "^3.3.6"
 
-"@konomi-app/kintone-utility-component@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utility-component/-/kintone-utility-component-0.8.2.tgz#3a96b03005d707b46ef1092fd71c0652f48bba55"
+"@konomi-app/kintone-utility-component@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utility-component/-/kintone-utility-component-0.8.3.tgz#d66af11687e9ead224aec67fcd62b18e6f4c4ddc"
   dependencies:
     "@emotion/styled" "^11.10.6"
     "@mui/icons-material" "^5.11.11"
