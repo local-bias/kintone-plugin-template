@@ -38,5 +38,6 @@ export interface PluginConfig extends Record<string, any> {
     base: PluginManifest;
     prod: Partial<PluginManifest>;
     dev: Partial<PluginManifest>;
+    standalone: Partial<PluginManifest>;
   };
 }

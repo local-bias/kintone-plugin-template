@@ -47,5 +47,10 @@ export default {
       mobile: { js: [`${cdn}/cdn/desktop.js`] },
       config: { js: [`${cdn}/cdn/config.js`] },
     },
+    standalone: {
+      desktop: { js: ['desktop.js'] },
+      mobile: { js: ['desktop.js'] },
+      config: { js: ['config.js'] },
+    },
   },
 };

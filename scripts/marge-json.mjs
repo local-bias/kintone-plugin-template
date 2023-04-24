@@ -6,7 +6,7 @@ import config from '../plugin.config.mjs';
 const envName = process.argv[2] ?? 'dev';
 
 const base = config.manifest.base;
-const env = envName === 'prod' ? config.manifest.prod : config.manifest.dev;
+const env = config.manifest[envName];
 
 const merged = (src, dst) => {
   return Object.entries(src).reduce((acc, [key, value]) => {

@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "init": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
-    "build": "node scripts/marge-json.mjs prod && kbuild prod plugin --prod-root cdn",
+    "build": "node scripts/marge-json.mjs prod && kbuild prod plugin --prod-root cdn && kintone-plugin-packer --out dist/plugin.zip --ppk dist/private.ppk plugin",
+    "standalone": "node scripts/marge-json.mjs standalone && kbuild prod plugin --prod-root plugin && kintone-plugin-packer --out dist/plugin-standalone.zip --ppk dist/private.ppk plugin",
     "dev": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip --ppk dist/private.ppk plugin && concurrently \"yarn:dev:*\"",
     "dev:build": "kbuild dev plugin",
     "dev:upload": "node scripts/upload.mjs",
