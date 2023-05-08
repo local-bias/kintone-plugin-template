@@ -515,10 +515,10 @@
     "@emotion/css" "^11.10.6"
     "@kintone/rest-api-client" "^3.3.10"
 
-"@konomi-app/kintone-utility-component@^0.8.3":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utility-component/-/kintone-utility-component-0.8.4.tgz#e3da6d435b61c35cccec44a6f2ae96764621fec6"
-  integrity sha512-bHURoD0NIkpBAQlCNsXIz5jufKFUn9ZJ2TeMNGzwRrpld8OGZzFohjj5SgiVl7lq2L5WoO2xf5M0KfDfvozhsg==
+"@konomi-app/kintone-utility-component@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utility-component/-/kintone-utility-component-0.9.0.tgz#f4f13ab9491f40a1b79a37b46b9d2509efac6240"
+  integrity sha512-Q1gifgd/Z2h2dlLhDciw9yHa3dAoUSvxcdngyqr7qhCvV/i0AxxCh0ZjZ+qudtGs0axdd3A2SI30lgrRZWbVZQ==
   dependencies:
     "@emotion/styled" "^11.10.6"
     "@mui/icons-material" "^5.11.11"
