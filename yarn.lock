@@ -546,10 +546,10 @@
     ajv "^8.12.0"
     bytes "^3.1.2"
 
-"@kintone/plugin-packer@6.0.36":
-  version "6.0.36"
-  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.36.tgz#8a21a4004deca87fd0437e6e7b6d40afdd9ab286"
-  integrity sha512-m9J8EcPkMgfCpgp9O8P3d4NByqDJPt0EOkuLIvDHVQCSdp8dOOWYazcUdvHKShqu+5q2NlouyW6uvyJP9JbC1A==
+"@kintone/plugin-packer@6.0.37":
+  version "6.0.37"
+  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.37.tgz#a27b5cd1df7fdfedfc73df6671f022d57009708a"
+  integrity sha512-66LB5n1nVlUJjbqjpjPcapwdtaswUigGqc/XGs7Z7Q+D3jDxSv9Y/Bcx95zkLpxgW5LJzv7vc0uWvHLDnlgxGQ==
   dependencies:
     "@kintone/plugin-manifest-validator" "^8.0.2"
     chokidar "^3.5.3"
