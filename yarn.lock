@@ -513,10 +513,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kintone/dts-gen@6.1.30":
-  version "6.1.30"
-  resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.30.tgz#39eeae8c04cc104fb93682edb16db39cd32104bb"
-  integrity sha512-zp0RgKyALdc3CSuGGU3sJBHVWqeGZ1WV342xHozuwAxT8Zn+AcdFUXKmM0Cb7vjkwwgitFEd82IiLJ+qnMkt7Q==
+"@kintone/dts-gen@6.1.31":
+  version "6.1.31"
+  resolved "https://registry.yarnpkg.com/@kintone/dts-gen/-/dts-gen-6.1.31.tgz#0da89df53c6b4e8474a5f0651f313fd7afdfdd99"
+  integrity sha512-8ScbRbjMy9vb5cxAdc16gGkVAUPfYhpPwwbGg+X39e402x+vOXeaT+tno2oFEEkabVnepi7xO0DviF0kyNr+Pw==
   dependencies:
     "@cybozu/eslint-config" "^18.0.3"
     axios "^0.27.2"
