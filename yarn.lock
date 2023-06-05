@@ -505,10 +505,10 @@
     ajv "^8.12.0"
     bytes "^3.1.2"
 
-"@kintone/plugin-packer@6.0.38":
-  version "6.0.38"
-  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.38.tgz#45e9882b197693a301c48d7d547cbd0eecc5a94f"
-  integrity sha512-/RjKCvvfNyXv4fo7Q6Z8YrIEh/CpZD9JCg/lEBub6y5/R8j80i4XZJcZj+jTaK188HGT323cJWKlkB6RKCb//g==
+"@kintone/plugin-packer@6.0.39":
+  version "6.0.39"
+  resolved "https://registry.yarnpkg.com/@kintone/plugin-packer/-/plugin-packer-6.0.39.tgz#1da4ba67fd7989f066accae255a18b9f376139fb"
+  integrity sha512-fK7XrSXl6am/1YIlpyBJda8w0OTWlY8kFuOnEVPvFGf5iMSVPW9NzQcz8VVFA/Nbe9T+jy7nO46LT11/blcR8w==
   dependencies:
     "@kintone/plugin-manifest-validator" "^8.0.2"
     chokidar "^3.5.3"
