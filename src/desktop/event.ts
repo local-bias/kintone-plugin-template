@@ -1,4 +1,4 @@
-import { createConfig } from '@/common/plugin';
+import { createConfig } from '@/lib/plugin';
 import { KintoneEventListener, restoreStorage } from '@konomi-app/kintone-utilities';
 
 export default (listener: KintoneEventListener) => {

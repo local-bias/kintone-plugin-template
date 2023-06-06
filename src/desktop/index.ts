@@ -1,9 +1,9 @@
 /* このファイルはビルドの基点になります。 ファイル名、ディレクトリを変更すると、ビルドが正常に動作しない可能性があります */
 
-import { PLUGIN_NAME } from '@/common/static';
+import { PLUGIN_NAME } from '@/lib/static';
 import event from './event';
 import { KintoneEventListener } from '@konomi-app/kintone-utilities';
-import { pushPluginName } from '@/common/local-storage';
+import { pushPluginName } from '@/lib/local-storage';
 
 ((pluginId) => {
   try {

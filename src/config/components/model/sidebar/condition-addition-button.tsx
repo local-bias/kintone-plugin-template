@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { produce } from 'immer';
 
-import { getNewCondition } from '@/common/plugin';
+import { getNewCondition } from '@/lib/plugin';
 import { storageState } from '../../../states/plugin';
 import { PluginConditionAppendButton } from '@konomi-app/kintone-utility-component';
 

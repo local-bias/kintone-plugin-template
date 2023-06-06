@@ -12,7 +12,7 @@ import {
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useRecoilCallback } from 'recoil';
 import { storageState } from '../../../states/plugin';
-import { createConfig } from '@/common/plugin';
+import { createConfig } from '@/lib/plugin';
 import { useSnackbar } from 'notistack';
 
 const Component: FC = () => {

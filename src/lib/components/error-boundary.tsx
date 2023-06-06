@@ -1,6 +1,6 @@
 import React, { FC, FCX } from 'react';
 import { Alert, AlertTitle, Button } from '@mui/material';
-import { URL_INQUIRY } from '@/common/static';
+import { URL_INQUIRY } from '@/lib/static';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 
 const Component: FCX<FallbackProps> = ({ className, error, resetErrorBoundary }) => (

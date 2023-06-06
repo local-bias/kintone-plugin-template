@@ -3,13 +3,13 @@ import { SnackbarProvider } from 'notistack';
 import React, { FC, Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
 
-import { PluginErrorBoundary } from '@/common/components/functional/error-boundary';
-import { URL_BANNER, URL_PROMOTION } from '@/common/static';
+import { PluginErrorBoundary } from '@/lib/components/functional/error-boundary';
+import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
 import { pluginIdState, storageState } from './states/plugin';
-import { createConfig } from '@/common/plugin';
+import { createConfig } from '@/lib/plugin';
 import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
 import { LoaderWithLabel } from '@konomi-app/ui-react';
 

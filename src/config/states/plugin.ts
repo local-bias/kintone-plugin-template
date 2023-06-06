@@ -1,4 +1,4 @@
-import { getConditionField, getUpdatedStorage } from '@/common/plugin';
+import { getConditionField, getUpdatedStorage } from '@/lib/plugin';
 import { produce } from 'immer';
 import { atom, selector, selectorFamily } from 'recoil';
 
