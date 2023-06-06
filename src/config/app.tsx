@@ -3,7 +3,7 @@ import { SnackbarProvider } from 'notistack';
 import React, { FC, Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
 
-import { PluginErrorBoundary } from '@/lib/components/functional/error-boundary';
+import { PluginErrorBoundary } from '@/lib/components/error-boundary';
 import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
