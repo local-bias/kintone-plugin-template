@@ -1,4 +1,5 @@
 import { getFieldValueAsString, getFormFields, kintoneAPI } from '@konomi-app/kintone-utilities';
+import { getAppId } from '@lb-ribbit/kintone-xapp';
 
 /** kintoneアプリに初期状態で存在するフィールドタイプ */
 const DEFAULT_DEFINED_FIELDS: kintoneAPI.FieldPropertyType[] = [
@@ -12,24 +13,21 @@ const DEFAULT_DEFINED_FIELDS: kintoneAPI.FieldPropertyType[] = [
 ];
 
 export const getFieldProperties = async (
-  targetApp?: string | number,
-  preview?: boolean
+  params: { app?: string | number; preview?: boolean } = {}
 ): Promise<kintoneAPI.FieldProperties> => {
-  const app = targetApp || kintone.app.getId();
-
+  const { app = getAppId(), preview = false } = params;
   if (!app) {
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
-
   const { properties } = await getFormFields({ app, preview });
-
   return properties;
 };
 
-export const getUserDefinedFields = async (options?: {
-  preview?: boolean;
-}): Promise<kintoneAPI.FieldProperties> => {
-  const properties = await getFieldProperties();
+export const getUserDefinedFields = async (
+  params: { preview?: boolean } = {}
+): Promise<kintoneAPI.FieldProperties> => {
+  const { preview } = params;
+  const properties = await getFieldProperties({ preview });
   return omitFieldProperties(properties, DEFAULT_DEFINED_FIELDS);
 };
 
