@@ -1,4 +1,4 @@
-import React, { FC, FCX } from 'react';
+import React, { FC, FCX, PropsWithChildren } from 'react';
 import { Alert, AlertTitle, Button } from '@mui/material';
 import { URL_INQUIRY } from '@/lib/static';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
@@ -21,7 +21,7 @@ const Component: FCX<FallbackProps> = ({ className, error, resetErrorBoundary })
   </div>
 );
 
-const Container: FC<{ children: React.ReactNode }> = ({ children }) => (
+const Container: FC<PropsWithChildren> = ({ children }) => (
   <ErrorBoundary FallbackComponent={Component}>{children}</ErrorBoundary>
 );
 
