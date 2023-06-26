@@ -562,9 +562,9 @@
     react "^18.2.0"
 
 "@konomi-app/ui@^1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@konomi-app/ui/-/ui-1.6.3.tgz#0144c434927c6ecd64aca891618dfa666328b4e9"
-  integrity sha512-I9KIP4t4irjrJ/QxnbDZ7o/9M1/VdTiajnwssN9YZ6QrBMxxxixBe8P9GViO3tP0D9STyfXD7OSsfo2578hh5g==
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@konomi-app/ui/-/ui-1.7.0.tgz#7f1caa8070a92465f200e36eaa1466e0f52efdfe"
+  integrity sha512-w+uFZlnqVKkyQAZeA5i5bltgXdQ8Kz//dQUgEnO5cYgYDAKQTuVW8T+xFhOZqz8KO3YpSjj5WLJliIJrvsY+1g==
   dependencies:
     "@emotion/css" "^11.10.8"
 
