@@ -13,21 +13,21 @@ const DEFAULT_DEFINED_FIELDS: kintoneAPI.FieldPropertyType[] = [
 ];
 
 export const getFieldProperties = async (
-  params: { app?: string | number; preview?: boolean } = {}
+  params: { app?: string | number; preview?: boolean; guestSpaceId?: string } = {}
 ): Promise<kintoneAPI.FieldProperties> => {
-  const { app = getAppId(), preview = false } = params;
+  const { app = getAppId(), preview = false, guestSpaceId } = params;
   if (!app) {
     throw new Error('アプリのフィールド情報が取得できませんでした');
   }
-  const { properties } = await getFormFields({ app, preview });
+  const { properties } = await getFormFields({ app, preview, guestSpaceId });
   return properties;
 };
 
 export const getUserDefinedFields = async (
-  params: { preview?: boolean } = {}
+  params: { preview?: boolean; guestSpaceId?: string } = {}
 ): Promise<kintoneAPI.FieldProperties> => {
-  const { preview } = params;
-  const properties = await getFieldProperties({ preview });
+  const { preview, guestSpaceId } = params;
+  const properties = await getFieldProperties({ preview, guestSpaceId });
   return omitFieldProperties(properties, DEFAULT_DEFINED_FIELDS);
 };
 
