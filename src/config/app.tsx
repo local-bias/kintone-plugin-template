@@ -8,17 +8,17 @@ import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
-import { pluginIdState, storageState } from './states/plugin';
+import { storageState } from './states/plugin';
 import { createConfig } from '@/lib/plugin';
 import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
 import { LoaderWithLabel } from '@konomi-app/ui-react';
+import { PLUGIN_ID } from '.';
 
-const Component: FC<{ pluginId: string }> = ({ pluginId }) => (
+const Component: FC = () => (
   <Suspense fallback={<LoaderWithLabel label='画面の描画を待機しています' />}>
     <RecoilRoot
       initializeState={({ set }) => {
-        set(pluginIdState, pluginId);
-        set(storageState, restoreStorage<kintone.plugin.Storage>(pluginId) ?? createConfig());
+        set(storageState, restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig());
       }}
     >
       <PluginErrorBoundary>
