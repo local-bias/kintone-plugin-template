@@ -1,13 +1,10 @@
 /* このファイルはビルドの基点になります。 ファイル名、ディレクトリを変更すると、ビルドが正常に動作しない可能性があります */
 
-import { PLUGIN_NAME } from '@/lib/static';
-import event from './event';
-import { KintoneEventListener, detectGuestSpaceId } from '@konomi-app/kintone-utilities';
+import '@/lib/global';
 import { pushPluginName } from '@/lib/local-storage';
-
-export const PLUGIN_ID = kintone.$PLUGIN_ID;
-
-export const GUEST_SPACE_ID = detectGuestSpaceId() ?? undefined;
+import { PLUGIN_NAME } from '@/lib/static';
+import { KintoneEventListener } from '@konomi-app/kintone-utilities';
+import event from './event';
 
 try {
   pushPluginName();

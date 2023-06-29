@@ -12,7 +12,7 @@ import { storageState } from './states/plugin';
 import { createConfig } from '@/lib/plugin';
 import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
 import { LoaderWithLabel } from '@konomi-app/ui-react';
-import { PLUGIN_ID } from '.';
+import { PLUGIN_ID } from '@/lib/global';
 
 const Component: FC = () => (
   <Suspense fallback={<LoaderWithLabel label='画面の描画を待機しています' />}>

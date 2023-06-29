@@ -1,7 +1,7 @@
 import { selector } from 'recoil';
 import { getUserDefinedFields } from '@/lib/kintone-api';
 import { kintoneAPI } from '@konomi-app/kintone-utilities';
-import { GUEST_SPACE_ID } from '..';
+import { GUEST_SPACE_ID } from '@/lib/global';
 
 const PREFIX = 'kintone';
 

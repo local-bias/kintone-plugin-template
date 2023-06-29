@@ -1,7 +1,7 @@
 import { createConfig } from '@/lib/plugin';
 import { KintoneEventListener, restoreStorage } from '@konomi-app/kintone-utilities';
-import { PLUGIN_ID } from '.';
 import { PLUGIN_NAME } from '@/lib/static';
+import { PLUGIN_ID } from '@/lib/global';
 
 export default (listener: KintoneEventListener) => {
   listener.add(['app.record.index.show'], async (event) => {
