@@ -10,7 +10,7 @@ export const createConfig = (): kintone.plugin.Storage => ({
 export const getNewCondition = (): kintone.plugin.Condition => ({ fields: [''] });
 
 export const getUpdatedStorage = <T extends keyof kintone.plugin.Condition>(
-  storage: kintone.plugin.Storage | null,
+  storage: kintone.plugin.Storage,
   props: {
     conditionIndex: number;
     key: T;
@@ -19,15 +19,12 @@ export const getUpdatedStorage = <T extends keyof kintone.plugin.Condition>(
 ) => {
   const { conditionIndex, key, value } = props;
   return produce(storage, (draft) => {
-    if (!draft) {
-      return;
-    }
     draft.conditions[conditionIndex][key] = value;
   });
 };
 
 export const getConditionField = <T extends keyof kintone.plugin.Condition>(
-  storage: kintone.plugin.Storage | null,
+  storage: kintone.plugin.Storage,
   props: {
     conditionIndex: number;
     key: T;
@@ -35,7 +32,7 @@ export const getConditionField = <T extends keyof kintone.plugin.Condition>(
   }
 ): NonNullable<kintone.plugin.Condition[T]> => {
   const { conditionIndex, key, defaultValue } = props;
-  if (!storage || !storage.conditions[conditionIndex]) {
+  if (!storage.conditions[conditionIndex]) {
     return defaultValue;
   }
   return storage.conditions[conditionIndex][key] ?? defaultValue;

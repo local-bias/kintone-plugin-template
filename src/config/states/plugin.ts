@@ -1,12 +1,14 @@
-import { getConditionField, getUpdatedStorage } from '@/lib/plugin';
+import { PLUGIN_ID } from '@/lib/global';
+import { createConfig, getConditionField, getUpdatedStorage } from '@/lib/plugin';
+import { restoreStorage } from '@konomi-app/kintone-utilities';
 import { produce } from 'immer';
 import { atom, selector, selectorFamily } from 'recoil';
 
 const PREFIX = 'plugin';
 
-export const storageState = atom<kintone.plugin.Storage | null>({
+export const storageState = atom<kintone.plugin.Storage>({
   key: `${PREFIX}storageState`,
-  default: null,
+  default: restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig(),
 });
 
 export const loadingState = atom<boolean>({
@@ -33,16 +35,13 @@ export const conditionState = selectorFamily<kintone.plugin.Condition | null, nu
     (conditionIndex) =>
     ({ get }) => {
       const storage = get(storageState);
-      return !storage ? null : storage.conditions[conditionIndex] ?? null;
+      return storage.conditions[conditionIndex] ?? null;
     },
   set:
     (conditionIndex) =>
     ({ set }, newValue) => {
       set(storageState, (current) =>
         produce(current, (draft) => {
-          if (!draft) {
-            return;
-          }
           draft.conditions[conditionIndex] = newValue as kintone.plugin.Condition;
         })
       );

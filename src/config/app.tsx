@@ -1,26 +1,17 @@
-import { restoreStorage } from '@konomi-app/kintone-utilities';
+import { PluginErrorBoundary } from '@/lib/components/error-boundary';
+import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
+import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
+import { LoaderWithLabel } from '@konomi-app/ui-react';
 import { SnackbarProvider } from 'notistack';
 import React, { FC, Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
-
-import { PluginErrorBoundary } from '@/lib/components/error-boundary';
-import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
-import { storageState } from './states/plugin';
-import { createConfig } from '@/lib/plugin';
-import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
-import { LoaderWithLabel } from '@konomi-app/ui-react';
-import { PLUGIN_ID } from '@/lib/global';
 
 const Component: FC = () => (
   <Suspense fallback={<LoaderWithLabel label='画面の描画を待機しています' />}>
-    <RecoilRoot
-      initializeState={({ set }) => {
-        set(storageState, restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig());
-      }}
-    >
+    <RecoilRoot>
       <PluginErrorBoundary>
         <SnackbarProvider maxSnack={1}>
           <Suspense fallback={<LoaderWithLabel label='設定情報を取得しています' />}>

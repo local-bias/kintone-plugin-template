@@ -73,7 +73,7 @@ const Container: FC = () => {
         try {
           const storage = await snapshot.getPromise(storageState);
 
-          storeStorage(storage!, () => true);
+          storeStorage(storage, () => true);
           enqueueSnackbar('設定を保存しました', {
             variant: 'success',
             action: (
