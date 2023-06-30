@@ -82,7 +82,19 @@ const Component: FCX = ({ className }) => {
   );
 };
 
-const StyledComponent = styled(Component)`
+const Placeholder: FCX = ({ className }) => (
+  <div className={className}>
+    {new Array(3).fill('').map((_, i) => (
+      <div key={i} className='row'>
+        <Skeleton variant='rounded' width={360} height={56} />
+        <Skeleton variant='circular' width={24} height={24} />
+        <Skeleton variant='circular' width={24} height={24} />
+      </div>
+    ))}
+  </div>
+);
+
+const Styling = (Component: FC) => styled(Component)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -94,29 +106,12 @@ const StyledComponent = styled(Component)`
   }
 `;
 
+const StyledComponent = Styling(Component);
+const StyledPlaceHolder = Styling(Placeholder);
+
 const Container: FC = () => {
   return (
-    <Suspense
-      fallback={
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Skeleton width={360} height={56} />
-            <Skeleton variant='circular' width={24} height={24} />
-            <Skeleton variant='circular' width={24} height={24} />
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Skeleton width={360} height={56} />
-            <Skeleton variant='circular' width={24} height={24} />
-            <Skeleton variant='circular' width={24} height={24} />
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Skeleton width={360} height={56} />
-            <Skeleton variant='circular' width={24} height={24} />
-            <Skeleton variant='circular' width={24} height={24} />
-          </div>
-        </div>
-      }
-    >
+    <Suspense fallback={<StyledPlaceHolder />}>
       <StyledComponent />
     </Suspense>
   );
