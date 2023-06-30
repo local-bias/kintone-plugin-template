@@ -10,7 +10,7 @@ const Container: FC = () => {
   const addCondition = useRecoilCallback(
     ({ set }) =>
       () => {
-        set(storageState, (_, _storage = _!) =>
+        set(storageState, (_storage) =>
           produce(_storage, (draft) => {
             draft.conditions.push(getNewCondition());
           })
