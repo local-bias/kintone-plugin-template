@@ -496,10 +496,10 @@
     os-locale "^5.0.0"
     puppeteer "^19.7.5"
 
-"@kintone/rest-api-client@4.0.1", "@kintone/rest-api-client@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-4.0.1.tgz#a099e4a073edefeb0c3e334bfd273f14f2fa1f27"
-  integrity sha512-p8FTg2Ccf2KBhbj6rHzuHKK7dV65if1YDzh5A5ZyCYZfRrvTzhnU+umxg7eA2lgxXgRKBzD4KqOdCp1NO4UjgA==
+"@kintone/rest-api-client@4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-4.0.2.tgz#a3e375e8e374bfe98af0d1ae25ac519f709625db"
+  integrity sha512-9J6rszemXHujR2AzYCL6GmojwfmpcRWfv10rjaurO49cayKjZrgvO6bH7yi7vEWjOcg/T7OlnhdNjmluleToGw==
   dependencies:
     axios "^0.27.2"
     core-js "^3.29.1"
@@ -511,6 +511,18 @@
 "@kintone/rest-api-client@^3.1.14":
   version "3.3.10"
   resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.10.tgz#febbfe46be9b42c4f3e88f2755c39493aa7236ba"
+  dependencies:
+    axios "^0.27.2"
+    core-js "^3.29.1"
+    form-data "^4.0.0"
+    js-base64 "^3.7.5"
+    mime "^3.0.0"
+    qs "^6.10.5"
+
+"@kintone/rest-api-client@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-4.0.1.tgz#a099e4a073edefeb0c3e334bfd273f14f2fa1f27"
+  integrity sha512-p8FTg2Ccf2KBhbj6rHzuHKK7dV65if1YDzh5A5ZyCYZfRrvTzhnU+umxg7eA2lgxXgRKBzD4KqOdCp1NO4UjgA==
   dependencies:
     axios "^0.27.2"
     core-js "^3.29.1"
