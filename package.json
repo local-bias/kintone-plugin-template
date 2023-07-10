@@ -24,7 +24,7 @@
     "@kintone/rest-api-client": "4.0.3",
     "@konomi-app/kbuild": "^1.5.2",
     "@konomi-app/kintone-utilities": "^2.9.0",
-    "@konomi-app/kintone-utility-component": "^0.9.0",
+    "@konomi-app/kintone-utility-component": "^1.0.0",
     "@konomi-app/ui": "^1.6.3",
     "@konomi-app/ui-react": "^1.1.1",
     "@lb-ribbit/kintone-secrets": "0.3.0",
