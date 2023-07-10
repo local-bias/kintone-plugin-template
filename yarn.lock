@@ -40,16 +40,23 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3", "@babel/runtime@^7.22.5":
-  version "7.22.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.5.tgz#8564dd588182ce0047d55d7a75e93921107b57ec"
-  integrity sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3":
+  version "7.22.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.6.tgz#57d64b9ae3cff1d67eb067ae117dac087f5bd438"
+  integrity sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==
   dependencies:
     regenerator-runtime "^0.13.11"
 
 "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
+"@babel/runtime@^7.22.5":
+  version "7.22.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.5.tgz#8564dd588182ce0047d55d7a75e93921107b57ec"
+  integrity sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==
   dependencies:
     regenerator-runtime "^0.13.11"
 
@@ -502,7 +509,7 @@
     os-locale "^5.0.0"
     puppeteer "^19.7.5"
 
-"@kintone/rest-api-client@4.0.3":
+"@kintone/rest-api-client@4.0.3", "@kintone/rest-api-client@^4.0.3":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-4.0.3.tgz#f1242a9a2ee6e7698fdb0a6d1aec69c0683d85dc"
   integrity sha512-8RTI64WHNUH7PLRslat8wQSzjl4r5R1ghdzHBnOad8tDxI7FZAv+46cWh8wPwpfcUE72QLmi0No4jp4JbfQUkQ==
@@ -517,18 +524,6 @@
 "@kintone/rest-api-client@^3.1.14":
   version "3.3.10"
   resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-3.3.10.tgz#febbfe46be9b42c4f3e88f2755c39493aa7236ba"
-  dependencies:
-    axios "^0.27.2"
-    core-js "^3.29.1"
-    form-data "^4.0.0"
-    js-base64 "^3.7.5"
-    mime "^3.0.0"
-    qs "^6.10.5"
-
-"@kintone/rest-api-client@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@kintone/rest-api-client/-/rest-api-client-4.0.1.tgz#a099e4a073edefeb0c3e334bfd273f14f2fa1f27"
-  integrity sha512-p8FTg2Ccf2KBhbj6rHzuHKK7dV65if1YDzh5A5ZyCYZfRrvTzhnU+umxg7eA2lgxXgRKBzD4KqOdCp1NO4UjgA==
   dependencies:
     axios "^0.27.2"
     core-js "^3.29.1"
@@ -553,12 +548,12 @@
     webpack "^5.86.0"
 
 "@konomi-app/kintone-utilities@^2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-2.9.0.tgz#657d0bbe8413b006cf5b383907212865a16f9637"
-  integrity sha512-hfngUoOQxMGV9zkGDpOGjDEXu9UcXziNfpUBXdGVkc8xjLnh4EMYIOYaT+5aBnEidHk053j9/vpRYiPeKpQvYQ==
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-2.10.2.tgz#b6ce167d6d367dd93eaf8fab75110b877ddf32da"
+  integrity sha512-LqggmZ/ON+1OVEW6yo17pB8DUWoHR4uCkYgqL2pQJXea8mnQM2BkEceSUsLrXrLLKZePuLbv0SHwUyty1Yvokw==
   dependencies:
     "@emotion/css" "^11.11.2"
-    "@kintone/rest-api-client" "^4.0.1"
+    "@kintone/rest-api-client" "^4.0.3"
 
 "@konomi-app/kintone-utility-component@^0.9.0":
   version "0.9.0"
@@ -1651,9 +1646,9 @@ convert-source-map@^1.5.0:
   integrity sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==
 
 core-js@^3.29.1:
-  version "3.31.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.31.0.tgz#4471dd33e366c79d8c0977ed2d940821719db344"
-  integrity sha512-NIp2TQSGfR6ba5aalZD+ZQ1fSxGhDo/s1w0nx3RYzf2pnJxt7YynxFlFScP6eV7+GZsKO95NSjGxyJsU3DZgeQ==
+  version "3.31.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.31.1.tgz#f2b0eea9be9da0def2c5fece71064a7e5d687653"
+  integrity sha512-2sKLtfq1eFST7l7v62zaqXacPc7uG8ZAya8ogijLhTtaKNcpzpB4TMoTw2Si+8GYKRwFPMMtUT0263QFWFfqyQ==
 
 cosmiconfig@8.1.3:
   version "8.1.3"
