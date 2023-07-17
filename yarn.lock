@@ -538,9 +538,9 @@
     webpack "^5.86.0"
 
 "@konomi-app/kintone-utilities@^2.9.0":
-  version "2.10.2"
-  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-2.10.2.tgz#b6ce167d6d367dd93eaf8fab75110b877ddf32da"
-  integrity sha512-LqggmZ/ON+1OVEW6yo17pB8DUWoHR4uCkYgqL2pQJXea8mnQM2BkEceSUsLrXrLLKZePuLbv0SHwUyty1Yvokw==
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/@konomi-app/kintone-utilities/-/kintone-utilities-2.11.1.tgz#fe955470b1b4ab17900eca39d4af90f93a7220a2"
+  integrity sha512-2DoRUKhsU9Q4Jyo/U+hfGaA9q75pvyq0s1vdYtRPA/efIYX0/DTPkYPITHbBR/ewVMcMsy8hiB51mjLEO6Uvmg==
   dependencies:
     "@emotion/css" "^11.11.2"
     "@kintone/rest-api-client" "^4.0.3"
