@@ -2,7 +2,7 @@ import React, { FCX } from 'react';
 import styled from '@emotion/styled';
 
 import FieldsForm from './form-fields';
-import DeletionButton from './condition-deletion-button';
+import DeleteButton from './condition-delete-button';
 
 const Component: FCX = ({ className }) => {
   return (
@@ -11,7 +11,7 @@ const Component: FCX = ({ className }) => {
         <h3>対象フィールド</h3>
         <FieldsForm />
       </div>
-      <DeletionButton />
+      <DeleteButton />
     </div>
   );
 };
