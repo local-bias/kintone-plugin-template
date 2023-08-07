@@ -3,14 +3,22 @@ import styled from '@emotion/styled';
 
 import FieldsForm from './form-fields';
 import DeleteButton from './condition-delete-button';
+import {
+  PluginFormSection,
+  PluginFormTitle,
+  PluginFormDescription,
+} from '@konomi-app/kintone-utility-component';
 
 const Component: FCX = ({ className }) => {
   return (
     <div {...{ className }}>
-      <div>
-        <h3>対象フィールド</h3>
+      <PluginFormSection>
+        <PluginFormTitle>対象フィールド</PluginFormTitle>
+        <PluginFormDescription last>
+          この設定はサンプルです。このアプリの設定情報から、フィールド一覧を取得して表示しています。
+        </PluginFormDescription>
         <FieldsForm />
-      </div>
+      </PluginFormSection>
       <DeleteButton />
     </div>
   );
