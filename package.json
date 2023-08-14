@@ -22,7 +22,7 @@
     "@kintone/plugin-packer": "7.0.4",
     "@kintone/plugin-uploader": "8.0.0",
     "@kintone/rest-api-client": "4.1.0",
-    "@konomi-app/kbuild": "^1.5.2",
+    "@konomi-app/kbuild": "^2.0.0",
     "@konomi-app/kintone-utilities": "^2.12.4",
     "@konomi-app/kintone-utility-component": "^1.2.0",
     "@konomi-app/ui": "^1.7.0",
