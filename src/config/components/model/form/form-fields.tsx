@@ -1,5 +1,5 @@
 import { Autocomplete, IconButton, Skeleton, TextField, Tooltip } from '@mui/material';
-import React, { FC, FCX, memo, Suspense } from 'react';
+import React, { FC, memo, Suspense } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -7,9 +7,8 @@ import { produce } from 'immer';
 
 import { appFieldsState } from '../../../states/kintone';
 import { fieldsState } from '../../../states/plugin';
-import styled from '@emotion/styled';
 
-const Component: FCX = ({ className }) => {
+const Component: FC = () => {
   const selectedFields = useRecoilValue(fieldsState);
   const fields = useRecoilValue(appFieldsState);
 
@@ -50,9 +49,9 @@ const Component: FCX = ({ className }) => {
   );
 
   return (
-    <div className={className}>
+    <div className='flex flex-col gap-4'>
       {selectedFields.map((value, i) => (
-        <div key={i} className='row'>
+        <div key={i} className='flex items-center gap-2'>
           <Autocomplete
             value={fields.find((field) => field.code === value) ?? null}
             sx={{ width: '350px' }}
@@ -82,10 +81,10 @@ const Component: FCX = ({ className }) => {
   );
 };
 
-const Placeholder: FCX = ({ className }) => (
-  <div className={className}>
+const Placeholder: FC = () => (
+  <div className='flex flex-col gap-4'>
     {new Array(3).fill('').map((_, i) => (
-      <div key={i} className='row'>
+      <div key={i} className='flex items-center gap-2'>
         <Skeleton variant='rounded' width={360} height={56} />
         <Skeleton variant='circular' width={24} height={24} />
         <Skeleton variant='circular' width={24} height={24} />
@@ -94,25 +93,10 @@ const Placeholder: FCX = ({ className }) => (
   </div>
 );
 
-const Styling = (Component: FC) => styled(Component)`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  .row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-`;
-
-const StyledComponent = Styling(Component);
-const StyledPlaceHolder = Styling(Placeholder);
-
 const Container: FC = () => {
   return (
-    <Suspense fallback={<StyledPlaceHolder />}>
-      <StyledComponent />
+    <Suspense fallback={<Placeholder />}>
+      <Component />
     </Suspense>
   );
 };

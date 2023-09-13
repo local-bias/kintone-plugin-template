@@ -1,5 +1,4 @@
-import React, { FCX } from 'react';
-import styled from '@emotion/styled';
+import React, { FC } from 'react';
 
 import FieldsForm from './form-fields';
 import DeleteButton from './condition-delete-button';
@@ -9,9 +8,9 @@ import {
   PluginFormDescription,
 } from '@konomi-app/kintone-utility-component';
 
-const Component: FCX = ({ className }) => {
+const Component: FC = () => {
   return (
-    <div {...{ className }}>
+    <div className='px-4'>
       <PluginFormSection>
         <PluginFormTitle>対象フィールド</PluginFormTitle>
         <PluginFormDescription last>
@@ -24,15 +23,4 @@ const Component: FCX = ({ className }) => {
   );
 };
 
-const StyledComponent = styled(Component)`
-  padding: 0 16px;
-  > div {
-    padding: 8px 8px 8px 16px;
-    > h3 {
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-  }
-`;
-
-export default StyledComponent;
+export default Component;
