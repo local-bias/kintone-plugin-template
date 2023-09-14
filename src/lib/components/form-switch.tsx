@@ -1,5 +1,5 @@
 import { FormControlLabel, Switch } from '@mui/material';
-import React, { FC, memo } from 'react';
+import React, { FC, Suspense, memo } from 'react';
 import { RecoilState, useRecoilCallback, useRecoilValue } from 'recoil';
 
 type Props = {
@@ -27,4 +27,16 @@ const Component: FC<Props> = ({ state, label }) => {
   );
 };
 
-export const FormSwitch = memo(Component);
+const PlaceHolder: FC<Props> = ({ label }) => (
+  <FormControlLabel control={<Switch color='primary' disabled defaultChecked />} label={label} />
+);
+
+const Container: FC<Props> = (props) => {
+  return (
+    <Suspense fallback={<PlaceHolder {...props} />}>
+      <Component {...props} />
+    </Suspense>
+  );
+};
+
+export const FormSwitch = memo(Container);
