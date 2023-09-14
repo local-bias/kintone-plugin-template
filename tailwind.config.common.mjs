@@ -1,6 +1,6 @@
 //@ts-check
 
-/** @type { Omit<import("tailwindcss").Config, "content"> } */
+/** @type { Omit<import('tailwindcss').Config, 'content'> } */
 export default {
   theme: {
     extend: {},
