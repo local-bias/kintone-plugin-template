@@ -1,5 +1,5 @@
 const hp = 'https://konomi.app/';
-const commonCdn = 'https://cdn.jsdelivr.net/gh/local-bias/kintone-cdn@latest';
+const commonCdn = 'https://kintone-plugin.konomi.app/common';
 const localhost = 'https://127.0.0.1:9999';
 
 /** @type {import('./src/types/plugin-config').PluginConfig} */
@@ -21,17 +21,11 @@ export default {
       },
       icon: 'icon.png',
       homepage_url: { ja: hp, en: hp },
-      desktop: {
-        js: [`${commonCdn}/dist/desktop.js`],
-        css: [],
-      },
-      mobile: {
-        js: [`${commonCdn}/dist/desktop.js`],
-        css: [],
-      },
+      desktop: { js: [`${commonCdn}/desktop.js`], css: [] },
+      mobile: { js: [`${commonCdn}/desktop.js`], css: [] },
       config: {
         html: 'config.html',
-        js: [`${commonCdn}/dist/config.js`],
+        js: [`${commonCdn}/config.js`],
         css: [],
         required_params: [],
       },
