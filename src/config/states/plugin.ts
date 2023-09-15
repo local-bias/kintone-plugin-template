@@ -48,6 +48,28 @@ export const conditionState = selectorFamily<kintone.plugin.Condition | null, nu
     },
 });
 
+export const memoState = selector<string>({
+  key: `${PREFIX}memoState`,
+  get: ({ get }) => {
+    const conditionIndex = get(tabIndexState);
+    return getConditionField(get(storageState), {
+      conditionIndex,
+      key: 'memo',
+      defaultValue: '',
+    });
+  },
+  set: ({ get, set }, newValue) => {
+    const conditionIndex = get(tabIndexState);
+    set(storageState, (current) =>
+      getUpdatedStorage(current, {
+        conditionIndex,
+        key: 'memo',
+        value: newValue as string,
+      })
+    );
+  },
+});
+
 export const fieldsState = selector<string[]>({
   key: `${PREFIX}fieldsState`,
   get: ({ get }) => {

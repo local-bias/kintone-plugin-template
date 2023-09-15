@@ -1,14 +1,20 @@
 import { selector } from 'recoil';
-import { getUserDefinedFields } from '@/lib/kintone-api';
-import { kintoneAPI } from '@konomi-app/kintone-utilities';
+import { getFormFields, kintoneAPI } from '@konomi-app/kintone-utilities';
 import { GUEST_SPACE_ID } from '@/lib/global';
+import { getAppId } from '@lb-ribbit/kintone-xapp';
 
 const PREFIX = 'kintone';
 
 export const appFieldsState = selector<kintoneAPI.FieldProperty[]>({
   key: `${PREFIX}appFieldsState`,
   get: async () => {
-    const properties = await getUserDefinedFields({ preview: true, guestSpaceId: GUEST_SPACE_ID });
+    const app = getAppId()!;
+    const { properties } = await getFormFields({
+      app,
+      preview: true,
+      guestSpaceId: GUEST_SPACE_ID,
+      debug: process.env.NODE_ENV === 'development',
+    });
 
     const values = Object.values(properties);
 
