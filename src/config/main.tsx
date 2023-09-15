@@ -4,6 +4,8 @@ import App from './app';
 
 const root = document.getElementById('settings');
 if (!root) {
-  throw 'プラグインのHTMLに、ルート要素が存在しません。';
+  throw new Error(
+    'プラグインのHTMLに、ルート要素が存在しません。プラグイン設定をレンダリングするためには、id="settings"の要素が必要です。'
+  );
 }
 createRoot(root).render(<App />);
