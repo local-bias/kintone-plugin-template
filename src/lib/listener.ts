@@ -7,6 +7,7 @@ export const listener = new KintoneEventListener({
     event.error = `プラグイン「${PLUGIN_NAME}」の処理内でエラーが発生しました。`;
     console.error('エラー', error);
   },
+  logPrefix: `[${PLUGIN_NAME}] `,
   logDisabled: process.env.NODE_ENV === 'production',
 });
 
