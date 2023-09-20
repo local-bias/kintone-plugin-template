@@ -2,7 +2,7 @@ const hp = 'https://konomi.app/';
 const commonCdn = 'https://kintone-plugin.konomi.app/common';
 const localhost = 'https://127.0.0.1:9999';
 
-/** @type {import('./src/types/plugin-config').PluginConfig} */
+/** @type { import('@konomi-app/kintone-utilities').PluginConfig } */
 export default {
   manifest: {
     base: {
