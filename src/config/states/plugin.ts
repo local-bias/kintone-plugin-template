@@ -29,25 +29,6 @@ export const conditionsState = selector<kintone.plugin.Condition[]>({
   },
 });
 
-export const conditionState = selectorFamily<kintone.plugin.Condition | null, number>({
-  key: `${PREFIX}conditionState`,
-  get:
-    (conditionIndex) =>
-    ({ get }) => {
-      const storage = get(storageState);
-      return storage.conditions[conditionIndex] ?? null;
-    },
-  set:
-    (conditionIndex) =>
-    ({ set }, newValue) => {
-      set(storageState, (current) =>
-        produce(current, (draft) => {
-          draft.conditions[conditionIndex] = newValue as kintone.plugin.Condition;
-        })
-      );
-    },
-});
-
 export const memoState = selector<string>({
   key: `${PREFIX}memoState`,
   get: ({ get }) => {
