@@ -1,13 +1,11 @@
-<h1 align="center">🐇 kintone プラグインテンプレート 🐇</h1>
+<h1>📦 kintone プラグインテンプレート</h1>
 
 <p align="left">
- <img src="https://data.jsdelivr.com/v1/package/gh/local-bias/kintone-plugin-template/badge" />
- <a href="https://twitter.com/lbribbit"><img src="https://img.shields.io/twitter/follow/lbribbit?logo=twitter&style=flat-square" align="right" alt="Twitter Follow" /></a>
  <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code%20style-prettier-orange?style=flat-square"></a>
 <a href="#license"><img src="https://img.shields.io/github/license/local-bias/kintone-plugin-template?style=flat-square"></a>
 </p>
 
-<p align="center">Typescript + Reactでkintoneプラグインを作成するひな形です。</p>
+TypeScript + React + Tailwindcss で kintone プラグインを作成するひな形です。
 
 [ホームページ](https://ribbit.konomi.app)
 
@@ -15,7 +13,7 @@
 
 例えば「フィールドを指定して非表示にする」というプラグインであれば、指定するフィールドを複数設定することを想定しています。
 
-## 使い方
+## 🔧 使い方
 
 1. 各種ライブラリをインストールします
 
@@ -32,7 +30,7 @@ npm run init
 3. プラグインを作成し、ご利用の Kintone へアップロード + ファイルの変更を監視
 
 ```
-npm run start
+npm run dev
 ```
 
 4. リリース用 zip ファイルの生成
@@ -41,9 +39,9 @@ npm run start
 npm run build
 ```
 
-## 新規で作成するにあたって最低限修正が必要なファイル
+## 📁 新規で作成するにあたって最低限修正が必要なファイル
 
-- plugin.config.js
+- plugin.config.mjs
 
   - プラグインの名前や説明文などはここで修正します。本番環境と開発環境で内容を動的に切り替えることができます。
 
@@ -51,11 +49,11 @@ npm run build
 
   - プラグインの設定情報の型をここで定義しています
 
-- common/statics.ts
+- lib/static.ts
 
   - 設定画面に表示する、ホームページなどの各リンク情報はここで定義しています
 
-## 依存ライブラリ
+## 📦 依存ライブラリ
 
 ### Luxon(日付操作)
 
