@@ -27,12 +27,7 @@ const Component: FC = () => (
         </SnackbarProvider>
       </PluginErrorBoundary>
     </RecoilRoot>
-    <iframe
-      title='promotion'
-      loading='lazy'
-      src={URL_PROMOTION}
-      style={{ border: '0', width: '100%', height: '64px' }}
-    />
+    <iframe title='promotion' loading='lazy' src={URL_PROMOTION} className='border-0 w-full h-16' />
   </Suspense>
 );
 
