@@ -1,6 +1,8 @@
 import manifest from '../../plugin/manifest.json';
 
+export const PLUGIN_KEY = 'kintone-plugin-template';
 export const PLUGIN_NAME = manifest.name.ja;
+export const PLUGIN_VERSION = manifest.version;
 
 export const LOCAL_STORAGE_KEY = 'ribbit-kintone-plugin';
 
