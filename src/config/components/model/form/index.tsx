@@ -12,7 +12,7 @@ import { memoState } from '@/config/states/plugin';
 
 const Component: FC = () => {
   return (
-    <div className='px-4'>
+    <div className='p-4'>
       <PluginFormSection>
         <PluginFormTitle>メモ</PluginFormTitle>
         <PluginFormDescription last>
