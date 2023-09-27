@@ -1,11 +1,9 @@
-import { createConfig } from '@/lib/plugin';
-import { restoreStorage } from '@konomi-app/kintone-utilities';
+import { restorePluginConfig } from '@/lib/plugin';
 import { PLUGIN_NAME } from '@/lib/static';
-import { PLUGIN_ID } from '@/lib/global';
 import { listener } from '@/lib/listener';
 
 listener.add(['app.record.index.show'], async (event) => {
-  const config = restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig();
+  const config = restorePluginConfig();
 
   const button = document.createElement('div');
   button.innerText = `🚀 ${PLUGIN_NAME}が有効です`;

@@ -1,7 +1,9 @@
 declare namespace kintone {
   namespace plugin {
     /** プラグインがアプリ単位で保存する設定情報🔌 */
-    type Storage = {
+    type Storage = { version: 1 } & StorageV1; // | { version: 2 } & StorageV2 | ...;
+
+    type StorageV1 = {
       conditions: Condition[];
     };
 

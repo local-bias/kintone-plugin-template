@@ -1,14 +1,11 @@
-import { PLUGIN_ID } from '@/lib/global';
-import { createConfig, getConditionField, getUpdatedStorage } from '@/lib/plugin';
-import { restoreStorage } from '@konomi-app/kintone-utilities';
-import { produce } from 'immer';
-import { atom, selector, selectorFamily } from 'recoil';
+import { getConditionField, getUpdatedStorage, restorePluginConfig } from '@/lib/plugin';
+import { atom, selector } from 'recoil';
 
 const PREFIX = 'plugin';
 
 export const storageState = atom<kintone.plugin.Storage>({
   key: `${PREFIX}storageState`,
-  default: restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig(),
+  default: restorePluginConfig(),
 });
 
 export const loadingState = atom<boolean>({
