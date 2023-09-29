@@ -6,6 +6,7 @@
   "scripts": {
     "init": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
     "build": "node scripts/marge-json.mjs prod && concurrently \"npm:build:*\" && kintone-plugin-packer --out dist/plugin.zip --ppk dist/private.ppk plugin",
+    "build:html": "html-minifier --minify-css true --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype src/config/config.html -o plugin/config.html",
     "build:js": "kbuild prod plugin --prod-root plugin",
     "build:css": "tailwindcss -i ./src/styles/global.css -o ./plugin/config.css -c ./tailwind.config.config.mjs --minify && tailwindcss -i ./src/styles/global.css -o ./plugin/desktop.css -c ./tailwind.config.desktop.mjs --minify",
     "standalone": "node scripts/marge-json.mjs standalone && concurrently \"npm:build:*\" && kintone-plugin-packer --out dist/plugin-standalone.zip --ppk dist/private.ppk plugin",
@@ -42,6 +43,7 @@
     "concurrently": "^8.2.1",
     "dotenv": "16.3.1",
     "eslint": "8.50.0",
+    "html-minifier": "^4.0.0",
     "immer": "10.0.2",
     "luxon": "3.4.3",
     "notistack": "3.0.1",
