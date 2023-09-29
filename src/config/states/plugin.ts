@@ -3,7 +3,7 @@ import { atom, selector } from 'recoil';
 
 const PREFIX = 'plugin';
 
-export const storageState = atom<kintone.plugin.Storage>({
+export const storageState = atom<kintone.plugin.LatestStorage>({
   key: `${PREFIX}storageState`,
   default: restorePluginConfig(),
 });

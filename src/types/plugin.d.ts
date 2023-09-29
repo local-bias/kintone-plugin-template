@@ -1,9 +1,12 @@
 declare namespace kintone {
   namespace plugin {
+    type LatestStorage = StorageV1;
+
     /** プラグインがアプリ単位で保存する設定情報🔌 */
-    type Storage = { version: 1 } & StorageV1; // | { version: 2 } & StorageV2 | ...;
+    type Storage = StorageV1; // | StorageV2 | ...;
 
     type StorageV1 = {
+      version: 1;
       conditions: Condition[];
     };
 

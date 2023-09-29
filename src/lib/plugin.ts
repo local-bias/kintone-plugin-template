@@ -5,7 +5,7 @@ import { PLUGIN_ID } from './global';
 /**
  * プラグインの設定情報のひな形を返却します
  */
-export const createConfig = (): kintone.plugin.Storage => ({
+export const createConfig = (): kintone.plugin.LatestStorage => ({
   version: 1,
   conditions: [getNewCondition()],
 });
@@ -15,9 +15,10 @@ export const createConfig = (): kintone.plugin.Storage => ({
  * @param storage 保存されている設定情報
  * @returns 新しいバージョンの設定情報
  */
-export const migrateConfig = (storage: kintone.plugin.Storage): kintone.plugin.Storage => {
+export const migrateConfig = (storage: kintone.plugin.Storage): kintone.plugin.LatestStorage => {
   const { version } = storage;
   switch (version) {
+    case undefined:
     case 1:
       return storage;
     default:
@@ -28,7 +29,7 @@ export const migrateConfig = (storage: kintone.plugin.Storage): kintone.plugin.S
 /**
  * プラグインの設定情報を復元します
  */
-export const restorePluginConfig = (): kintone.plugin.Storage => {
+export const restorePluginConfig = (): kintone.plugin.LatestStorage => {
   const config = restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig();
   return migrateConfig(config);
 };
@@ -36,7 +37,7 @@ export const restorePluginConfig = (): kintone.plugin.Storage => {
 export const getNewCondition = (): kintone.plugin.Condition => ({ memo: '', fields: [''] });
 
 export const getUpdatedStorage = <T extends keyof kintone.plugin.Condition>(
-  storage: kintone.plugin.Storage,
+  storage: kintone.plugin.LatestStorage,
   props: {
     conditionIndex: number;
     key: T;
@@ -50,7 +51,7 @@ export const getUpdatedStorage = <T extends keyof kintone.plugin.Condition>(
 };
 
 export const getConditionField = <T extends keyof kintone.plugin.Condition>(
-  storage: kintone.plugin.Storage,
+  storage: kintone.plugin.LatestStorage,
   props: {
     conditionIndex: number;
     key: T;
