@@ -4,7 +4,7 @@ import { produce } from 'immer';
 
 import { getNewCondition } from '@/lib/plugin';
 import { storageState } from '../../../states/plugin';
-import { PluginConditionAppendButton } from '@konomi-app/kintone-utility-component';
+import { PluginConditionAppendButton } from '@konomi-app/kintone-utilities-react';
 
 const Container: FC = () => {
   const addCondition = useRecoilCallback(

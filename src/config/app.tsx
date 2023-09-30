@@ -1,6 +1,6 @@
 import { PluginErrorBoundary } from '@/lib/components/error-boundary';
 import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
-import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utility-component';
+import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utilities-react';
 import { LoaderWithLabel } from '@konomi-app/ui-react';
 import { SnackbarProvider } from 'notistack';
 import React, { FC, Suspense } from 'react';

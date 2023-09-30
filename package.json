@@ -28,7 +28,7 @@
     "@kintone/plugin-uploader": "8.0.0",
     "@konomi-app/kbuild": "^3.0.0",
     "@konomi-app/kintone-utilities": "^3.3.1",
-    "@konomi-app/kintone-utility-component": "^1.2.1",
+    "@konomi-app/kintone-utilities-react": "^1.4.0",
     "@konomi-app/ui": "^1.7.0",
     "@konomi-app/ui-react": "^1.1.1",
     "@lb-ribbit/kintone-secrets": "0.3.0",

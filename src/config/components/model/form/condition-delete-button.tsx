@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import { produce } from 'immer';
 import { storageState, tabIndexState } from '../../../states/plugin';
-import { PluginConditionDeleteButton } from '@konomi-app/kintone-utility-component';
+import { PluginConditionDeleteButton } from '@konomi-app/kintone-utilities-react';
 
 const Container: FC = () => {
   const index = useRecoilValue(tabIndexState);

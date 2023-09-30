@@ -6,7 +6,7 @@ import {
   PluginFormSection,
   PluginFormTitle,
   PluginFormDescription,
-} from '@konomi-app/kintone-utility-component';
+} from '@konomi-app/kintone-utilities-react';
 import FormText from '@/lib/components/form-text';
 import { memoState } from '@/config/states/plugin';
 

@@ -2,7 +2,7 @@ import { Tab } from '@mui/material';
 import React, { FC } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import { conditionsState, tabIndexState } from '../../../states/plugin';
-import { PluginConditionTabs } from '@konomi-app/kintone-utility-component';
+import { PluginConditionTabs } from '@konomi-app/kintone-utilities-react';
 
 const Component: FC = () => {
   const tabIndex = useRecoilValue(tabIndexState);
