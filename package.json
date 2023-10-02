@@ -23,7 +23,7 @@
   "devDependencies": {
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@kintone/dts-gen": "7.0.4",
+    "@kintone/dts-gen": "7.0.5",
     "@kintone/plugin-packer": "7.0.4",
     "@kintone/plugin-uploader": "8.0.0",
     "@konomi-app/kbuild": "^3.0.0",
