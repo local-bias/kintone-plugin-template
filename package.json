@@ -25,7 +25,7 @@
     "@emotion/styled": "11.11.0",
     "@kintone/dts-gen": "7.0.5",
     "@kintone/plugin-packer": "7.0.4",
-    "@kintone/plugin-uploader": "8.0.0",
+    "@kintone/plugin-uploader": "8.0.1",
     "@konomi-app/kbuild": "^3.0.0",
     "@konomi-app/kintone-utilities": "^3.3.1",
     "@konomi-app/kintone-utilities-react": "^1.4.0",
