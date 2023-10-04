@@ -4,7 +4,7 @@
   "author": "ribbit",
   "license": "MIT",
   "scripts": {
-    "init": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
+    "init": "node scripts/marge-json.mjs dev && npm run build:html && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
     "build": "node scripts/marge-json.mjs prod && concurrently \"npm:build:*\" && kintone-plugin-packer --out dist/plugin.zip --ppk dist/private.ppk plugin",
     "build:html": "html-minifier --minify-css true --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype src/config/config.html -o plugin/config.html",
     "build:js": "kbuild prod plugin --prod-root plugin",
