@@ -1,8 +1,10 @@
-import { PLUGIN_KEY, PLUGIN_VERSION } from './static';
+import { LOCAL_STORAGE_PREFIX, PLUGIN_KEY, PLUGIN_VERSION } from './static';
+
+const LOCAL_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}${PLUGIN_KEY}`;
 
 export const updateVersion = () => {
   const currentVersion = PLUGIN_VERSION;
-  const stored = localStorage.getItem(PLUGIN_KEY) ?? '{}';
+  const stored = localStorage.getItem(LOCAL_STORAGE_KEY) ?? '{}';
   const parsed = JSON.parse(stored);
 
   const latestVersion: string = parsed.latestVersion ?? currentVersion;
@@ -18,5 +20,5 @@ export const updateVersion = () => {
   newStorage.hasNewVersion =
     latestMajor > currentMajor || (latestMajor === currentMajor && latestMinor > currentMinor);
 
-  localStorage.setItem(PLUGIN_KEY, JSON.stringify(newStorage));
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newStorage));
 };

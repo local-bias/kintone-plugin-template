@@ -1,10 +1,10 @@
 import manifest from '../../plugin/manifest.json';
 
-export const PLUGIN_KEY = 'kintone-plugin-template';
+export const PLUGIN_KEY = 'template';
 export const PLUGIN_NAME = manifest.name.ja;
 export const PLUGIN_VERSION = manifest.version;
 
-export const LOCAL_STORAGE_KEY = 'ribbit-kintone-plugin';
+export const LOCAL_STORAGE_PREFIX = 'ribbit-kintone-plugin-';
 
 export const URL_HOMEPAGE = manifest.homepage_url.ja;
 export const URL_INQUIRY = 'https://form.konomi.app';
