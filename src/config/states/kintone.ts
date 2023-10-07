@@ -21,3 +21,16 @@ export const appFieldsState = selector<kintoneAPI.FieldProperty[]>({
     return values.sort((a, b) => a.label.localeCompare(b.label, 'ja'));
   },
 });
+
+export const flatFieldsState = selector<kintoneAPI.FieldProperty[]>({
+  key: `${PREFIX}flatFieldsState`,
+  get: async ({ get }) => {
+    const fields = get(appFieldsState);
+    return fields.flatMap((field) => {
+      if (field.type === 'SUBTABLE') {
+        return Object.values(field.fields);
+      }
+      return field;
+    });
+  },
+});
