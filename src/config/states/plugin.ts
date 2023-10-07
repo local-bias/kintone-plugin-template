@@ -1,5 +1,5 @@
-import { getConditionField, getUpdatedStorage, restorePluginConfig } from '@/lib/plugin';
 import { atom, selector } from 'recoil';
+import { getConditionField, getUpdatedStorage, restorePluginConfig } from '@/lib/plugin';
 
 const PREFIX = 'plugin';
 

@@ -31,12 +31,10 @@ const PlaceHolder: FC<Props> = ({ label }) => (
   <FormControlLabel control={<Switch color='primary' disabled defaultChecked />} label={label} />
 );
 
-const Container: FC<Props> = (props) => {
-  return (
-    <Suspense fallback={<PlaceHolder {...props} />}>
-      <Component {...props} />
-    </Suspense>
-  );
-};
+const Container: FC<Props> = (props) => (
+  <Suspense fallback={<PlaceHolder {...props} />}>
+    <Component {...props} />
+  </Suspense>
+);
 
 export const FormSwitch = memo(Container);

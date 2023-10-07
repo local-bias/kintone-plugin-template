@@ -93,12 +93,10 @@ const Placeholder: FC = () => (
   </div>
 );
 
-const Container: FC = () => {
-  return (
-    <Suspense fallback={<Placeholder />}>
-      <Component />
-    </Suspense>
-  );
-};
+const Container: FC = () => (
+  <Suspense fallback={<Placeholder />}>
+    <Component />
+  </Suspense>
+);
 
 export default memo(Container);

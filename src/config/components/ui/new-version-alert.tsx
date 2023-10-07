@@ -1,6 +1,6 @@
-import { URL_PLUGIN_LIST } from '@/lib/static';
 import { Alert, AlertTitle, Button } from '@mui/material';
 import React, { FC } from 'react';
+import { URL_PLUGIN_LIST } from '@/lib/static';
 
 const Component: FC = () => (
   <Alert severity='info'>

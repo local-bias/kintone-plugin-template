@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Alert, AlertTitle, Button } from '@mui/material';
-import { URL_INQUIRY } from '@/lib/static';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
+import { URL_INQUIRY } from '@/lib/static';
 
 const Component: FC<FallbackProps> = ({ error, resetErrorBoundary }) => (
   <div>

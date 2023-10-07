@@ -88,10 +88,6 @@ export const filterFieldProperties = (
 };
 
 /** 対象レコードの各フィールドから、指定文字列に一致するフィールドが１つでもあればTrueを返します */
-export const someRecord = (record: kintoneAPI.RecordData, searchValue: string): boolean => {
-  return Object.values(record).some((field) => someFieldValue(field, searchValue));
-};
+export const someRecord = (record: kintoneAPI.RecordData, searchValue: string): boolean => Object.values(record).some((field) => someFieldValue(field, searchValue));
 
-export const someFieldValue = (field: kintoneAPI.RecordData[string], searchValue: string) => {
-  return ~getFieldValueAsString(field).indexOf(searchValue);
-};
+export const someFieldValue = (field: kintoneAPI.RecordData[string], searchValue: string) => ~getFieldValueAsString(field).indexOf(searchValue);

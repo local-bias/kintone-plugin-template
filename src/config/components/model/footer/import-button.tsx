@@ -1,9 +1,9 @@
 import React, { ChangeEventHandler, FC, memo } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { useSnackbar } from 'notistack';
-import { storageState } from '../../../states/plugin';
 import { onFileLoad } from '@konomi-app/kintone-utilities';
 import { PluginConfigImportButton } from '@konomi-app/kintone-utilities-react';
+import { storageState } from '../../../states/plugin';
 import { migrateConfig } from '@/lib/plugin';
 
 const Component: FC = () => {

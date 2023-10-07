@@ -7,7 +7,7 @@ type Props = {
   width?: number;
 } & Omit<TextFieldProps, 'value' | 'onChange'>;
 
-const Component: FC<Props> = ({ state, width = 400, ...textFieldProps }) => {
+const Component: FC<Props> = ({ state, width, ...textFieldProps }) => {
   const query = useRecoilValue(state);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = useRecoilCallback(
@@ -28,16 +28,18 @@ const Component: FC<Props> = ({ state, width = 400, ...textFieldProps }) => {
   );
 };
 
-const PlaceHolder: FC<Props> = ({ label, placeholder, width = 400 }) => (
+const PlaceHolder: FC<Props> = ({ label, placeholder, width }) => (
   <TextField label={label} placeholder={placeholder} value='' sx={{ width }} disabled />
 );
 
-const Container: FC<Props> = (props) => {
-  return (
-    <Suspense fallback={<PlaceHolder {...props} />}>
-      <Component {...props} />
-    </Suspense>
-  );
+const Container: FC<Props> = (props) => (
+  <Suspense fallback={<PlaceHolder {...props} />}>
+    <Component {...props} />
+  </Suspense>
+);
+
+Container.defaultProps = {
+  width: 400,
 };
 
 export default memo(Container);

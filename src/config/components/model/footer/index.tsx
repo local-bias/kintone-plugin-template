@@ -6,12 +6,12 @@ import { useSnackbar } from 'notistack';
 import React, { FC, useCallback } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 
+import { PluginFooter } from '@konomi-app/kintone-utilities-react';
 import { loadingState, storageState } from '../../../states/plugin';
 
 import ExportButton from './export-button';
 import ImportButton from './import-button';
 import ResetButton from './reset-button';
-import { PluginFooter } from '@konomi-app/kintone-utilities-react';
 
 type Props = {
   onSaveButtonClick: () => void;

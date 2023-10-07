@@ -1,5 +1,5 @@
-import { PLUGIN_KEY } from '@/lib/static';
 import React, { FC } from 'react';
+import { PLUGIN_KEY } from '@/lib/static';
 import { NewVersionAlert } from '../../ui/new-version-alert';
 
 const Component: FC = () => {

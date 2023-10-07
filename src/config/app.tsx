@@ -1,14 +1,14 @@
-import { PluginErrorBoundary } from '@/lib/components/error-boundary';
-import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
 import { PluginBanner, PluginContent, PluginLayout } from '@konomi-app/kintone-utilities-react';
 import { LoaderWithLabel } from '@konomi-app/ui-react';
 import { SnackbarProvider } from 'notistack';
 import React, { FC, Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
+import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
+import { PluginErrorBoundary } from '@/lib/components/error-boundary';
+import Announcement from './components/model/announcement';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
-import Announcement from './components/model/announcement';
 
 const Component: FC = () => (
   <Suspense fallback={<LoaderWithLabel label='画面の描画を待機しています' />}>

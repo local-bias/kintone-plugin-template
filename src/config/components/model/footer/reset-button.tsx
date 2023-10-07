@@ -11,9 +11,9 @@ import {
 } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useRecoilCallback } from 'recoil';
+import { useSnackbar } from 'notistack';
 import { storageState } from '../../../states/plugin';
 import { createConfig } from '@/lib/plugin';
-import { useSnackbar } from 'notistack';
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();

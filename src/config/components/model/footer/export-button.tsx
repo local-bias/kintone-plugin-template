@@ -1,9 +1,9 @@
 import React, { FC, memo, useState } from 'react';
 import { useRecoilCallback } from 'recoil';
-import { PLUGIN_NAME } from '@/lib/static';
-import { storageState } from '../../../states/plugin';
 import { useSnackbar } from 'notistack';
 import { PluginConfigExportButton } from '@konomi-app/kintone-utilities-react';
+import { PLUGIN_NAME } from '@/lib/static';
+import { storageState } from '../../../states/plugin';
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
