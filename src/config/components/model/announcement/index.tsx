@@ -1,11 +1,20 @@
 import React, { FC } from 'react';
-import { PLUGIN_KEY } from '@/lib/static';
+import { LOCAL_STORAGE_KEY, PLUGIN_VERSION } from '@/lib/static';
 import { NewVersionAlert } from '../../ui/new-version-alert';
+import { PluginLocalStorage } from '@konomi-app/kintone-utilities';
+
+const localStorage = new PluginLocalStorage(LOCAL_STORAGE_KEY);
+localStorage.updateVersion(PLUGIN_VERSION);
 
 const Component: FC = () => {
-  const hasNewVersion = JSON.parse(localStorage.getItem(PLUGIN_KEY) ?? '{}').hasNewVersion ?? false;
-
-  return <div>{hasNewVersion && <NewVersionAlert />}</div>;
+  if (!localStorage.hasNewVersion) {
+    return null;
+  }
+  return (
+    <div>
+      <NewVersionAlert />
+    </div>
+  );
 };
 
 export default Component;

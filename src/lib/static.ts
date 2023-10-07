@@ -5,6 +5,7 @@ export const PLUGIN_NAME = manifest.name.ja;
 export const PLUGIN_VERSION = manifest.version;
 
 export const LOCAL_STORAGE_PREFIX = 'ribbit-kintone-plugin-';
+export const LOCAL_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}${PLUGIN_KEY}`;
 
 export const URL_HOMEPAGE = manifest.homepage_url.ja;
 export const URL_INQUIRY = 'https://form.konomi.app';
