@@ -2,6 +2,8 @@ import { restoreStorage } from '@konomi-app/kintone-utilities';
 import { produce } from 'immer';
 import { PLUGIN_ID } from './global';
 
+export const getNewCondition = (): kintone.plugin.Condition => ({ memo: '', fields: [''] });
+
 /**
  * プラグインの設定情報のひな形を返却します
  */
@@ -33,8 +35,6 @@ export const restorePluginConfig = (): kintone.plugin.LatestStorage => {
   const config = restoreStorage<kintone.plugin.Storage>(PLUGIN_ID) ?? createConfig();
   return migrateConfig(config);
 };
-
-export const getNewCondition = (): kintone.plugin.Condition => ({ memo: '', fields: [''] });
 
 export const getUpdatedStorage = <T extends keyof kintone.plugin.Condition>(
   storage: kintone.plugin.LatestStorage,
