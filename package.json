@@ -21,6 +21,8 @@
     "path": false
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@konomi-app/kintone-utilities": "^3.4.0",
     "@konomi-app/kintone-utilities-react": "^1.4.0",
     "@konomi-app/ui": "^1.7.0",
@@ -38,8 +40,6 @@
     "recoil": "^0.7.7"
   },
   "devDependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
     "@kintone/dts-gen": "7.0.5",
     "@kintone/plugin-packer": "7.1.0",
     "@kintone/plugin-uploader": "8.0.1",
