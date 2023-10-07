@@ -12,39 +12,6 @@ const DEFAULT_DEFINED_FIELDS: kintoneAPI.FieldPropertyType[] = [
   'STATUS',
 ];
 
-export const getFieldProperties = async (
-  params: { app?: string | number; preview?: boolean; guestSpaceId?: string } = {}
-): Promise<kintoneAPI.FieldProperties> => {
-  const { app = getAppId(), preview = false, guestSpaceId } = params;
-  if (!app) {
-    throw new Error('アプリのフィールド情報が取得できませんでした');
-  }
-  const { properties } = await getFormFields({ app, preview, guestSpaceId });
-  return properties;
-};
-
-export const getUserDefinedFields = async (
-  params: { preview?: boolean; guestSpaceId?: string } = {}
-): Promise<kintoneAPI.FieldProperties> => {
-  const { preview, guestSpaceId } = params;
-  const properties = await getFieldProperties({ preview, guestSpaceId });
-  return omitFieldProperties(properties, DEFAULT_DEFINED_FIELDS);
-};
-
-/** サブテーブルをばらしてフィールドを返却します */
-export const getAllFields = async (): Promise<kintoneAPI.FieldProperty[]> => {
-  const properties = await getFieldProperties();
-
-  const fields = Object.values(properties).reduce<kintoneAPI.FieldProperty[]>((acc, property) => {
-    if (property.type === 'SUBTABLE') {
-      return [...acc, ...Object.values(property.fields)];
-    }
-    return [...acc, property];
-  }, []);
-
-  return fields;
-};
-
 /**
  * アプリのレイアウト情報から、ラベルフィールドのみを返却します
  * @param layout アプリのレイアウト情報
@@ -119,20 +86,6 @@ export const filterFieldProperties = (
   );
 
   return reduced;
-};
-
-/**
- * APIから取得したフィールド情報から、指定したフィールドタイプを除いたフィールド一覧を返却します
- *
- * @param properties APIから取得したフィールド情報
- * @param omittingTypes 除外するフィールドタイプ
- * @returns 指定したフィールドタイプを除いた一覧
- */
-export const omitFieldProperties = (
-  properties: kintoneAPI.FieldProperties,
-  omittingTypes: kintoneAPI.FieldPropertyType[]
-): kintoneAPI.FieldProperties => {
-  return filterFieldProperties(properties, (property) => !omittingTypes.includes(property.type));
 };
 
 /** 対象レコードの各フィールドから、指定文字列に一致するフィールドが１つでもあればTrueを返します */
