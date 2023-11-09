@@ -21,6 +21,7 @@ listener.add(['app.record.index.show'], async (event) => {
     'bg-opacity-70',
     'bottom-3',
     'right-3',
+    'transition-all',
     'hover:bg-opacity-100',
     'cursor-pointer'
   );
