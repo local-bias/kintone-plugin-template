@@ -1,19 +1,18 @@
-declare namespace kintone {
-  namespace plugin {
-    type LatestStorage = StorageV1;
+declare namespace Plugin {
+  /** 🔌 プラグインがアプリ単位で保存する設定情報 */
+  type Config = ConfigV1;
 
-    /** プラグインがアプリ単位で保存する設定情報🔌 */
-    type Storage = StorageV1; // | StorageV2 | ...;
+  /** 🔌 プラグインの詳細設定 */
+  type Condition = Config['conditions'][number];
 
-    type StorageV1 = {
-      version: 1;
-      conditions: Condition[];
-    };
+  /** 🔌 過去全てのバージョンを含むプラグインの設定情報 */
+  type AnyConfig = ConfigV1; // | ConfigV2 | ...;
 
-    /** プラグインの制御単位の設定情報🔌 */
-    type Condition = {
+  type ConfigV1 = {
+    version: 1;
+    conditions: {
       memo: string;
       fields: string[];
-    };
-  }
+    }[];
+  };
 }
