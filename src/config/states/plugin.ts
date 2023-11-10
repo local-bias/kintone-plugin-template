@@ -52,5 +52,7 @@ const conditionPropertyState = selectorFamily<
     },
 });
 
-export const memoState = conditionPropertyState('memo') as RecoilState<string>;
-export const fieldsState = conditionPropertyState('fields') as RecoilState<string[]>;
+export const getConditionPropertyState = <T extends keyof Plugin.Condition>(property: T) =>
+  conditionPropertyState(property) as unknown as RecoilState<Plugin.Condition[T]>;
+
+export const fieldsState = getConditionPropertyState('fields');

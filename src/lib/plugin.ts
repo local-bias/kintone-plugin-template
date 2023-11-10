@@ -2,7 +2,11 @@ import { restoreStorage } from '@konomi-app/kintone-utilities';
 import { produce } from 'immer';
 import { PLUGIN_ID } from './global';
 
-export const getNewCondition = (): Plugin.Condition => ({ memo: '', fields: [''] });
+export const getNewCondition = (): Plugin.Condition => ({
+  memo: '',
+  fields: [''],
+  isSampleUIShown: true,
+});
 
 /**
  * プラグインの設定情報のひな形を返却します

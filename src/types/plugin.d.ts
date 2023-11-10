@@ -13,6 +13,7 @@ declare namespace Plugin {
     conditions: {
       memo: string;
       fields: string[];
+      isSampleUIShown: boolean;
     }[];
   };
 }
