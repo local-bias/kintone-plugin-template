@@ -1,9 +1,12 @@
+//@ts-check
 const hp = 'https://konomi.app/';
 const commonCdn = 'https://kintone-plugin.konomi.app/common';
 const localhost = 'https://127.0.0.1:9999';
 
 /** @type { import('@konomi-app/kintone-utilities').PluginConfig } */
 export default {
+  id: 'ribbit-kintone-plugin-template',
+  pluginReleasePageUrl: `https://ribbit.konomi.app/kintone-plugin/`,
   manifest: {
     base: {
       manifest_version: 1,
