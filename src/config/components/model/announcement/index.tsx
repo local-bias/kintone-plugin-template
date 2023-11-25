@@ -4,7 +4,7 @@ import { NewVersionAlert } from '../../ui/new-version-alert';
 import { PluginLocalStorage } from '@konomi-app/kintone-utilities';
 
 const localStorage = new PluginLocalStorage(LOCAL_STORAGE_KEY);
-localStorage.updateVersion(PLUGIN_VERSION);
+localStorage.updateVersion(String(PLUGIN_VERSION));
 
 const Component: FC = () => {
   if (!localStorage.hasNewVersion) {
