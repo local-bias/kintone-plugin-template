@@ -42,7 +42,7 @@
   "devDependencies": {
     "@kintone/dts-gen": "8.0.3",
     "@kintone/plugin-packer": "8.0.3",
-    "@kintone/plugin-uploader": "9.0.1",
+    "@kintone/plugin-uploader": "9.0.2",
     "@konomi-app/kbuild": "^3.0.0",
     "@types/luxon": "3.3.7",
     "@types/react": "18.2.45",
