@@ -1,7 +1,7 @@
-import { KintoneEventListener } from '@konomi-app/kintone-utilities';
+import { KintoneEventManager } from '@konomi-app/kintone-utilities';
 import { PLUGIN_NAME } from './static';
 
-export const listener = new KintoneEventListener({
+export const manager = new KintoneEventManager({
   errorHandler: (error, props) => {
     const { event } = props;
     event.error = `プラグイン「${PLUGIN_NAME}」の処理内でエラーが発生しました。`;

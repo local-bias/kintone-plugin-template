@@ -1,8 +1,8 @@
 import { restorePluginConfig } from '@/lib/plugin';
 import { PLUGIN_NAME } from '@/lib/static';
-import { listener } from '@/lib/listener';
+import { manager } from '@/lib/event-manager';
 
-listener.add(['app.record.index.show'], async (event) => {
+manager.add(['app.record.index.show'], async (event) => {
   const config = restorePluginConfig();
 
   const button = document.createElement('div');
