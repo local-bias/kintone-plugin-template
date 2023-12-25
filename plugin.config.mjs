@@ -1,7 +1,7 @@
 //@ts-check
 const hp = 'https://konomi.app/';
 const commonCdn = 'https://kintone-plugin.konomi.app/common';
-const localhost = 'https://127.0.0.1:9999';
+const localhost = 'https://127.0.0.1:65535';
 
 /** @type { import('@konomi-app/kintone-utilities').PluginConfig } */
 export default {
