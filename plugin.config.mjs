@@ -35,15 +35,15 @@ export default {
     },
     dev: {
       desktop: {
-        js: [`${localhost}/dist/dev/desktop/index.js`],
+        js: [`${localhost}/dist/dev/desktop.js`],
         css: [`${localhost}/dist/dev/desktop.css`],
       },
       mobile: {
-        js: [`${localhost}/dist/dev/desktop/index.js`],
+        js: [`${localhost}/dist/dev/desktop.js`],
         css: [`${localhost}/dist/dev/desktop.css`],
       },
       config: {
-        js: [`${localhost}/dist/dev/config/index.js`],
+        js: [`${localhost}/dist/dev/config.js`],
         css: [`${localhost}/dist/dev/config.css`],
       },
     },
