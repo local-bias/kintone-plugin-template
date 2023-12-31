@@ -1,0 +1,38 @@
+name: 📦 Update Dependencies
+
+on:
+  schedule:
+    - cron: '0 18 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install npm-check-updates
+        run: npm install -g npm-check-updates
+
+      - name: Update dependencies
+        run: ncu -u
+
+      - name: Install updated packages
+        run: npm install
+
+      - name: Commit and push if there are updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git add package.json package-lock.json
+          git commit -m "📦 Update dependencies" || exit 0
+          git push
