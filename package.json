@@ -24,7 +24,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@konomi-app/kintone-utilities": "^4.1.6",
-    "@konomi-app/kintone-utilities-react": "^1.10.4",
+    "@konomi-app/kintone-utilities-react": "^1.11.0",
     "@konomi-app/ui": "^2.2.4",
     "@konomi-app/ui-react": "^1.1.1",
     "@lb-ribbit/kintone-secrets": "0.3.0",
