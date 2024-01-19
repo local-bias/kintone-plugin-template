@@ -18,7 +18,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install npm-check-updates
         run: npm install -g npm-check-updates
@@ -26,13 +27,10 @@ jobs:
       - name: Update dependencies
         run: ncu -u
 
-      - name: Install updated packages
-        run: npm install
-
       - name: Commit and push if there are updates
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git add package.json package-lock.json
+          git add package.json
           git commit -m "📦 Update dependencies" || exit 0
           git push
