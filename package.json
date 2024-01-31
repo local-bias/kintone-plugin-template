@@ -65,14 +65,5 @@
     "html-minifier": "^4.0.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "arrowParens": "always",
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "endOfLine": "lf"
   }
 }
