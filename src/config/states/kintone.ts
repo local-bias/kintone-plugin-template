@@ -1,5 +1,4 @@
-import { getFormFields, kintoneAPI } from '@konomi-app/kintone-utilities';
-import { getAppId } from '@lb-ribbit/kintone-xapp';
+import { getFormFields, kintoneAPI, getAppId } from '@konomi-app/kintone-utilities';
 import { selector } from 'recoil';
 import { GUEST_SPACE_ID } from '@/lib/global';
 

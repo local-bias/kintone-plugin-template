@@ -4,11 +4,10 @@ import { useRecoilCallback, useRecoilValue } from 'recoil';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { produce } from 'immer';
-import { RecoilFieldSelect } from '@konomi-app/kintone-utilities-react';
+import { RecoilFieldSelect, useRecoilRow } from '@konomi-app/kintone-utilities-react';
 
 import { appFieldsState } from '../../../states/kintone';
 import { fieldsState } from '../../../states/plugin';
-import { useRecoilRow } from '@/config/hooks/use-recoil-row';
 
 const Component: FC = () => {
   const { addRow, deleteRow } = useRecoilRow({ state: fieldsState, getNewRow: () => '' });
