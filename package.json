@@ -23,7 +23,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@konomi-app/kintone-utilities": "^5.0.0",
+    "@konomi-app/kintone-utilities": "^5.2.0",
     "@konomi-app/kintone-utilities-react": "^1.12.0",
     "@konomi-app/ui": "^2.2.4",
     "@konomi-app/ui-react": "^1.1.1",
