@@ -1,29 +1,16 @@
 import { IconButton, Skeleton, Tooltip } from '@mui/material';
 import React, { FC, memo, Suspense } from 'react';
-import { useRecoilCallback, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { produce } from 'immer';
 import { RecoilFieldSelect, useRecoilRow } from '@konomi-app/kintone-utilities-react';
 
 import { appFieldsState } from '../../../states/kintone';
 import { fieldsState } from '../../../states/plugin';
 
 const Component: FC = () => {
-  const { addRow, deleteRow } = useRecoilRow({ state: fieldsState, getNewRow: () => '' });
+  const { addRow, deleteRow, changeRow } = useRecoilRow({ state: fieldsState, getNewRow: () => '' });
   const selectedFields = useRecoilValue(fieldsState);
-
-  const onFieldChange = useRecoilCallback(
-    ({ set }) =>
-      (rowIndex: number, value: string) => {
-        set(fieldsState, (current) =>
-          produce(current, (draft) => {
-            draft[rowIndex] = value;
-          })
-        );
-      },
-    []
-  );
 
   return (
     <div className='flex flex-col gap-4'>
@@ -31,7 +18,7 @@ const Component: FC = () => {
         <div key={i} className='flex items-center gap-2'>
           <RecoilFieldSelect
             state={appFieldsState}
-            onChange={(code) => onFieldChange(i, code)}
+            onChange={(code) => changeRow(i, code)}
             fieldCode={value}
           />
           <Tooltip title='フィールドを追加する'>
