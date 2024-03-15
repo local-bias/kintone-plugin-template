@@ -4,6 +4,7 @@ import { useSnackbar } from 'notistack';
 import { storageState } from '../../../states/plugin';
 import { createConfig } from '@/lib/plugin';
 import { PluginConfigResetButton } from '@konomi-app/kintone-utilities-react';
+import { t } from '@/lib/i18n';
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -12,7 +13,7 @@ const Component: FC = () => {
     ({ set }) =>
       () => {
         set(storageState, createConfig());
-        enqueueSnackbar('設定をリセットしました', { variant: 'success' });
+        enqueueSnackbar(t('config.toast.reset'), { variant: 'success' });
       },
     []
   );

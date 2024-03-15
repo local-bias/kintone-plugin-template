@@ -10,33 +10,33 @@ import {
 import FieldsForm from './form-fields';
 import DeleteButton from './condition-delete-button';
 import { getConditionPropertyState } from '@/config/states/plugin';
+import { t } from '@/lib/i18n';
 
 const Component: FC = () => (
   <div className='p-4'>
     <PluginFormSection>
-      <PluginFormTitle>メモ</PluginFormTitle>
-      <PluginFormDescription last>
-        この設定はサンプルです。プラグインにテキスト情報を保存することができます。
-      </PluginFormDescription>
+      <PluginFormTitle>{t('config.condition.memo.title')}</PluginFormTitle>
+      <PluginFormDescription last>{t('config.condition.memo.description')}</PluginFormDescription>
       <RecoilText
         state={getConditionPropertyState('memo')}
-        label='📝 メモ'
-        placeholder='テキストを入力'
+        label={t('config.condition.memo.label')}
+        placeholder={t('config.condition.memo.placeholder')}
       />
     </PluginFormSection>
     <PluginFormSection>
-      <PluginFormTitle>対象フィールド</PluginFormTitle>
-      <PluginFormDescription last>
-        この設定はサンプルです。このアプリの設定情報から、フィールド一覧を取得して表示しています。
-      </PluginFormDescription>
+      <PluginFormTitle>{t('config.condition.field.title')}</PluginFormTitle>
+      <PluginFormDescription last>{t('config.condition.field.description')}</PluginFormDescription>
       <FieldsForm />
     </PluginFormSection>
     <PluginFormSection>
-      <PluginFormTitle>スイッチのサンプル</PluginFormTitle>
+      <PluginFormTitle>{t('config.condition.isSampleUIShown.title')}</PluginFormTitle>
       <PluginFormDescription last>
-        有効・無効などを切り替えるスイッチのサンプルです。
+        {t('config.condition.isSampleUIShown.description')}
       </PluginFormDescription>
-      <RecoilSwitch state={getConditionPropertyState('isSampleUIShown')} label='サンプル' />
+      <RecoilSwitch
+        state={getConditionPropertyState('isSampleUIShown')}
+        label={t('config.condition.isSampleUIShown.label')}
+      />
     </PluginFormSection>
     <DeleteButton />
   </div>

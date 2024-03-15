@@ -5,6 +5,7 @@ import { onFileLoad } from '@konomi-app/kintone-utilities';
 import { PluginConfigImportButton } from '@konomi-app/kintone-utilities-react';
 import { storageState } from '../../../states/plugin';
 import { migrateConfig } from '@/lib/plugin';
+import { t } from '@/lib/i18n';
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -21,12 +22,9 @@ const Component: FC = () => {
           const fileEvent = await onFileLoad(file);
           const text = (fileEvent.target?.result ?? '') as string;
           set(storageState, migrateConfig(JSON.parse(text)));
-          enqueueSnackbar('設定情報をインポートしました', { variant: 'success' });
+          enqueueSnackbar(t('config.toast.import'), { variant: 'success' });
         } catch (error) {
-          enqueueSnackbar(
-            '設定情報のインポートに失敗しました、ファイルに誤りがないか確認してください',
-            { variant: 'error' }
-          );
+          enqueueSnackbar(t('config.error.import'), { variant: 'error' });
           throw error;
         }
       },

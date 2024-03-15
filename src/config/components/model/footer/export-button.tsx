@@ -4,6 +4,7 @@ import { useSnackbar } from 'notistack';
 import { PluginConfigExportButton } from '@konomi-app/kintone-utilities-react';
 import { PLUGIN_NAME } from '@/lib/static';
 import { storageState } from '../../../states/plugin';
+import { t } from '@/lib/i18n';
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -25,12 +26,9 @@ const Component: FC = () => {
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-          enqueueSnackbar('プラグインの設定情報をエクスポートしました', { variant: 'success' });
+          enqueueSnackbar(t('config.toast.export'), { variant: 'success' });
         } catch (error) {
-          enqueueSnackbar(
-            'プラグインの設定情報のエクスポートに失敗しました。プラグイン開発者にお問い合わせください。',
-            { variant: 'error' }
-          );
+          enqueueSnackbar(t('config.error.export'), { variant: 'error' });
           throw error;
         } finally {
           setLoading(false);

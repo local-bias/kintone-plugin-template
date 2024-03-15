@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { PLUGIN_NAME } from '@/lib/static';
+import { t } from '@/lib/i18n';
 
 const ROOT_ID = '🐸root';
 
@@ -36,8 +37,8 @@ manager.add(['app.record.index.show'], async (event) => {
         <DialogTrigger>
           <div className='fixed right-4 bottom-4'>
             <Alert icon={<Rocket className='h-4 w-4' />} severity='success'>
-              <AlertTitle sx={{ fontWeight: 600 }}>プラグインが有効です</AlertTitle>
-              クリックするとイベントの詳細を確認できます
+              <AlertTitle sx={{ fontWeight: 600 }}>{t('desktop.dialogtrigger.title')}</AlertTitle>
+              {t('desktop.dialogtrigger.content')}
             </Alert>
           </div>
         </DialogTrigger>
@@ -46,7 +47,7 @@ manager.add(['app.record.index.show'], async (event) => {
             <DialogTitle>{PLUGIN_NAME}</DialogTitle>
           </DialogHeader>
           <div>
-            <h3>プラグインの設定情報</h3>
+            <h3>{t('desktop.dialog.title')}</h3>
             <pre className='font-mono p-4 bg-foreground text-background'>
               {JSON.stringify(config, null, 2)}
             </pre>

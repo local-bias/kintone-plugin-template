@@ -12,6 +12,7 @@ import { loadingState, storageState } from '../../../states/plugin';
 import ExportButton from './export-button';
 import ImportButton from './import-button';
 import ResetButton from './reset-button';
+import { t } from '@/lib/i18n';
 
 type Props = {
   onSaveButtonClick: () => void;
@@ -31,7 +32,7 @@ const Component: FC<Props> = ({ onSaveButtonClick, onBackButtonClick }) => {
           onClick={onSaveButtonClick}
           startIcon={loading ? <CircularProgress color='inherit' size={20} /> : <SaveIcon />}
         >
-          設定を保存
+          {t('config.button.save')}
         </Button>
         <Button
           variant='contained'
@@ -42,7 +43,7 @@ const Component: FC<Props> = ({ onSaveButtonClick, onBackButtonClick }) => {
             loading ? <CircularProgress color='inherit' size={20} /> : <SettingsBackupRestoreIcon />
           }
         >
-          プラグイン一覧へ戻る
+          {t('config.button.return')}
         </Button>
       </div>
       <div className='flex items-center gap-4'>
@@ -67,11 +68,11 @@ const Container: FC = () => {
           const storage = await snapshot.getPromise(storageState);
 
           storeStorage(storage, () => true);
-          enqueueSnackbar('設定を保存しました', {
+          enqueueSnackbar(t('config.toast.save'), {
             variant: 'success',
             action: (
               <Button color='inherit' size='small' variant='outlined' onClick={onBackButtonClick}>
-                プラグイン一覧に戻る
+                {t('config.button.return')}
               </Button>
             ),
           });
