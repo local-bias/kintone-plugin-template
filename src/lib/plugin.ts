@@ -30,6 +30,7 @@ export const migrateConfig = (anyConfig: Plugin.AnyConfig): Plugin.Config => {
       //@ts-expect-error
       return migrateConfig({ version: 1, ...anyConfig });
     case 1:
+    default:
       // もし新しいバージョンを追加したらここに追加する
       // return migrateConfig({ version: 2, ...anyConfig });
       return anyConfig;
