@@ -13,8 +13,9 @@ import {
 } from '@/components/ui/dialog';
 import { PLUGIN_NAME } from '@/lib/static';
 import { t } from '@/lib/i18n';
+import config from 'plugin.config.mjs';
 
-const ROOT_ID = '🐸root';
+const ROOT_ID = `🐸${config.id}-root`;
 
 let cachedRoot: Root | null = null;
 
@@ -48,9 +49,11 @@ manager.add(['app.record.index.show'], async (event) => {
           </DialogHeader>
           <div>
             <h3>{t('desktop.dialog.title')}</h3>
-            <pre className='font-mono p-4 bg-foreground text-background'>
-              {JSON.stringify(config, null, 2)}
-            </pre>
+            <div className='max-h-[40vh] overflow-y-auto'>
+              <pre className='font-mono p-4 bg-foreground text-background m-0'>
+                {JSON.stringify(config, null, 2)}
+              </pre>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
