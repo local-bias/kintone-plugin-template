@@ -35,7 +35,7 @@ manager.add(['app.record.index.show'], async (event) => {
   cachedRoot.render(
     <>
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger className='🐸'>
           <div className='fixed right-4 bottom-4'>
             <Alert icon={<Rocket className='h-4 w-4' />} severity='success'>
               <AlertTitle sx={{ fontWeight: 600 }}>{t('desktop.dialogtrigger.title')}</AlertTitle>
