@@ -4,8 +4,8 @@ const cdn = 'https://kintone-plugin.konomi.app';
 const key = 'template';
 const localhost = 'https://127.0.0.1:65535';
 
-/** @type { import('@konomi-app/kintone-utilities').PluginConfig } */
-export default {
+/** @satisfies { import('@konomi-app/kintone-utilities').PluginConfig } */
+export default /** @type { const } */ ({
   id: `ribbit-kintone-plugin-${key}`,
   pluginReleasePageUrl: `https://ribbit.konomi.app/kintone-plugin/`,
   manifest: {
@@ -59,4 +59,4 @@ export default {
       config: { js: ['config.js'], css: ['config.css'] },
     },
   },
-};
+});
