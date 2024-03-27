@@ -5,6 +5,7 @@ import { PluginConditionDeleteButton } from '@konomi-app/kintone-utilities-react
 import { storageState, tabIndexState } from '../../../states/plugin';
 
 const Container: FC = () => {
+  const storage = useRecoilValue(storageState);
   const index = useRecoilValue(tabIndexState);
 
   const onClick = useRecoilCallback(
@@ -19,6 +20,10 @@ const Container: FC = () => {
       },
     [index]
   );
+
+  if ((storage?.conditions.length ?? 0) < 2) {
+    return null;
+  }
 
   return <PluginConditionDeleteButton {...{ onClick }} />;
 };
