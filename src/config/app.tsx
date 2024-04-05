@@ -27,7 +27,9 @@ const Component: FC = () => (
               <PluginLayout>
                 <Sidebar />
                 <PluginContent>
-                  <Form />
+                  <PluginErrorBoundary>
+                    <Form />
+                  </PluginErrorBoundary>
                 </PluginContent>
                 <PluginBanner url={URL_BANNER} />
                 <Footer />
