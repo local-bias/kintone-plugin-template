@@ -1,4 +1,4 @@
-//@ts-check
+// @ts-check
 const hp = 'https://konomi.app';
 const cdn = 'https://kintone-plugin.konomi.app';
 const key = 'template';
