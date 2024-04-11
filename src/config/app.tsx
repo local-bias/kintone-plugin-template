@@ -15,9 +15,7 @@ import config from 'plugin.config.mjs';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { jaJP, enUS, zhCN, esES } from '@mui/material/locale';
-import { LANGUAGE } from '@/lib/global';
+import { ThemeProvider } from '@/lib/components/theme-provider';
 
 const Component: FC = () => {
   return (
@@ -36,12 +34,7 @@ const Component: FC = () => {
 
 const Container: FC = () => (
   <Suspense fallback={<LoaderWithLabel label='画面の描画を待機しています' />}>
-    <ThemeProvider
-      theme={createTheme(
-        {},
-        LANGUAGE === 'en' ? enUS : LANGUAGE === 'zh' ? zhCN : LANGUAGE === 'es' ? esES : jaJP
-      )}
-    >
+    <ThemeProvider>
       <RecoilRoot>
         <PluginErrorBoundary>
           <PluginConfigProvider config={config}>

@@ -14,6 +14,7 @@ import {
 import { PLUGIN_NAME } from '@/lib/static';
 import { t } from '@/lib/i18n';
 import config from 'plugin.config.mjs';
+import { ThemeProvider } from '@/lib/components/theme-provider';
 
 const ROOT_ID = `🐸${config.id}-root`;
 
@@ -33,7 +34,7 @@ manager.add(['app.record.index.show'], async (event) => {
   }
 
   cachedRoot.render(
-    <>
+    <ThemeProvider>
       <Dialog>
         <DialogTrigger className='🐸'>
           <div className='fixed right-4 bottom-4'>
@@ -57,7 +58,7 @@ manager.add(['app.record.index.show'], async (event) => {
           </div>
         </DialogContent>
       </Dialog>
-    </>
+    </ThemeProvider>
   );
 
   return event;

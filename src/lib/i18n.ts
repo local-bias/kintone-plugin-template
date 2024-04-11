@@ -1,4 +1,6 @@
+import { createTheme } from '@mui/material';
 import { LANGUAGE } from './global';
+import { enUS, esES, jaJP, zhCN } from '@mui/material/locale';
 
 export const ui = {
   ja: {
@@ -133,3 +135,10 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export const t = useTranslations(LANGUAGE as Language);
+
+export const getMUITheme = () => {
+  return createTheme(
+    {},
+    LANGUAGE === 'en' ? enUS : LANGUAGE === 'zh' ? zhCN : LANGUAGE === 'es' ? esES : jaJP
+  );
+};
