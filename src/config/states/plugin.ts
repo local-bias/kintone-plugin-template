@@ -26,6 +26,14 @@ export const conditionsState = selector<Plugin.Condition[]>({
   },
 });
 
+export const conditionsLengthState = selector<number>({
+  key: `${PREFIX}conditionsLengthState`,
+  get: ({ get }) => {
+    const conditions = get(conditionsState);
+    return conditions.length;
+  },
+});
+
 const conditionPropertyState = selectorFamily<
   Plugin.Condition[keyof Plugin.Condition],
   keyof Plugin.Condition
