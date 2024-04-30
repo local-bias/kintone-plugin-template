@@ -58,7 +58,7 @@
     "concurrently": "^8",
     "devcert": "^1",
     "dotenv": "^16",
-    "eslint": "^9",
+    "eslint": "^8",
     "eslint-config-prettier": "^9",
     "eslint-plugin-import": "^2",
     "eslint-plugin-n": "^17",
