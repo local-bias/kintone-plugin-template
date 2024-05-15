@@ -1,9 +1,3 @@
-import { restorePluginConfig } from '@/lib/plugin';
-import { manager } from '@/lib/event-manager';
-import { Root, createRoot } from 'react-dom/client';
-import React from 'react';
-import { Rocket } from 'lucide-react';
-import { Alert, AlertTitle } from '@mui/material';
 import {
   Dialog,
   DialogContent,
@@ -11,10 +5,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { PLUGIN_NAME } from '@/lib/static';
-import { t } from '@/lib/i18n';
-import config from 'plugin.config.mjs';
 import { ThemeProvider } from '@/lib/components/theme-provider';
+import { manager } from '@/lib/event-manager';
+import { t } from '@/lib/i18n';
+import { restorePluginConfig } from '@/lib/plugin';
+import { PLUGIN_NAME } from '@/lib/static';
+import { Alert, AlertTitle } from '@mui/material';
+import { Rocket } from 'lucide-react';
+import config from 'plugin.config.mjs';
+import React from 'react';
+import { Root, createRoot } from 'react-dom/client';
 
 const ROOT_ID = `🐸${config.id}-root`;
 
