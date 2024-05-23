@@ -1,20 +1,19 @@
 {
   "name": "kintone-plugin-template",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "ribbit",
   "license": "MIT",
   "scripts": {
-    "init": "node scripts/marge-json.mjs dev && npm run build:html && kintone-plugin-packer --out dist/plugin-dev.zip plugin && node scripts/rename-ppk.mjs",
-    "build": "node scripts/marge-json.mjs prod && concurrently \"npm:build:*\" && kintone-plugin-packer --out dist/plugin.zip --ppk dist/private.ppk plugin",
-    "build:html": "html-minifier --minify-css true --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype src/config/config.html -o plugin/config.html",
-    "build:js": "kbuild prod plugin --prod-root plugin",
-    "build:css": "tailwindcss -i ./src/styles/global.css -o ./plugin/config.css -c ./tailwind.config.config.mjs --minify && tailwindcss -i ./src/styles/global.css -o ./plugin/desktop.css -c ./tailwind.config.desktop.mjs --minify",
-    "standalone": "node scripts/marge-json.mjs standalone && concurrently \"npm:build:*\" && kintone-plugin-packer --out dist/plugin-standalone.zip --ppk dist/private.ppk plugin",
-    "dev": "node scripts/marge-json.mjs dev && kintone-plugin-packer --out dist/plugin-dev.zip --ppk dist/private.ppk plugin && concurrently \"npm:dev:*\"",
+    "init": "plugin init",
+    "build": "concurrently \"npm:build:*\" && plugin zip",
+    "build:js": "kbuild prod plugin --prod-root .plugin/contents",
+    "build:css": "tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/config.css -c ./tailwind.config.config.mjs --minify && tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/desktop.css -c ./tailwind.config.desktop.mjs --minify",
+    "standalone": "concurrently \"npm:build:*\" && plugin zip --env standalone",
+    "dev": "plugin zip --env dev && concurrently \"npm:dev:*\"",
     "dev:js": "kbuild dev plugin",
-    "dev:css-config": "tailwindcss -i ./src/styles/global.css -o ./dist/dev/config.css -c ./tailwind.config.config.mjs -w",
-    "dev:css-desktop": "tailwindcss -i ./src/styles/global.css -o ./dist/dev/desktop.css -c ./tailwind.config.desktop.mjs -w",
-    "dev:upload": "node scripts/upload.mjs",
+    "dev:css-config": "tailwindcss -i ./src/styles/global.css -o ./.plugin/dev/config.css -c ./tailwind.config.config.mjs -w",
+    "dev:css-desktop": "tailwindcss -i ./src/styles/global.css -o ./.plugin/dev/desktop.css -c ./tailwind.config.desktop.mjs -w",
+    "dev:upload": "plugin upload --env dev",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
   },
   "browser": {
@@ -47,9 +46,8 @@
   },
   "devDependencies": {
     "@kintone/dts-gen": "^8",
-    "@kintone/plugin-packer": "^8",
-    "@kintone/plugin-uploader": "^9",
     "@konomi-app/kbuild": "*",
+    "@konomi-app/kintone-plugin": "*",
     "@types/luxon": "^3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -65,7 +63,6 @@
     "eslint-plugin-promise": "^6",
     "eslint-plugin-react": "^7",
     "express": "^4",
-    "html-minifier": "^4",
     "tailwindcss": "^3",
     "typescript": "^5"
   }

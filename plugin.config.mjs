@@ -4,14 +4,14 @@ const cdn = 'https://kintone-plugin.konomi.app';
 const key = 'template';
 const localhost = 'https://127.0.0.1:65535';
 
-/** @satisfies { import('@konomi-app/kintone-utilities').PluginConfig } */
+/** @satisfies { Plugin.Env } */
 export default /** @type { const } */ ({
   id: `ribbit-kintone-plugin-${key}`,
   pluginReleasePageUrl: `https://ribbit.konomi.app/kintone-plugin/`,
   manifest: {
     base: {
       manifest_version: 1,
-      version: '1.0.0',
+      version: '2.0.0',
       type: 'APP',
       name: {
         en: 'kintone-plugin-template',
@@ -36,16 +36,16 @@ export default /** @type { const } */ ({
     },
     dev: {
       desktop: {
-        js: [`${localhost}/dist/dev/desktop.js`],
-        css: [`${localhost}/dist/dev/desktop.css`],
+        js: [`${localhost}/.plugin/dev/desktop.js`],
+        css: [`${localhost}/.plugin/dev/desktop.css`],
       },
       mobile: {
-        js: [`${localhost}/dist/dev/desktop.js`],
-        css: [`${localhost}/dist/dev/desktop.css`],
+        js: [`${localhost}/.plugin/dev/desktop.js`],
+        css: [`${localhost}/.plugin/dev/desktop.css`],
       },
       config: {
-        js: [`${localhost}/dist/dev/config.js`],
-        css: [`${localhost}/dist/dev/config.css`],
+        js: [`${localhost}/.plugin/dev/config.js`],
+        css: [`${localhost}/.plugin/dev/config.css`],
       },
     },
     prod: {
