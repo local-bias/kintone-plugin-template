@@ -48,6 +48,7 @@
     "@kintone/dts-gen": "^8",
     "@kintone/plugin-uploader": "^9.1.1",
     "@konomi-app/kbuild": "*",
+    "@konomi-app/kintone-plugin": "*",
     "@types/luxon": "^3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
