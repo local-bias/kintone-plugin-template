@@ -1,19 +1,18 @@
 {
   "name": "kintone-plugin-template",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "ribbit",
   "license": "MIT",
   "scripts": {
-    "init": "plugin init",
+    "init": "plugin init && plugin genkey",
     "build": "concurrently \"npm:build:*\" && plugin zip",
     "build:js": "kbuild prod plugin --prod-root .plugin/contents",
     "build:css": "tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/config.css -c ./tailwind.config.config.mjs --minify && tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/desktop.css -c ./tailwind.config.desktop.mjs --minify",
     "standalone": "concurrently \"npm:build:*\" && plugin zip --env standalone",
-    "dev": "plugin zip --env dev && concurrently \"npm:dev:*\"",
-    "dev:js": "kbuild dev plugin",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:plugin": "plugin dev",
     "dev:css-config": "tailwindcss -i ./src/styles/global.css -o ./.plugin/dev/config.css -c ./tailwind.config.config.mjs -w",
     "dev:css-desktop": "tailwindcss -i ./src/styles/global.css -o ./.plugin/dev/desktop.css -c ./tailwind.config.desktop.mjs -w",
-    "dev:upload": "plugin upload --env dev",
     "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
   },
   "browser": {
@@ -33,6 +32,7 @@
     "@radix-ui/react-slot": "^1",
     "class-variance-authority": "^0",
     "clsx": "^2",
+    "esbuild": "^0.21.3",
     "immer": "^10",
     "lucide-react": "^0",
     "luxon": "^3",
@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@kintone/dts-gen": "^8",
+    "@kintone/plugin-uploader": "^9.1.1",
     "@konomi-app/kbuild": "*",
-    "@konomi-app/kintone-plugin": "*",
     "@types/luxon": "^3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
