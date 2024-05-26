@@ -6,7 +6,7 @@
   "scripts": {
     "init": "plugin init && plugin genkey",
     "build": "concurrently \"npm:build:*\" && plugin zip",
-    "build:js": "kbuild prod plugin --prod-root .plugin/contents",
+    "build:js": "plugin build",
     "build:css": "tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/config.css -c ./tailwind.config.config.mjs --minify && tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/desktop.css -c ./tailwind.config.desktop.mjs --minify",
     "standalone": "concurrently \"npm:build:*\" && plugin zip --env standalone",
     "dev": "concurrently \"npm:dev:*\"",
@@ -32,7 +32,6 @@
     "@radix-ui/react-slot": "^1",
     "class-variance-authority": "^0",
     "clsx": "^2",
-    "esbuild": "^0.21.3",
     "immer": "^10",
     "lucide-react": "^0",
     "luxon": "^3",
@@ -46,16 +45,14 @@
   },
   "devDependencies": {
     "@kintone/dts-gen": "^8",
-    "@kintone/plugin-uploader": "^9.1.1",
-    "@konomi-app/kbuild": "*",
-    "@konomi-app/kintone-plugin": "*",
+    "@kintone/plugin-uploader": "^9",
+    "@konomi-app/k2": "*",
     "@types/luxon": "^3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7",
     "@typescript-eslint/parser": "^7",
     "concurrently": "^8",
-    "devcert": "^1",
     "dotenv": "^16",
     "eslint": "^8",
     "eslint-config-prettier": "^9",
@@ -63,7 +60,6 @@
     "eslint-plugin-n": "^17",
     "eslint-plugin-promise": "^6",
     "eslint-plugin-react": "^7",
-    "express": "^4",
     "tailwindcss": "^3",
     "typescript": "^5"
   }
