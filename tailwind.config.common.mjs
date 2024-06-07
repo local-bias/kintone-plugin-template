@@ -1,5 +1,5 @@
 //@ts-check
-import { fontFamily } from 'tailwindcss/defaultTheme';
+import defaultTheme from 'tailwindcss/defaultTheme.js';
 import animatePlugin from 'tailwindcss-animate';
 
 /** @type { Omit<import('tailwindcss').Config, 'content'> } */
@@ -137,7 +137,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {
