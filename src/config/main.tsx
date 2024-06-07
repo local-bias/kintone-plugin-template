@@ -1,11 +1,9 @@
+import { t } from '@/lib/i18n';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import invariant from 'tiny-invariant';
 import App from './app';
 
 const root = document.getElementById('settings');
-if (!root) {
-  throw new Error(
-    'プラグインのHTMLに、ルート要素が存在しません。プラグイン設定をレンダリングするためには、id="settings"の要素が必要です。'
-  );
-}
+invariant(root, t('error.config.root'));
 createRoot(root).render(<App />);
