@@ -27,8 +27,7 @@ export const migrateConfig = (anyConfig: Plugin.AnyConfig): Plugin.Config => {
   const { version } = anyConfig;
   switch (version) {
     case undefined:
-      //@ts-expect-error
-      return migrateConfig({ version: 1, ...anyConfig });
+      return migrateConfig({ ...anyConfig, version: 1 });
     case 1:
     default:
       // もし新しいバージョンを追加したらここに追加する
