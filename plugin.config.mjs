@@ -7,7 +7,12 @@ const key = 'template';
 export default /** @type { const } */ ({
   id: `ribbit-kintone-plugin-${key}`,
   pluginReleasePageUrl: `https://ribbit.konomi.app/kintone-plugin/`,
-  server: { port: 65535 },
+  server: {
+    port: 65535,
+  },
+  lint: {
+    build: true,
+  },
   tailwind: {
     css: 'src/styles/global.css',
     config: {

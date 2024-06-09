@@ -5,15 +5,9 @@
   "license": "MIT",
   "scripts": {
     "init": "plugin init && plugin genkey",
-    "build": "concurrently \"npm:build:*\" && plugin zip",
-    "build:js": "plugin build",
-    "build:css": "tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/config.css -c ./tailwind.config.config.mjs --minify && tailwindcss -i ./src/styles/global.css -o ./.plugin/contents/desktop.css -c ./tailwind.config.desktop.mjs --minify",
-    "standalone": "concurrently \"npm:build:*\" && plugin zip --env standalone",
-    "dev": "concurrently \"npm:dev:*\"",
-    "dev:plugin": "plugin dev",
-    "dev:css-config": "tailwindcss -i ./src/styles/global.css -o ./.plugin/dev/config.css -c ./tailwind.config.config.mjs -w",
-    "dev:css-desktop": "tailwindcss -i ./src/styles/global.css -o ./.plugin/dev/desktop.css -c ./tailwind.config.desktop.mjs -w",
-    "lint": "eslint ./src --cache --ext .js,.ts,.tsx"
+    "build": "plugin build && plugin zip",
+    "standalone": "plugin build && plugin zip --env standalone",
+    "dev": "plugin dev"
   },
   "browser": {
     "path": false
@@ -55,12 +49,6 @@
     "@typescript-eslint/parser": "^7",
     "concurrently": "^8",
     "dotenv": "^16",
-    "eslint": "^8",
-    "eslint-config-prettier": "^9",
-    "eslint-plugin-import": "^2",
-    "eslint-plugin-n": "^17",
-    "eslint-plugin-promise": "^6",
-    "eslint-plugin-react": "^7",
     "tailwindcss": "^3",
     "typescript": "^5"
   }
