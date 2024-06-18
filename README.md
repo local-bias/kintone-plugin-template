@@ -21,7 +21,7 @@ TypeScript + React + Tailwindcss で kintone プラグインを作成するひ�
 npm install
 ```
 
-2. プラグインの秘密キーを作成
+2. プラグインの秘密キーを作成と、SSL証明書の作成を行います
 
 ```
 npm run init
