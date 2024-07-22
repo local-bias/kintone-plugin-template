@@ -18,7 +18,6 @@ export const ui = {
     'config.condition.isSampleUIShown.description':
       '有効・無効などを切り替えるスイッチのサンプルです。ここでは、レコード一覧にサンプルのUIを表示するかどうかを切り替えています。',
     'config.condition.isSampleUIShown.label': 'サンプルUIを表示',
-
     'config.sidebar.tab.label': '設定',
     'config.button.save': '設定を保存',
     'config.button.return': 'プラグイン一覧へ戻る',
@@ -142,7 +141,7 @@ export const defaultLang = 'ja' satisfies Language;
  */
 export function useTranslations(lang: keyof typeof ui) {
   return function t(key: keyof (typeof ui)[typeof defaultLang]): string {
-    //@ts-ignore
+    // //@ts-expect-error - デフォルト言語以外の設定が不十分な場合は、デフォルト言語の設定を使用します
     return ui[lang][key] ?? ui[defaultLang][key];
   };
 }
