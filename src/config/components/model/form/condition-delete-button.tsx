@@ -2,11 +2,7 @@ import React, { FC, memo } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
 import { produce } from 'immer';
 import { PluginConditionDeleteButton } from '@konomi-app/kintone-utilities-react';
-import {
-  defaultSelectedConditionIdState,
-  selectedConditionIdState,
-  storageState,
-} from '../../../states/plugin';
+import { selectedConditionIdState, storageState } from '../../../states/plugin';
 import { useSnackbar } from 'notistack';
 
 const Container: FC = () => {

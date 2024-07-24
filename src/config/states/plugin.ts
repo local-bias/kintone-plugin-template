@@ -45,6 +45,7 @@ export const conditionsState = selector<Plugin.Condition[]>({
       if ('id' in condition) {
         return condition;
       }
+      // @ts-expect-error 定義通りであればidは必ず上書きされるが、そうでなかった場合を考慮
       return { id: nanoid(), ...condition };
     });
   },
