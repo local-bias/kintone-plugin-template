@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { CSS } from '@dnd-kit/utilities';
 import { GripVertical } from 'lucide-react';
 import { useTab } from './use-tab';
+import styled from '@emotion/styled';
 
 const SidebarTab: FC<{ condition: Plugin.Condition; index: number }> = ({ condition, index }) => {
   const {
@@ -35,9 +36,9 @@ const SidebarTab: FC<{ condition: Plugin.Condition; index: number }> = ({ condit
     <div
       ref={setNodeRef}
       className={cn(
-        'border-0 border-r-2 border-solid border-transparent z-10 grid grid-cols-[auto_1fr] bg-background items-center transition-colors active:bg-blue-100/70',
+        'border-0 border-r-2 border-solid border-transparent grid grid-cols-[auto_1fr] bg-background items-center transition-colors active:bg-blue-100/70',
         {
-          'z-20 shadow-md': isDragging,
+          'z-50 shadow-md': isDragging,
           'border-blue-600 bg-blue-100/30 text-blue-600': selectedId === condition.id,
         }
       )}
@@ -70,17 +71,37 @@ const SidebarTab: FC<{ condition: Plugin.Condition; index: number }> = ({ condit
   );
 };
 
-const Component: FC = () => {
+const Component: FC<{ className?: string }> = ({ className }) => {
   const conditions = useRecoilValue(conditionsState);
 
   return (
     <SortableContext items={conditions}>
-      {conditions.map((condition, index) => (
-        <SidebarTab key={condition.id} condition={condition} index={index} />
-      ))}
+      <div className={cn(className, 'h-full')}>
+        {conditions.map((condition, index) => (
+          <SidebarTab key={condition.id} condition={condition} index={index} />
+        ))}
+      </div>
     </SortableContext>
   );
 };
+
+const StyledComponent = styled(Component)`
+  overflow: hidden;
+  &:hover {
+    overflow: auto;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #0004;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+`;
 
 const Container: FC = () => {
   const onDragEnd = useRecoilCallback(
@@ -106,7 +127,7 @@ const Container: FC = () => {
       collisionDetection={closestCenter}
       onDragEnd={onDragEnd}
     >
-      <Component />
+      <StyledComponent />
     </DndContext>
   );
 };
