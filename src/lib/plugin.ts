@@ -1,8 +1,10 @@
 import { restoreStorage } from '@konomi-app/kintone-utilities';
 import { produce } from 'immer';
 import { PLUGIN_ID } from './global';
+import { nanoid } from 'nanoid';
 
 export const getNewCondition = (): Plugin.Condition => ({
+  id: nanoid(),
   memo: '',
   fields: [''],
   isSampleUIShown: true,

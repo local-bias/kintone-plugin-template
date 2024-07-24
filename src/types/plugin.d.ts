@@ -11,6 +11,7 @@ declare namespace Plugin {
   type ConfigV1 = {
     version: 1;
     conditions: {
+      id: string;
       memo: string;
       fields: string[];
       isSampleUIShown: boolean;
