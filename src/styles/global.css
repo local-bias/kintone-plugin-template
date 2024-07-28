@@ -85,4 +85,16 @@
       }
     }
   }
+
+  .MuiAutocomplete-popper[role='presentation'] {
+    ::-webkit-scrollbar {
+      @apply w-1 h-1 md:w-2 md:h-2;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply rounded-full bg-gray-300;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
+  }
 }
