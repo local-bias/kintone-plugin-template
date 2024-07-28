@@ -141,7 +141,8 @@ export const defaultLang = 'ja' satisfies Language;
  */
 export function useTranslations(lang: keyof typeof ui) {
   return function t(key: keyof (typeof ui)[typeof defaultLang]): string {
-    // //@ts-expect-error - デフォルト言語以外の設定が不十分な場合は、デフォルト言語の設定を使用します
+    /* eslint @typescript-eslint/ban-ts-comment: 0 */
+    // @ts-ignore デフォルト言語以外の設定が不十分な場合は、デフォルト言語の設定を使用します
     return ui[lang][key] ?? ui[defaultLang][key];
   };
 }
