@@ -31,8 +31,7 @@ export const migrateConfig = (anyConfig: Plugin.AnyConfig): Plugin.Config => {
     case undefined:
       return migrateConfig({ ...anyConfig, version: 1 });
     case 1:
-    // `config.js`と`desktop.js`のバージョンが一致していない場合に通る可能性があるため必要
-    default:
+    default: // `default` -> `config.js`と`desktop.js`のバージョンが一致していない場合に通る可能性があるため必要
       // もし新しいバージョンを追加したらここに追加する
       // return migrateConfig({ version: 2, ...anyConfig });
       return anyConfig;
