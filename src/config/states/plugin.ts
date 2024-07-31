@@ -14,15 +14,16 @@ export const loadingState = atom<boolean>({
   default: false,
 });
 
-export const selectedConditionIdState = atom<string>({
+export const selectedConditionIdState = atom<string | null>({
   key: `${PREFIX}selectedConditionIdState`,
-  default: selector<string>({
-    key: `${PREFIX}selectedConditionIdState/default`,
-    get: ({ get }) => {
-      const storage = get(storageState);
-      return storage.conditions[0].id;
-    },
-  }),
+  default: null,
+});
+
+export const commonSettingsShownState = selector<boolean>({
+  key: `${PREFIX}commonSettingsShownState`,
+  get: ({ get }) => {
+    return get(selectedConditionIdState) === null;
+  },
 });
 
 export const selectedConditionState = selector<Plugin.Condition>({
@@ -84,6 +85,37 @@ const conditionPropertyState = selectorFamily<
       });
     },
 });
+
+export const commonPropertyState = selectorFamily<
+  Plugin.Common[keyof Plugin.Common],
+  keyof Plugin.Common
+>({
+  key: `${PREFIX}commonPropertyState`,
+  get:
+    (key) =>
+    ({ get }) => {
+      return get(storageState).common[key];
+    },
+  set:
+    (key) =>
+    ({ set }, newValue) => {
+      set(storageState, (current) => {
+        if (newValue instanceof DefaultValue) {
+          return current;
+        }
+        return {
+          ...current,
+          common: {
+            ...current.common,
+            [key]: newValue,
+          },
+        };
+      });
+    },
+});
+
+export const getCommonPropertyState = <T extends keyof Plugin.Common>(property: T) =>
+  commonPropertyState(property) as unknown as RecoilState<Plugin.Common[T]>;
 
 export const getConditionPropertyState = <T extends keyof Plugin.Condition>(property: T) =>
   conditionPropertyState(property) as unknown as RecoilState<Plugin.Condition[T]>;

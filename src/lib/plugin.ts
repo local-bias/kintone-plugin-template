@@ -15,6 +15,10 @@ export const getNewCondition = (): Plugin.Condition => ({
  */
 export const createConfig = (): Plugin.Config => ({
   version: 1,
+  common: {
+    memo: '',
+    fields: [],
+  },
   conditions: [getNewCondition()],
 });
 

@@ -9,8 +9,10 @@ import {
 } from '@konomi-app/kintone-utilities-react';
 import FieldsForm from './form-fields';
 import DeleteButton from './condition-delete-button';
-import { getConditionPropertyState } from '@/config/states/plugin';
+import { commonSettingsShownState, getConditionPropertyState } from '@/config/states/plugin';
 import { t } from '@/lib/i18n';
+import CommonSettings from './common';
+import { useRecoilValue } from 'recoil';
 
 const Component: FC = () => (
   <div className='p-4'>
@@ -42,4 +44,9 @@ const Component: FC = () => (
   </div>
 );
 
-export default Component;
+const Container: FC = () => {
+  const commonSettingsShown = useRecoilValue(commonSettingsShownState);
+  return commonSettingsShown ? <CommonSettings /> : <Component />;
+};
+
+export default Container;

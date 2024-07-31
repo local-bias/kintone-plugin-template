@@ -6,6 +6,12 @@ export const ui = {
   ja: {
     'error.config.root':
       'プラグインのHTMLに、ルート要素が存在しません。プラグイン設定をレンダリングするためには、id="settings"の要素が必要です。',
+    'config.common.memo.title': 'メモ(共通)',
+    'config.common.memo.description':
+      'プラグインの共通設定です。個別設定全てに適用する必要がある項目がある場合に使用します。',
+    'config.common.memo.label': '📝 メモ(共通)',
+    'config.common.memo.placeholder': 'テキストを入力',
+
     'config.condition.memo.title': 'メモ',
     'config.condition.memo.description':
       'この設定はサンプルです。プラグインにテキスト情報を保存することができます。',
@@ -18,6 +24,7 @@ export const ui = {
     'config.condition.isSampleUIShown.description':
       '有効・無効などを切り替えるスイッチのサンプルです。ここでは、レコード一覧にサンプルのUIを表示するかどうかを切り替えています。',
     'config.condition.isSampleUIShown.label': 'サンプルUIを表示',
+    'config.sidebar.tab.common.label': '共通設定',
     'config.sidebar.tab.label': '設定',
     'config.button.save': '設定を保存',
     'config.button.return': 'プラグイン一覧へ戻る',

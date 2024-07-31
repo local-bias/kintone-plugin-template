@@ -1,6 +1,11 @@
 import React, { FC } from 'react';
 import { useRecoilCallback, useRecoilValue } from 'recoil';
-import { conditionsState, selectedConditionIdState, storageState } from '../../../states/plugin';
+import {
+  commonSettingsShownState,
+  conditionsState,
+  selectedConditionIdState,
+  storageState,
+} from '../../../states/plugin';
 import { t } from '@/lib/i18n';
 import { closestCenter, DndContext, DragEndEvent } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
@@ -10,6 +15,38 @@ import { CSS } from '@dnd-kit/utilities';
 import { GripVertical } from 'lucide-react';
 import { useTab } from './use-tab';
 import styled from '@emotion/styled';
+
+const CommonTab: FC = () => {
+  const shown = useRecoilValue(commonSettingsShownState);
+
+  const onClick = useRecoilCallback(
+    ({ reset }) =>
+      () => {
+        reset(selectedConditionIdState);
+      },
+    []
+  );
+
+  return (
+    <div
+      className={cn(
+        'border-0 border-r-2 border-solid border-transparent bg-background items-center transition-colors active:bg-blue-100/70',
+        {
+          'border-blue-600 bg-blue-100/30 text-blue-600': shown,
+        }
+      )}
+    >
+      <button
+        role='button'
+        tabIndex={0}
+        onClick={onClick}
+        className='p-4 pl-[52px] bg-transparent border-0 cursor-pointer outline-none text-left text-gray-600 text-sm w-full'
+      >
+        {t('config.sidebar.tab.common.label')}
+      </button>
+    </div>
+  );
+};
 
 const SidebarTab: FC<{ condition: Plugin.Condition; index: number }> = ({ condition, index }) => {
   const {
@@ -75,13 +112,14 @@ const Component: FC<{ className?: string }> = ({ className }) => {
   const conditions = useRecoilValue(conditionsState);
 
   return (
-    <SortableContext items={conditions}>
-      <div className={cn(className, 'h-full')}>
+    <div className={cn(className, 'h-full')}>
+      <CommonTab />
+      <SortableContext items={conditions}>
         {conditions.map((condition, index) => (
           <SidebarTab key={condition.id} condition={condition} index={index} />
         ))}
-      </div>
-    </SortableContext>
+      </SortableContext>
+    </div>
   );
 };
 

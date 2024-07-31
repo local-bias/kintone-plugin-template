@@ -2,6 +2,9 @@ declare namespace Plugin {
   /** 🔌 プラグインがアプリ単位で保存する設定情報 */
   type Config = ConfigV1;
 
+  /** 🔌 プラグインの共通設定 */
+  type Common = Config['common'];
+
   /** 🔌 プラグインの詳細設定 */
   type Condition = Config['conditions'][number];
 
@@ -10,6 +13,10 @@ declare namespace Plugin {
 
   type ConfigV1 = {
     version: 1;
+    common: {
+      memo: string;
+      fields: string[];
+    };
     conditions: {
       id: string;
       memo: string;
