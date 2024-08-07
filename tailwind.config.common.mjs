@@ -156,7 +156,4 @@ export default {
     },
   },
   plugins: [animatePlugin],
-  corePlugins: {
-    preflight: false,
-  },
 };

@@ -5,6 +5,9 @@ import common from './tailwind.config.common.mjs';
 export default {
   ...common,
   important: '.🐸',
+  corePlugins: {
+    preflight: false,
+  },
   content: [
     './src/components/**/*.{ts,tsx}',
     './src/lib/**/*.{ts,tsx}',
