@@ -16,6 +16,7 @@ import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
 import { ThemeProvider } from '@/lib/components/theme-provider';
+import Debug from './components/model/debug';
 
 const Component: FC = () => {
   return (
@@ -45,6 +46,7 @@ const Container: FC = () => (
                   <Component />
                 </PluginLayout>
               </Suspense>
+              <Debug />
             </SnackbarProvider>
           </PluginConfigProvider>
         </PluginErrorBoundary>
