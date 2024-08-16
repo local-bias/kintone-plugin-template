@@ -32,8 +32,6 @@ export const ui = {
     'config.toast.reset': '設定をリセットしました',
     'config.toast.import': '設定情報をインポートしました',
     'config.toast.export': 'プラグインの設定情報をエクスポートしました',
-    'config.error.root':
-      'プラグインのHTMLに、ルート要素が存在しません。プラグイン設定をレンダリングするためには、id="settings"の要素が必要です。',
     'config.error.import':
       '設定情報のインポートに失敗しました、ファイルに誤りがないか確認してください',
     'config.error.export':
