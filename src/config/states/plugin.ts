@@ -50,6 +50,14 @@ export const conditionsState = selector<Plugin.Condition[]>({
       return { id: nanoid(), ...condition };
     });
   },
+  set: ({ set }, newValue) => {
+    if (newValue instanceof DefaultValue) {
+      return;
+    }
+    set(storageState, (current) => {
+      return { ...current, conditions: newValue };
+    });
+  },
 });
 
 export const conditionsLengthState = selector<number>({
