@@ -1,6 +1,7 @@
 import { DefaultValue, RecoilState, atom, selector, selectorFamily } from 'recoil';
-import { getUpdatedStorage, restorePluginConfig } from '@/lib/plugin';
+import { restorePluginConfig } from '@/lib/plugin';
 import { nanoid } from 'nanoid';
+import { produce } from 'immer';
 
 const PREFIX = 'plugin';
 
@@ -36,6 +37,20 @@ export const selectedConditionState = selector<Plugin.Condition>({
       storage.conditions[0]
     );
   },
+  set: ({ get, set }, newValue) => {
+    if (newValue instanceof DefaultValue) {
+      return;
+    }
+    const selectedConditionId = get(selectedConditionIdState);
+    set(conditionsState, (current) => {
+      return current.map((condition) => {
+        if (condition.id === selectedConditionId) {
+          return newValue;
+        }
+        return condition;
+      });
+    });
+  },
 });
 
 export const conditionsState = selector<Plugin.Condition[]>({
@@ -54,9 +69,11 @@ export const conditionsState = selector<Plugin.Condition[]>({
     if (newValue instanceof DefaultValue) {
       return;
     }
-    set(storageState, (current) => {
-      return { ...current, conditions: newValue };
-    });
+    set(storageState, (current) =>
+      produce(current, (draft) => {
+        draft.conditions = newValue;
+      })
+    );
   },
 });
 
@@ -80,17 +97,12 @@ const conditionPropertyState = selectorFamily<
     },
   set:
     (key) =>
-    ({ get, set }, newValue) => {
-      const conditionId = get(selectedConditionState).id;
-      set(storageState, (current) => {
-        if (newValue instanceof DefaultValue) {
-          return current;
-        }
-        const conditionIndex = current.conditions.findIndex(
-          (condition) => condition.id === conditionId
-        );
-        return getUpdatedStorage(current, { conditionIndex, key, value: newValue });
-      });
+    ({ set }, newValue) => {
+      set(selectedConditionState, (current) =>
+        produce(current, (draft) => {
+          draft[key] = newValue as never;
+        })
+      );
     },
 });
 
@@ -107,18 +119,14 @@ export const commonPropertyState = selectorFamily<
   set:
     (key) =>
     ({ set }, newValue) => {
-      set(storageState, (current) => {
-        if (newValue instanceof DefaultValue) {
-          return current;
-        }
-        return {
-          ...current,
-          common: {
-            ...current.common,
-            [key]: newValue,
-          },
-        };
-      });
+      if (newValue instanceof DefaultValue) {
+        return;
+      }
+      set(storageState, (current) =>
+        produce(current, (draft) => {
+          draft.common[key] = newValue as never;
+        })
+      );
     },
 });
 

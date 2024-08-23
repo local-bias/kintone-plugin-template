@@ -50,20 +50,6 @@ export const restorePluginConfig = (): Plugin.Config => {
   return migrateConfig(config);
 };
 
-export const getUpdatedStorage = <T extends keyof Plugin.Condition>(
-  storage: Plugin.Config,
-  props: {
-    conditionIndex: number;
-    key: T;
-    value: Plugin.Condition[T];
-  }
-) => {
-  const { conditionIndex, key, value } = props;
-  return produce(storage, (draft) => {
-    draft.conditions[conditionIndex][key] = value;
-  });
-};
-
 export const getConditionField = <T extends keyof Plugin.Condition>(
   storage: Plugin.Config,
   props: {
