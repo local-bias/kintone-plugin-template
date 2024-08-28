@@ -27,32 +27,6 @@ export const commonSettingsShownState = selector<boolean>({
   },
 });
 
-export const selectedConditionState = selector<Plugin.Condition>({
-  key: `${PREFIX}selectedConditionState`,
-  get: ({ get }) => {
-    const storage = get(storageState);
-    const selectedConditionId = get(selectedConditionIdState);
-    return (
-      storage.conditions.find((condition) => condition.id === selectedConditionId) ??
-      storage.conditions[0]
-    );
-  },
-  set: ({ get, set }, newValue) => {
-    if (newValue instanceof DefaultValue) {
-      return;
-    }
-    const selectedConditionId = get(selectedConditionIdState);
-    set(conditionsState, (current) => {
-      return current.map((condition) => {
-        if (condition.id === selectedConditionId) {
-          return newValue;
-        }
-        return condition;
-      });
-    });
-  },
-});
-
 export const conditionsState = selector<Plugin.Condition[]>({
   key: `${PREFIX}conditionsState`,
   get: ({ get }) => {
@@ -72,6 +46,29 @@ export const conditionsState = selector<Plugin.Condition[]>({
     set(storageState, (current) =>
       produce(current, (draft) => {
         draft.conditions = newValue;
+      })
+    );
+  },
+});
+
+export const selectedConditionState = selector<Plugin.Condition>({
+  key: `${PREFIX}selectedConditionState`,
+  get: ({ get }) => {
+    const conditions = get(conditionsState);
+    const selectedConditionId = get(selectedConditionIdState);
+    return conditions.find((condition) => condition.id === selectedConditionId) ?? conditions[0]!;
+  },
+  set: ({ get, set }, newValue) => {
+    if (newValue instanceof DefaultValue) {
+      return;
+    }
+    const selectedConditionId = get(selectedConditionIdState);
+    set(conditionsState, (current) =>
+      produce(current, (draft) => {
+        const index = draft.findIndex((condition) => condition.id === selectedConditionId);
+        if (index !== -1) {
+          draft[index] = newValue;
+        }
       })
     );
   },

@@ -6,6 +6,7 @@ import { t } from '@/lib/i18n';
 import { ChangeEventHandler } from 'react';
 import { onFileLoad } from '@konomi-app/kintone-utilities';
 import { migrateConfig } from '@/lib/plugin';
+import invariant from 'tiny-invariant';
 
 export const usePluginStorage = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -15,11 +16,9 @@ export const usePluginStorage = () => {
       async (event) => {
         try {
           const { files } = event.target;
-          if (!files?.length) {
-            return;
-          }
+          invariant(files?.length, 'ファイルが見つかりませんでした');
           const [file] = Array.from(files);
-          const fileEvent = await onFileLoad(file);
+          const fileEvent = await onFileLoad(file!);
           const text = (fileEvent.target?.result ?? '') as string;
           set(storageState, migrateConfig(JSON.parse(text)));
           enqueueSnackbar(t('config.toast.import'), { variant: 'success' });
