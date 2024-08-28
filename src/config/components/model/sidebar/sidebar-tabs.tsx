@@ -1,5 +1,3 @@
-import { RecoilDndContext } from '@/lib/components/recoil-dnd-context';
-import { RecoilSortableContext } from '@/lib/components/recoil-sortable-context';
 import { t } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 import { useSortable } from '@dnd-kit/sortable';
@@ -14,6 +12,7 @@ import {
   selectedConditionIdState,
 } from '../../../states/plugin';
 import { useTab } from './use-tab';
+import { RecoilDndContext, RecoilSortableContext } from '@konomi-app/kintone-utilities-react';
 
 type Props = {
   label:
