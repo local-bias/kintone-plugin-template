@@ -1,4 +1,4 @@
-<h1>📦 kintone プラグインテンプレート</h1>
+# 📦 kintone プラグインテンプレート
 
 <p align="left">
  <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code%20style-prettier-orange?style=flat-square"></a>
