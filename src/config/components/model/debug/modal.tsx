@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { Fab, Tooltip } from '@mui/material';
 import React, { FC } from 'react';
 import BugReportIcon from '@mui/icons-material/BugReport';
@@ -20,14 +26,16 @@ const Content: FC = () => {
 
 const Component: FC = () => (
   <Dialog>
-    <DialogTrigger className='fixed left-4 bottom-4'>
-      <Tooltip title=''>
+    <DialogTrigger asChild className='!fixed left-4 bottom-4'>
+      <Tooltip title='デバッグ'>
         <Fab color='inherit' size='small'>
           <BugReportIcon />
         </Fab>
       </Tooltip>
     </DialogTrigger>
     <DialogContent>
+      <DialogTitle>Debug</DialogTitle>
+      <DialogDescription>この画面は開発時のみ表示されます。</DialogDescription>
       <Content />
     </DialogContent>
   </Dialog>
