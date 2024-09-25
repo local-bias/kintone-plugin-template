@@ -40,10 +40,10 @@ const Sidebar: FC = () => {
   return (
     <BundledSidebar
       conditions={conditions}
-      setConditions={setConditions as any}
+      setConditions={setConditions}
       getNewCondition={getNewCondition}
-      labelComponent={label as any}
-      onSelectedConditionChange={onSelectedConditionChange as any}
+      labelComponent={label}
+      onSelectedConditionChange={onSelectedConditionChange}
       selectedConditionId={selectedConditionId}
       commonTab
       onConditionDelete={onConditionDelete}
