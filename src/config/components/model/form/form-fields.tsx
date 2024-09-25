@@ -1,23 +1,47 @@
-import { IconButton, Skeleton, Tooltip } from '@mui/material';
-import React, { FC, memo, Suspense } from 'react';
-import { useRecoilValue } from 'recoil';
+import { JotaiFieldSelect } from '@/components/field-select';
+import { getConditionPropertyAtom } from '@/config/states/plugin';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { RecoilFieldSelect, useRecoilRow } from '@konomi-app/kintone-utilities-react';
+import { IconButton, Skeleton, Tooltip } from '@mui/material';
+import { useAtom } from 'jotai';
+import React, { FC, memo, Suspense } from 'react';
+import { appFieldsAtom } from '../../../states/kintone';
 
-import { appFieldsState } from '../../../states/kintone';
-import { fieldsState } from '../../../states/plugin';
+const fieldsAtom = getConditionPropertyAtom('fields');
 
 const Component: FC = () => {
-  const { addRow, deleteRow, changeRow } = useRecoilRow({ state: fieldsState, getNewRow: () => '' });
-  const selectedFields = useRecoilValue(fieldsState);
+  const [fields, setFields] = useAtom(fieldsAtom);
+
+  const changeRow = (index: number, code: string) => {
+    setFields((prev) => {
+      const next = [...prev];
+      next[index] = code;
+      return next;
+    });
+  };
+
+  const addRow = (index: number) => {
+    setFields((prev) => {
+      const next = [...prev];
+      next.splice(index + 1, 0, '');
+      return next;
+    });
+  };
+
+  const deleteRow = (index: number) => {
+    setFields((prev) => {
+      const next = [...prev];
+      next.splice(index, 1);
+      return next;
+    });
+  };
 
   return (
     <div className='flex flex-col gap-4'>
-      {selectedFields.map((value, i) => (
+      {fields.map((value, i) => (
         <div key={i} className='flex items-center gap-2'>
-          <RecoilFieldSelect
-            state={appFieldsState}
+          <JotaiFieldSelect
+            fieldPropertiesAtom={appFieldsAtom}
             onChange={(code) => changeRow(i, code)}
             fieldCode={value}
           />
@@ -26,7 +50,7 @@ const Component: FC = () => {
               <AddIcon fontSize='small' />
             </IconButton>
           </Tooltip>
-          {selectedFields.length > 1 && (
+          {fields.length > 1 && (
             <Tooltip title='このフィールドを削除する'>
               <IconButton size='small' onClick={() => deleteRow(i)}>
                 <DeleteIcon fontSize='small' />

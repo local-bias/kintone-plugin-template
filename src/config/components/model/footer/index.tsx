@@ -9,10 +9,10 @@ import {
 import SaveIcon from '@mui/icons-material/Save';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 import { Button, CircularProgress } from '@mui/material';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useSnackbar } from 'notistack';
 import React, { FC, useCallback } from 'react';
-import { useRecoilCallback, useRecoilValue } from 'recoil';
-import { loadingState, storageState } from '../../../states/plugin';
+import { loadingAtom, pluginConfigAtom } from '../../../states/plugin';
 import ResetButton from './reset-button';
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
 };
 
 const Component: FC<Props> = ({ onSaveButtonClick, onBackButtonClick }) => {
-  const loading = useRecoilValue(loadingState);
+  const loading = useAtomValue(loadingAtom);
   const { exportStorage, importStorage } = usePluginStorage();
 
   return (
@@ -59,31 +59,27 @@ const Component: FC<Props> = ({ onSaveButtonClick, onBackButtonClick }) => {
 
 const Container: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
+  const setLoading = useSetAtom(loadingAtom);
+  const pluginConfig = useAtomValue(pluginConfigAtom);
 
   const onBackButtonClick = useCallback(() => history.back(), []);
 
-  const onSaveButtonClick = useRecoilCallback(
-    ({ set, snapshot }) =>
-      async () => {
-        set(loadingState, true);
-        try {
-          const storage = await snapshot.getPromise(storageState);
-
-          storeStorage(storage, () => true);
-          enqueueSnackbar(t('config.toast.save'), {
-            variant: 'success',
-            action: (
-              <Button color='inherit' size='small' variant='outlined' onClick={onBackButtonClick}>
-                {t('config.button.return')}
-              </Button>
-            ),
-          });
-        } finally {
-          set(loadingState, false);
-        }
-      },
-    []
-  );
+  const onSaveButtonClick = async () => {
+    setLoading(true);
+    try {
+      storeStorage(pluginConfig, () => true);
+      enqueueSnackbar(t('config.toast.save'), {
+        variant: 'success',
+        action: (
+          <Button color='inherit' size='small' variant='outlined' onClick={onBackButtonClick}>
+            {t('config.button.return')}
+          </Button>
+        ),
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return <Component {...{ onSaveButtonClick, onBackButtonClick }} />;
 };
