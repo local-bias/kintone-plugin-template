@@ -1,6 +1,6 @@
-import { JotaiText } from '@/components/text';
 import { getCommonPropertyAtom } from '@/config/states/plugin';
 import { t } from '@/lib/i18n';
+import { JotaiText } from '@konomi-app/kintone-utilities-jotai';
 import {
   PluginFormDescription,
   PluginFormSection,
