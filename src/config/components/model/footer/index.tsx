@@ -1,6 +1,5 @@
-import { usePluginStorage } from '@/config/hooks/use-plugin-storage';
+import { usePluginStorage, useSavePluginConfig } from '@/config/hooks/use-plugin-storage';
 import { t } from '@/lib/i18n';
-import { storeStorage } from '@konomi-app/kintone-utilities';
 import {
   PluginConfigExportButton,
   PluginConfigImportButton,
@@ -9,38 +8,49 @@ import {
 import SaveIcon from '@mui/icons-material/Save';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 import { Button, CircularProgress } from '@mui/material';
-import { useAtomValue, useSetAtom } from 'jotai';
-import { useSnackbar } from 'notistack';
+import { useAtomValue } from 'jotai';
 import React, { FC, useCallback } from 'react';
-import { loadingAtom, pluginConfigAtom } from '../../../states/plugin';
+import { loadingAtom } from '../../../states/plugin';
 import ResetButton from './reset-button';
 
 type Props = {
-  onSaveButtonClick: () => void;
-  onBackButtonClick: () => void;
+  backToPluginList: () => void;
 };
 
-const Component: FC<Props> = ({ onSaveButtonClick, onBackButtonClick }) => {
+const SaveButton: FC<Pick<Props, 'backToPluginList'>> = ({ backToPluginList }) => {
+  const loading = useAtomValue(loadingAtom);
+  const savePluginConfig = useSavePluginConfig(
+    <Button color='inherit' size='small' variant='outlined' onClick={backToPluginList}>
+      {t('config.button.return')}
+    </Button>
+  );
+
+  return (
+    <Button
+      variant='contained'
+      color='primary'
+      disabled={loading}
+      onClick={savePluginConfig}
+      startIcon={loading ? <CircularProgress color='inherit' size={20} /> : <SaveIcon />}
+    >
+      {t('config.button.save')}
+    </Button>
+  );
+};
+
+const Component: FC<Props> = ({ backToPluginList }) => {
   const loading = useAtomValue(loadingAtom);
   const { exportStorage, importStorage } = usePluginStorage();
 
   return (
-    <PluginFooter className='py-2'>
+    <>
       <div className='flex items-center gap-4'>
-        <Button
-          variant='contained'
-          color='primary'
-          disabled={loading}
-          onClick={onSaveButtonClick}
-          startIcon={loading ? <CircularProgress color='inherit' size={20} /> : <SaveIcon />}
-        >
-          {t('config.button.save')}
-        </Button>
+        <SaveButton backToPluginList={backToPluginList} />
         <Button
           variant='contained'
           color='inherit'
           disabled={loading}
-          onClick={onBackButtonClick}
+          onClick={backToPluginList}
           startIcon={
             loading ? <CircularProgress color='inherit' size={20} /> : <SettingsBackupRestoreIcon />
           }
@@ -53,35 +63,18 @@ const Component: FC<Props> = ({ onSaveButtonClick, onBackButtonClick }) => {
         <PluginConfigImportButton onImportButtonClick={importStorage} loading={loading} />
         <ResetButton />
       </div>
+    </>
+  );
+};
+
+const Footer: FC = () => {
+  const backToPluginList = useCallback(() => history.back(), []);
+
+  return (
+    <PluginFooter className='py-2'>
+      <Component {...{ backToPluginList }} />
     </PluginFooter>
   );
 };
 
-const Container: FC = () => {
-  const { enqueueSnackbar } = useSnackbar();
-  const setLoading = useSetAtom(loadingAtom);
-  const pluginConfig = useAtomValue(pluginConfigAtom);
-
-  const onBackButtonClick = useCallback(() => history.back(), []);
-
-  const onSaveButtonClick = async () => {
-    setLoading(true);
-    try {
-      storeStorage(pluginConfig, () => true);
-      enqueueSnackbar(t('config.toast.save'), {
-        variant: 'success',
-        action: (
-          <Button color='inherit' size='small' variant='outlined' onClick={onBackButtonClick}>
-            {t('config.button.return')}
-          </Button>
-        ),
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return <Component {...{ onSaveButtonClick, onBackButtonClick }} />;
-};
-
-export default Container;
+export default Footer;
