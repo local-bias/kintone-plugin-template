@@ -1,7 +1,8 @@
 import { PluginConditionDeleteButton } from '@konomi-app/kintone-utilities-react';
-import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
+import { useAtomCallback } from 'jotai/utils';
 import { useSnackbar } from 'notistack';
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import {
   conditionsAtom,
   conditionsLengthAtom,
@@ -10,14 +11,20 @@ import {
 
 const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const [selectedConditionId, setSelectedConditionId] = useAtom(selectedConditionIdAtom);
-  const setConditions = useSetAtom(conditionsAtom);
 
-  const onClick = async () => {
-    setConditions((prev) => prev.filter((condition) => condition.id !== selectedConditionId));
-    setSelectedConditionId(null);
-    enqueueSnackbar('設定を削除しました', { variant: 'success' });
-  };
+  const onClick = useAtomCallback(
+    useCallback(
+      async (get, set) => {
+        const selectedConditionId = get(selectedConditionIdAtom);
+        set(conditionsAtom, (prev) =>
+          prev.filter((condition) => condition.id !== selectedConditionId)
+        );
+        set(selectedConditionIdAtom, null);
+        enqueueSnackbar('設定を削除しました', { variant: 'success' });
+      },
+      [enqueueSnackbar]
+    )
+  );
 
   return <PluginConditionDeleteButton {...{ onClick }} />;
 };
