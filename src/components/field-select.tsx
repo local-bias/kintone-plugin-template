@@ -2,7 +2,7 @@ import { kintoneAPI } from '@konomi-app/kintone-utilities';
 import { Autocomplete, TextField } from '@mui/material';
 import { Atom, useAtomValue } from 'jotai';
 import { Loadable } from 'jotai/vanilla/utils/loadable';
-import React, { ComponentProps, FC, Suspense, useCallback } from 'react';
+import React, { ComponentProps, FC, useCallback } from 'react';
 
 type ContainerProps = {
   fieldPropertiesAtom: Atom<Loadable<Promise<kintoneAPI.FieldProperty[]>>>;
@@ -88,11 +88,14 @@ export const JotaiFieldSelect: FC<ContainerProps> = (props) => {
   }
 
   const completed: CompletedContainerProps = {
-    sx: { width: 400 },
     label: '対象フィールド',
     placeholder: 'フィールドを選択してください',
     fieldProperties: fieldProperties.data,
     ...props,
+    sx: {
+      width: 400,
+      ...props.sx,
+    },
   };
 
   return <JotaiFieldSelectComponent {...completed} />;
