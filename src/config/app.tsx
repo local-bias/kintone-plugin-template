@@ -1,4 +1,5 @@
-import { PluginErrorBoundary } from '@/lib/components/error-boundary';
+import { PluginErrorBoundary } from '@/components/error-boundary';
+import { ThemeProvider } from '@/components/theme-provider';
 import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
 import {
   Notification,
@@ -9,13 +10,12 @@ import {
 } from '@konomi-app/kintone-utilities-react';
 import { LoaderWithLabel } from '@konomi-app/ui-react';
 import { SnackbarProvider } from 'notistack';
-import React, { FC, Suspense } from 'react';
 import config from 'plugin.config.mjs';
+import React, { FC, Suspense } from 'react';
+import Debug from './components/model/debug';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
 import Sidebar from './components/model/sidebar';
-import { ThemeProvider } from '@/lib/components/theme-provider';
-import Debug from './components/model/debug';
 
 const Component: FC = () => {
   return (

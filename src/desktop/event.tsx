@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/lib/components/theme-provider';
+import { ThemeProvider } from '@/components/theme-provider';
 import { manager } from '@/lib/event-manager';
 import { t } from '@/lib/i18n';
 import { restorePluginConfig } from '@/lib/plugin';
