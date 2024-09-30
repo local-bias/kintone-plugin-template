@@ -4,7 +4,7 @@ import { atom, PrimitiveAtom } from 'jotai';
 import { focusAtom } from 'jotai-optics';
 import { atomWithReset } from 'jotai/utils';
 
-export const pluginConfigAtom = atomWithReset<Plugin.Config>(restorePluginConfig());
+export const pluginConfigAtom = atom<Plugin.Config>(restorePluginConfig());
 export const loadingAtom = atom(false);
 export const conditionsAtom = focusAtom(pluginConfigAtom, (s) => s.prop('conditions'));
 export const conditionsLengthAtom = focusAtom(conditionsAtom, (s) => s.prop('length'));
