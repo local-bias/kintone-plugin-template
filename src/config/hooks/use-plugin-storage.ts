@@ -1,7 +1,7 @@
 import { t } from '@/lib/i18n';
-import { migrateConfig } from '@/lib/plugin';
+import { migrateConfig, storePluginConfig } from '@/lib/plugin';
 import { PLUGIN_NAME } from '@/lib/static';
-import { onFileLoad, storeStorage } from '@konomi-app/kintone-utilities';
+import { onFileLoad } from '@konomi-app/kintone-utilities';
 import { useAtomCallback } from 'jotai/utils';
 import { useSnackbar } from 'notistack';
 import { ChangeEventHandler, useCallback } from 'react';
@@ -17,7 +17,7 @@ export const useSavePluginConfig = (actionComponent: JSX.Element) => {
         try {
           set(loadingAtom, true);
           const pluginConfig = get(pluginConfigAtom);
-          storeStorage(pluginConfig, () => true);
+          storePluginConfig(pluginConfig, () => true);
           enqueueSnackbar(t('config.toast.save'), {
             variant: 'success',
             action: actionComponent,
