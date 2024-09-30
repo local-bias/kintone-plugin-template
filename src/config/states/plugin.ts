@@ -22,7 +22,9 @@ export const selectedConditionAtom = atom(
     set(conditionsAtom, (current) =>
       produce(current, (draft) => {
         const index = draft.findIndex((condition) => condition.id === selectedConditionId);
-        draft[index] = newValue;
+        if (index !== -1) {
+          draft[index] = newValue;
+        }
       })
     );
   }

@@ -52,7 +52,7 @@
     "@konomi-app/k2": "^1.5.0",
     "@konomi-app/prettier-config": "^1.1.2",
     "@types/luxon": "^3.4.2",
-    "@types/react": "^18.3.9",
+    "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "concurrently": "^9.0.1",
     "dotenv": "^16.4.5",
