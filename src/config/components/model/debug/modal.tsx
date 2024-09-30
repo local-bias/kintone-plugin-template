@@ -5,14 +5,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Fab, Tooltip } from '@mui/material';
-import React, { FC } from 'react';
+import { pluginConfigAtom } from '@/config/states/plugin';
 import BugReportIcon from '@mui/icons-material/BugReport';
-import { useRecoilValue } from 'recoil';
-import { storageState } from '@/config/states/plugin';
+import { Fab, Tooltip } from '@mui/material';
+import { useAtomValue } from 'jotai';
+import React, { FC } from 'react';
 
 const Content: FC = () => {
-  const pluginConfig = useRecoilValue(storageState);
+  const pluginConfig = useAtomValue(pluginConfigAtom);
 
   return (
     <div>

@@ -1,35 +1,41 @@
-import React, { FC, memo } from 'react';
-import { useRecoilCallback, useRecoilValue } from 'recoil';
-import { produce } from 'immer';
 import { PluginConditionDeleteButton } from '@konomi-app/kintone-utilities-react';
-import { selectedConditionIdState, storageState } from '../../../states/plugin';
+import { useAtomValue } from 'jotai';
+import { useAtomCallback } from 'jotai/utils';
 import { useSnackbar } from 'notistack';
+import React, { FC, useCallback } from 'react';
+import {
+  conditionsAtom,
+  conditionsLengthAtom,
+  selectedConditionIdAtom,
+} from '../../../states/plugin';
 
-const Container: FC = () => {
+const Component: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const storage = useRecoilValue(storageState);
 
-  const onClick = useRecoilCallback(
-    ({ reset, set, snapshot }) =>
-      async () => {
-        const id = await snapshot.getPromise(selectedConditionIdState);
-        set(storageState, (_, _storage = _!) =>
-          produce(_storage, (draft) => {
-            const index = draft.conditions.findIndex((condition) => condition.id === id);
-            draft.conditions.splice(index, 1);
-          })
+  const onClick = useAtomCallback(
+    useCallback(
+      async (get, set) => {
+        const selectedConditionId = get(selectedConditionIdAtom);
+        set(conditionsAtom, (prev) =>
+          prev.filter((condition) => condition.id !== selectedConditionId)
         );
-        reset(selectedConditionIdState);
+        set(selectedConditionIdAtom, null);
         enqueueSnackbar('設定を削除しました', { variant: 'success' });
       },
-    []
+      [enqueueSnackbar]
+    )
   );
-
-  if ((storage?.conditions.length ?? 0) < 2) {
-    return null;
-  }
 
   return <PluginConditionDeleteButton {...{ onClick }} />;
 };
 
-export default memo(Container);
+const Container: FC = () => {
+  const conditionsLength = useAtomValue(conditionsLengthAtom);
+
+  if (conditionsLength < 2) {
+    return null;
+  }
+  return <Component />;
+};
+
+export default Container;

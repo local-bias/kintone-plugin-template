@@ -1,34 +1,36 @@
-import { IconButton, Skeleton, Tooltip } from '@mui/material';
-import React, { FC, memo, Suspense } from 'react';
-import { useRecoilValue } from 'recoil';
+import { JotaiFieldSelect } from '@/components/field-select';
+import { getConditionPropertyAtom } from '@/config/states/plugin';
+import { useArray } from '@konomi-app/kintone-utilities-jotai';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { RecoilFieldSelect, useRecoilRow } from '@konomi-app/kintone-utilities-react';
+import { IconButton, Skeleton, Tooltip } from '@mui/material';
+import { useAtomValue } from 'jotai';
+import React, { FC, memo, Suspense } from 'react';
+import { appFieldsAtom } from '../../../states/kintone';
 
-import { appFieldsState } from '../../../states/kintone';
-import { fieldsState } from '../../../states/plugin';
+const fieldsAtom = getConditionPropertyAtom('fields');
 
 const Component: FC = () => {
-  const { addRow, deleteRow, changeRow } = useRecoilRow({ state: fieldsState, getNewRow: () => '' });
-  const selectedFields = useRecoilValue(fieldsState);
+  const fields = useAtomValue(fieldsAtom);
+  const { addItem, deleteItem, updateItem } = useArray(fieldsAtom);
 
   return (
     <div className='flex flex-col gap-4'>
-      {selectedFields.map((value, i) => (
+      {fields.map((value, i) => (
         <div key={i} className='flex items-center gap-2'>
-          <RecoilFieldSelect
-            state={appFieldsState}
-            onChange={(code) => changeRow(i, code)}
+          <JotaiFieldSelect
+            fieldPropertiesAtom={appFieldsAtom}
+            onChange={(code) => updateItem({ index: i, newItem: code })}
             fieldCode={value}
           />
           <Tooltip title='フィールドを追加する'>
-            <IconButton size='small' onClick={() => addRow(i)}>
+            <IconButton size='small' onClick={() => addItem({ newItem: '', index: i + 1 })}>
               <AddIcon fontSize='small' />
             </IconButton>
           </Tooltip>
-          {selectedFields.length > 1 && (
+          {fields.length > 1 && (
             <Tooltip title='このフィールドを削除する'>
-              <IconButton size='small' onClick={() => deleteRow(i)}>
+              <IconButton size='small' onClick={() => deleteItem(i)}>
                 <DeleteIcon fontSize='small' />
               </IconButton>
             </Tooltip>

@@ -10,7 +10,6 @@ import {
 import { LoaderWithLabel } from '@konomi-app/ui-react';
 import { SnackbarProvider } from 'notistack';
 import React, { FC, Suspense } from 'react';
-import { RecoilRoot } from 'recoil';
 import config from 'plugin.config.mjs';
 import Footer from './components/model/footer';
 import Form from './components/model/form';
@@ -36,21 +35,19 @@ const Component: FC = () => {
 const Container: FC = () => (
   <Suspense fallback={<LoaderWithLabel label='画面の描画を待機しています' />}>
     <ThemeProvider>
-      <RecoilRoot>
-        <PluginErrorBoundary>
-          <PluginConfigProvider config={config}>
-            <Notification />
-            <SnackbarProvider maxSnack={1}>
-              <Suspense fallback={<LoaderWithLabel label='設定情報を取得しています' />}>
-                <PluginLayout>
-                  <Component />
-                </PluginLayout>
-              </Suspense>
-              <Debug />
-            </SnackbarProvider>
-          </PluginConfigProvider>
-        </PluginErrorBoundary>
-      </RecoilRoot>
+      <PluginErrorBoundary>
+        <PluginConfigProvider config={config}>
+          <Notification />
+          <SnackbarProvider maxSnack={1}>
+            <Suspense fallback={<LoaderWithLabel label='設定情報を取得しています' />}>
+              <PluginLayout>
+                <Component />
+              </PluginLayout>
+            </Suspense>
+            <Debug />
+          </SnackbarProvider>
+        </PluginConfigProvider>
+      </PluginErrorBoundary>
     </ThemeProvider>
     <iframe title='promotion' loading='lazy' src={URL_PROMOTION} className='border-0 w-full h-16' />
   </Suspense>
