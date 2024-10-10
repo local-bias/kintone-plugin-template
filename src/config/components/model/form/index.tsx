@@ -12,7 +12,7 @@ import CommonSettings from './common';
 import DeleteButton from './condition-delete-button';
 import FieldsForm from './form-fields';
 
-const Component: FC = () => {
+const FormContent: FC = () => {
   return (
     <div className='p-4'>
       <PluginFormSection>
@@ -46,9 +46,9 @@ const Component: FC = () => {
   );
 };
 
-const Container: FC = () => {
+const FormContainer: FC = () => {
   const commonSettingsShown = useAtomValue(commonSettingsShownAtom);
-  return commonSettingsShown ? <CommonSettings /> : <Component />;
+  return commonSettingsShown ? <CommonSettings /> : <FormContent />;
 };
 
-export default Container;
+export default FormContainer;
