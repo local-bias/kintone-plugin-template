@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { PLUGIN_ID } from './global';
+import { ENV, PLUGIN_ID } from './global';
 import { restorePluginConfig as restore } from '@konomi-app/kintone-utilities';
 
 export const getNewCondition = (): Plugin.Condition => ({
@@ -45,7 +45,8 @@ export const migrateConfig = (anyConfig: Plugin.AnyConfig): Plugin.Config => {
  * プラグインの設定情報を復元します
  */
 export const restorePluginConfig = (): Plugin.Config => {
-  const config = restore<Plugin.AnyConfig>(PLUGIN_ID, { debug: true }) ?? createConfig();
+  const config =
+    restore<Plugin.AnyConfig>(PLUGIN_ID, { debug: ENV === 'development' }) ?? createConfig();
   return migrateConfig(config);
 };
 
