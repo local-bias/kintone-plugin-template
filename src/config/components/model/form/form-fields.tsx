@@ -1,6 +1,6 @@
-import { JotaiFieldSelect } from '@/components/field-select';
+import { JotaiFieldSelect } from '@/components/jotai';
+import { useArray } from '@/config/hooks/use-array';
 import { getConditionPropertyAtom } from '@/config/states/plugin';
-import { useArray } from '@konomi-app/kintone-utilities-jotai';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, Skeleton, Tooltip } from '@mui/material';

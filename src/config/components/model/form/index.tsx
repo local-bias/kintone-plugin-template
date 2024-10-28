@@ -1,6 +1,6 @@
+import { JotaiSwitch, JotaiText } from '@/components/jotai';
 import { commonSettingsShownAtom, getConditionPropertyAtom } from '@/config/states/plugin';
 import { t } from '@/lib/i18n';
-import { JotaiSwitch, JotaiText } from '@konomi-app/kintone-utilities-jotai';
 import {
   PluginFormDescription,
   PluginFormSection,
