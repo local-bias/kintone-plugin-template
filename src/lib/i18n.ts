@@ -156,7 +156,13 @@ export const t = useTranslations(LANGUAGE as Language);
 
 export const getMUITheme = () => {
   return createTheme(
-    {},
+    {
+      palette: {
+        primary: {
+          main: '#2563eb', // blue-600
+        },
+      },
+    },
     LANGUAGE === 'en' ? enUS : LANGUAGE === 'zh' ? zhCN : LANGUAGE === 'es' ? esES : jaJP
   );
 };
