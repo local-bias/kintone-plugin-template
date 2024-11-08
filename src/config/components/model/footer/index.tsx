@@ -9,7 +9,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 import { Button, CircularProgress } from '@mui/material';
 import { useAtomValue } from 'jotai';
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { loadingAtom } from '../../../states/plugin';
 import ResetButton from './reset-button';
 

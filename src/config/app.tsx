@@ -13,7 +13,7 @@ import { LoaderWithLabel } from '@konomi-app/ui-react';
 import { Provider } from 'jotai';
 import { SnackbarProvider } from 'notistack';
 import config from 'plugin.config.mjs';
-import React, { FC, Suspense } from 'react';
+import { FC, Suspense } from 'react';
 import Debug from './components/model/debug';
 import Footer from './components/model/footer';
 import Form from './components/model/form';

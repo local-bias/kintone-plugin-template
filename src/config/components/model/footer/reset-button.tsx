@@ -3,7 +3,7 @@ import { createConfig } from '@/lib/plugin';
 import { PluginConfigResetButton } from '@konomi-app/kintone-utilities-react';
 import { useAtomCallback } from 'jotai/utils';
 import { useSnackbar } from 'notistack';
-import React, { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { pluginConfigAtom } from '../../../states/plugin';
 
 const Component: FC = () => {

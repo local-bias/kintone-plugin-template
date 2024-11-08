@@ -1,6 +1,6 @@
 import { FormControlLabel, Switch, SwitchProps } from '@mui/material';
 import { PrimitiveAtom, useAtom } from 'jotai';
-import React, { FC, Suspense } from 'react';
+import { FC, Suspense } from 'react';
 
 type Props = {
   atom: PrimitiveAtom<boolean>;

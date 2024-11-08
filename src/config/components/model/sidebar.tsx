@@ -4,7 +4,7 @@ import { getNewCondition } from '@/lib/plugin';
 import { BundledSidebar } from '@konomi-app/kintone-utilities-react';
 import { useAtom } from 'jotai';
 import { useSnackbar } from 'notistack';
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 const Sidebar: FC = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -31,6 +31,7 @@ const Sidebar: FC = () => {
   return (
     <BundledSidebar
       conditions={conditions}
+      // @ts-ignore
       setConditions={setConditions}
       getNewCondition={getNewCondition}
       labelComponent={label}

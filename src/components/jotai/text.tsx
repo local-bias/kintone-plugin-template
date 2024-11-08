@@ -1,6 +1,6 @@
 import { TextField, TextFieldProps } from '@mui/material';
-import React, { ChangeEventHandler, FC, forwardRef, Suspense } from 'react';
 import { type PrimitiveAtom, useAtom } from 'jotai';
+import { ChangeEventHandler, FC, forwardRef, Suspense } from 'react';
 
 type Props = {
   atom: PrimitiveAtom<string>;

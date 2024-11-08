@@ -2,7 +2,7 @@ import { PluginConditionDeleteButton } from '@konomi-app/kintone-utilities-react
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useSnackbar } from 'notistack';
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import {
   conditionsAtom,
   conditionsLengthAtom,

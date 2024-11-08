@@ -1,7 +1,7 @@
 import { kintoneAPI } from '@konomi-app/kintone-utilities';
 import { Autocomplete, TextField } from '@mui/material';
 import { Atom, useAtomValue } from 'jotai';
-import React, { ComponentProps, FC, Suspense, useCallback } from 'react';
+import { ComponentProps, FC, Suspense, useCallback } from 'react';
 
 type ContainerProps = {
   fieldPropertiesAtom: Atom<Promise<kintoneAPI.FieldProperty[]>>;
