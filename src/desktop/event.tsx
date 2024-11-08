@@ -3,7 +3,9 @@ import { manager } from '@/lib/event-manager';
 import { t } from '@/lib/i18n';
 import { restorePluginConfig } from '@/lib/plugin';
 import { PLUGIN_NAME } from '@/lib/static';
+import { store } from '@/lib/store';
 import { Alert, AlertTitle, Dialog, DialogContent, DialogTitle } from '@mui/material';
+import { Provider } from 'jotai';
 import { Rocket } from 'lucide-react';
 import config from 'plugin.config.mjs';
 import React, { FC, useState } from 'react';
@@ -60,9 +62,11 @@ manager.add(['app.record.index.show', 'app.record.detail.show'], async (event) =
   }
 
   cachedRoot.render(
-    <ThemeProvider>
-      <Component pluginConfig={config} />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <Component pluginConfig={config} />
+      </ThemeProvider>
+    </Provider>
   );
 
   return event;

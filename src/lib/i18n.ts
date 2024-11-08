@@ -154,15 +154,33 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export const t = useTranslations(LANGUAGE as Language);
 
+const getMUILang = () => {
+  switch (LANGUAGE) {
+    case 'en': {
+      return enUS;
+    }
+    case 'zh': {
+      return zhCN;
+    }
+    case 'es': {
+      return esES;
+    }
+    case 'ja':
+    default: {
+      return jaJP;
+    }
+  }
+};
+
 export const getMUITheme = () => {
   return createTheme(
     {
       palette: {
         primary: {
-          main: '#2563eb', // blue-600
+          main: '#3498db',
         },
       },
     },
-    LANGUAGE === 'en' ? enUS : LANGUAGE === 'zh' ? zhCN : LANGUAGE === 'es' ? esES : jaJP
+    getMUILang()
   );
 };
