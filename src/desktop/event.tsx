@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@/components/theme-provider';
 import { ComponentManager } from '@/lib/component-manager';
 import { manager } from '@/lib/event-manager';
+import { isProd } from '@/lib/global';
 import { t } from '@/lib/i18n';
 import { restorePluginConfig } from '@/lib/plugin';
 import { PLUGIN_NAME } from '@/lib/static';
@@ -8,7 +9,6 @@ import { Alert, AlertTitle, Dialog, DialogContent, DialogTitle } from '@mui/mate
 import { Rocket } from 'lucide-react';
 import config from 'plugin.config.mjs';
 import React, { FC, useState } from 'react';
-import { Root } from 'react-dom/client';
 
 const ROOT_ID = `🐸${config.id}-root`;
 
@@ -49,6 +49,7 @@ manager.add(['app.record.index.show', 'app.record.detail.show'], async (event) =
   const config = restorePluginConfig();
 
   const componentManager = ComponentManager.getInstance();
+  componentManager.debug = !isProd;
 
   componentManager.renderComponent({
     elementId: ROOT_ID,
