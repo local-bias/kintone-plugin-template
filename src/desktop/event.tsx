@@ -56,11 +56,9 @@ manager.add(['app.record.index.show', 'app.record.detail.show'], async (event) =
   componentManager.renderComponent({
     elementId: ROOT_ID,
     component: (
-      <Provider store={store}>
-        <ThemeProvider>
-          <Component pluginConfig={config} />
-        </ThemeProvider>
-      </Provider>
+      <ThemeProvider>
+        <Component pluginConfig={config} />
+      </ThemeProvider>
     ),
   });
 
