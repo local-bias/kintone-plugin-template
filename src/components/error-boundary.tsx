@@ -6,7 +6,7 @@ import { LoaderWithLabel } from '@konomi-app/ui-react';
 import styled from '@emotion/styled';
 import config from 'plugin.config.mjs';
 
-const Component: FC<FallbackProps & { className?: string }> = ({
+const ErrorFallbackComponent: FC<FallbackProps & { className?: string }> = ({
   className,
   error,
   resetErrorBoundary,
@@ -99,7 +99,7 @@ const Component: FC<FallbackProps & { className?: string }> = ({
   );
 };
 
-const StyledComponent = styled(Component)`
+const StyledErrorFallback = styled(ErrorFallbackComponent)`
   margin: 8px;
 
   h2 {
@@ -137,8 +137,6 @@ const StyledComponent = styled(Component)`
   }
 `;
 
-const Container: FC<{ children: React.ReactNode }> = ({ children }) => (
-  <ErrorBoundary FallbackComponent={StyledComponent}>{children}</ErrorBoundary>
+export const PluginErrorBoundary: FC<{ children: React.ReactNode }> = ({ children }) => (
+  <ErrorBoundary FallbackComponent={StyledErrorFallback}>{children}</ErrorBoundary>
 );
-
-export const PluginErrorBoundary = Container;
