@@ -1,6 +1,6 @@
 import { PluginErrorBoundary } from '@/components/error-boundary';
 import { ThemeProvider } from '@/components/theme-provider';
-import { URL_BANNER, URL_PROMOTION } from '@/lib/static';
+import { URL_BANNER, URL_PROMOTION } from '@/lib/constants';
 import { store } from '@/lib/store';
 import {
   Notification,

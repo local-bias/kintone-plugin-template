@@ -1,6 +1,6 @@
 import { t } from '@/lib/i18n';
 import { migrateConfig } from '@/lib/plugin';
-import { PLUGIN_NAME } from '@/lib/static';
+import { PLUGIN_NAME } from '@/lib/constants';
 import { onFileLoad, storePluginConfig } from '@konomi-app/kintone-utilities';
 import { useAtomCallback } from 'jotai/utils';
 import { useSnackbar } from 'notistack';

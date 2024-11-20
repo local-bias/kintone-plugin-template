@@ -1,16 +1,16 @@
 import { ThemeProvider } from '@/components/theme-provider';
-import { ComponentManager } from '@/lib/component-manager';
+import { PLUGIN_NAME } from '@/lib/constants';
 import { manager } from '@/lib/event-manager';
 import { isProd } from '@/lib/global';
 import { t } from '@/lib/i18n';
 import { restorePluginConfig } from '@/lib/plugin';
-import { PLUGIN_NAME } from '@/lib/static';
 import { store } from '@/lib/store';
+import { ComponentManager } from '@konomi-app/kintone-utilities-react';
 import { Alert, AlertTitle, Dialog, DialogContent, DialogTitle } from '@mui/material';
 import { Provider } from 'jotai';
 import { Rocket } from 'lucide-react';
 import config from 'plugin.config.mjs';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 
 const ROOT_ID = `🐸${config.id}-root`;
 
@@ -56,9 +56,11 @@ manager.add(['app.record.index.show', 'app.record.detail.show'], async (event) =
   componentManager.renderComponent({
     elementId: ROOT_ID,
     component: (
-      <ThemeProvider>
-        <Component pluginConfig={config} />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider>
+          <Component pluginConfig={config} />
+        </ThemeProvider>
+      </Provider>
     ),
   });
 
